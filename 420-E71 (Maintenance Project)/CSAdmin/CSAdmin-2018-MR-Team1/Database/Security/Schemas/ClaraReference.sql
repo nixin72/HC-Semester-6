@@ -1,0 +1,3 @@
+CREATE SCHEMA [ClaraReference]
+AUTHORIZATION [CSAdmin]
+GO

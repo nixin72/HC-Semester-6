@@ -1,0 +1,9 @@
+*.dll
+*.exe
+*.jar
+*/build/*
+*/.gradle/*
+*/packages/*
+*.zip
+*.mov
+*.mp4

@@ -1,0 +1,347 @@
+﻿@model RAC.RACModels.ProgramSearchViewModel
+
+@{
+    ViewBag.Title = "Create Program";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.User = "RACAdvisor";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/rac-advisor-add-program.css") 
+}
+
+<h2>Import Program From Clara</h2>
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @action = "CreateProgram", enctype = "multipart/form-data", id = "SearchProgram" })) 
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class='form-group'>
+        @Html.LabelFor(model => model.ProgramCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class='col-md-10'>
+            @Html.EditorFor(model => model.ProgramCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProgramCode, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+
+    <div class='form-group'>
+        <div class='col-md-10 col-md-offset-2'>
+            <label class='control-label' for='chbNoGenEds'>
+                @Html.CheckBoxFor(model => model.IsNoGenEds, new { @id = "chbNoGenEds", @class = "form-input" })
+                No General Education Courses
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group" id='GenEdsDiv'>
+        @Html.LabelFor(model => model.GenEdCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GenEdCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GenEdCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class='form-group'>
+        <label class='control-label col-md-2'></label>
+        <div class='col-md-10'>
+            <button id='btnSearch' class="btn btn-default" type="button">Search &nbsp;<span class='glyphicon glyphicon-search'></span></button>
+        </div>
+
+    </div>
+
+
+
+</div>
+    <div>
+        <div>
+            <img id='LoadingIconProg' class='LoadingIcon img-responsive ' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        <div id='ProgramSearchResults'>
+
+        </div>
+    </div> 
+
+    <div>
+        <div>
+            <img id='LoadingIconGenEd' class='LoadingIcon img-responsive ' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        <div id='GenEdSearchResults'>
+
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <img id='LoadingIconProgComp' class='LoadingIcon img-responsive' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        
+        <div id='ProgramCompetencyResults'></div>
+        
+       
+
+    </div>
+
+    <div>
+        <div>
+            <img id='LoadingIconGenEdComp' class='LoadingIcon img-responsive' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        <div id='GenEdCompetencyResults'></div>
+    </div>
+
+    <div>
+        <div>
+
+        </div>
+    </div>
+    <div>
+        <div>
+            <img id='LoadingIconCourseProfile' class='LoadingIcon img-responsive' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        
+        <div id='ProgramCourseProfileResults'></div>
+    </div>
+
+    <div>
+        <div>
+            <img id='LoadingIconCourses' class='LoadingIcon img-responsive' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        
+        <div id='ProgramCourseResults'></div>
+    </div>
+        
+}
+
+       
+
+@section scripts {
+    @Scripts.Render("~/Scripts/jquery.validate.js")
+
+    <script>
+        $(document).ready(function() {
+            ResetForm();
+            $(window).keydown(function(event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $('#btnSearch').click(function() {
+                if (FormIsValid()) {
+                    ResetForm();
+                    SearchProgram();
+                    if (!$("#chbNoGenEds").is(':checked')) {
+                        SearchGenEd();
+                    }
+                }
+            });
+
+            function ResetForm() {
+                $('#ProgramSearchResults').html("");
+                $('#GenEdSearchResults').html("");
+                $('#ProgramCompetencyResults').html("");
+                $('#GenEdCompetencyResults').html("");
+                $('#ProgramCourseProfileResults').html("");
+                $('#ProgramCourseResults').html("");
+
+                $('#LoadingIconProg').hide();
+                $('#LoadingIconProg').css('visibility', 'hidden');
+                $('#LoadingIconGenEd').hide();
+                $('#LoadingIconGenEd').css('visibility', 'hidden');
+                $('#LoadingIconProgComp').hide();
+                $('#LoadingIconProgComp').css('visibility', 'hidden');
+                $('#LoadingIconGenEdComp').hide();
+                $('#LoadingIconGenEdComp').css('visibility', 'hidden');
+                $('#LoadingIconCourses').hide();
+                $('#LoadingIconCourses').css('visibility', 'hidden');
+            }
+
+            function FormIsValid() {
+                if (!$("#chbNoGenEds").is(':checked')) {
+                    $('#SearchProgram').validate().element('#ProgramCode');
+                    $('#SearchProgram').validate().element('#GenEdCode');
+                    if ($("#ProgramCode").valid() && $("#GenEdCode").valid()) {
+                        return true;
+                    } else
+                        return false;
+                } else {
+                    $('#SearchProgram').validate().element('#ProgramCode');
+                    if ($("#ProgramCode").valid()) {
+                        return true;
+                    } else
+                        return false;
+                }
+            }
+
+            function SearchProgram() {
+                var enteredProgramCode = $('#ProgramCode').val();
+                $('#LoadingIconProg').show();
+                $('#LoadingIconProg').css('visibility', 'visible');
+                $.ajax({
+                    type: 'POST',
+                    url: "@Url.Action("SearchProgram", "RACAdvisor")",
+                    data: AddAntiForgeryToken({ ProgramCode: enteredProgramCode }),
+                    dataType: 'html',
+                    success: function(response) {
+                        $('#LoadingIconProg').hide();
+                        $('#LoadingIconProg').css('visibility', 'hidden');
+                        $('#ProgramSearchResults').html(response);
+                        $('#ProgRes').collapse('show');
+                        InitializeCourseProfiles();
+                    }
+                });
+            }
+
+            function SearchGenEd() {
+                var enteredGenEdCode = $('#GenEdCode').val();
+                $('#LoadingIconGenEd').show();
+                $('#LoadingIconGenEd').css('visibility', 'visible');
+                $.ajax({
+                    type: 'POST',
+                    url: "@Url.Action("SearchGenEd", "RACAdvisor")",
+                    data: AddAntiForgeryToken({ ProgramCode: enteredGenEdCode }),
+                    dataType: 'html',
+                    success: function(response) {
+                        $('#LoadingIconGenEd').hide();
+                        $('#LoadingIconGenEd').css('visibility', 'hidden');
+                        $('#GenEdSearchResults').html(response);
+                        $('#GenEdRes').collapse('show');
+                        InitializeCourseProfiles();
+                    }
+                });
+            }
+
+            $("#chbNoGenEds").click(function() {
+                ResetForm();
+                if ($(this).is(':checked')) {
+                    $("#GenEdCode").val("");
+                    $("#GenEdsDiv").fadeOut(250);
+                    $("#LoadingIconGenEdComp").css('height', '0%');
+                    $("#LoadingIconGenEdComp").css('width', '0%');
+                } else {
+                    $("#GenEdsDiv").fadeIn(250);
+                    $("#LoadingIconGenEdComp").css('height', '5%');
+                    $("#LoadingIconGenEdComp").css('width', '5%');
+                }
+            });
+
+            function AddAntiForgeryToken(data) {
+                data.__RequestVerificationToken = $('form input[name=__RequestVerificationToken]').val();
+                return data;
+            }
+
+            function InitializeCourseProfiles() {
+                $('input:radio[name="ProgramId"]').off();
+                $('input:radio[name="ProgramId"]').change(
+                    function() {
+                        if ($(this).is(':checked')) {
+                            $('#ProgRes').collapse('hide');
+                            if (!$("#chbNoGenEds").is(':checked')) {
+                                if ($('input:radio[name="GenEdId"]').is(':checked')) {
+                                    GetCompetencies();
+                                }
+                            } else
+                                GetCompetencies();
+                        }
+                    });
+                if (!$("#chbNoGenEds").is(':checked')) {
+                    $('input:radio[name="GenEdId"]').off();
+                    $('input:radio[name="GenEdId"]').change(
+                        function() {
+                            if ($(this).is(':checked')) {
+                                $('#GenEdRes').collapse('hide');
+                                if ($('input:radio[name="ProgramId"]').is(':checked')) {
+                                    GetCompetencies();
+                                }
+                            }
+                        });
+                }
+            }
+
+            function GetCompetencies() {
+
+                $('#LoadingIconProgComp').show();
+                $('#LoadingIconProgComp').css('visibility', 'visible');
+                $('#LoadingIconGenEdComp').show();
+                $('#LoadingIconGenEdComp').css('visibility', 'visible');
+                $.ajax({
+                    type: 'POST',
+                    url: "@Url.Action("GetProgramCompetencies", "RACAdvisor")",
+                    data: AddAntiForgeryToken({ ProgramId: $("input[name='ProgramId']:checked").val() }),
+                    dataType: 'html',
+                    success: function(response) {
+                        $('#LoadingIconProgComp').hide();
+                        $('#LoadingIconProgComp').css('visibility', 'hidden');
+                        $('#ProgramCompetencyResults').html(response);
+                        $('#ProgCompRes').collapse('show');
+                    }
+                });
+
+                if (!$("#chbNoGenEds").is(':checked')) {
+                    $.ajax({
+                        type: 'POST',
+                        url: "@Url.Action("GetGenEdCompetencies", "RACAdvisor")",
+                        data: AddAntiForgeryToken({ ProgramId: $("input[name='GenEdId']:checked").val() }),
+                        dataType: 'html',
+                        success: function(response) {
+                            $('#LoadingIconGenEdComp').hide();
+                            $('#LoadingIconGenEdComp').css('visibility', 'hidden');
+                            $('#GenEdCompetencyResults').html(response);
+                            $('#GenEdCompRes').collapse('show');
+                        }
+                    });
+                }
+
+                $('#LoadingIconCourseProfile').show();
+                $('#LoadingIconCourseProfile').css('visibility', 'visible');
+                $.ajax({
+                    type: 'POST',
+                    url: "@Url.Action("GetCourseProfiles", "RACAdvisor")",
+                    data: AddAntiForgeryToken({ ProgramId: $("input[name='ProgramId']:checked").val() }),
+                    dataType: 'html',
+                    success: function(response) {
+                        $('#LoadingIconCourseProfile').hide();
+                        $('#LoadingIconCourseProfile').css('visibility', 'hidden');
+                        $('#ProgramCourseProfileResults').html(response);
+                        $('#ProfRes').collapse('show');
+                        InitializeCourses();
+                    }
+                });
+            }
+
+            function InitializeCourses() {
+                $('input:radio[name="CourseProfileId"]').off();
+                $('input:radio[name="CourseProfileId"]').change(
+                    function() {
+                        if ($(this).is(':checked')) {
+                            $('#LoadingIconCourses').show();
+                            $('#LoadingIconCourses').css('visibility', 'visible');
+                            $('#ProfRes').collapse('hide');
+                            $('#ProgCompRes').collapse('hide');
+                            $('#GenEdCompRes').collapse('hide');
+                            var url = !$("#chbNoGenEds").is(':checked') ? "@Url.Action("GetCourses", "RACAdvisor")"
+                                : "@Url.Action("GetCoursesNoGenEds", "RACAdvisor")";
+                            $.ajax({
+                                type: 'POST',
+                                url: url,
+                                data: AddAntiForgeryToken({ CourseProfileId: $(this).val() }),
+                                dataType: 'html',
+                                success: function(response) {
+                                    $('#LoadingIconCourses').hide();
+                                    $('#LoadingIconCourses').css('visibility', 'hidden');
+                                    $('#ProgramCourseResults').html(response);
+                                    $('#CourseRes').collapse('show');
+                                }
+                            });
+                        }
+                    });
+            }
+
+        })
+    </script>
+}

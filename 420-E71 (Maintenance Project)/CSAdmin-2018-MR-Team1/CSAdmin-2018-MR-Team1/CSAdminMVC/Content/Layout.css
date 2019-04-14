@@ -1,0 +1,45 @@
+﻿body { }
+
+#wrapper {
+    background-color: white;
+    border: solid thin rgba(47, 47, 47, 0.52);
+    border-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    padding-top: 30px;
+    width: 97%;
+    overflow: auto;
+    text-wrap: normal;
+    overflow-wrap: break-word;
+}
+
+.text-footer {
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+.hideSeparator {
+    display: none !important;
+}
+#banner {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.bannerImg {
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .hideSeparator {
+        display: inline !important;
+    }
+    #wrapper {
+        width: 80%;
+    }
+    .captcha-container {
+        display: inline-block !important;
+    }
+}

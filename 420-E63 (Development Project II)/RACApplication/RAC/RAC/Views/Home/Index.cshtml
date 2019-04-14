@@ -1,0 +1,50 @@
+﻿@model RAC.RACModels.RACUser
+
+@{
+    ViewBag.Title = "Home";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/home-index.css") 
+}
+
+<div id='banner'>
+    <img src="~/Images/HeritageBanner.jpg" class='bannerImg' />
+</div>
+<div class='jumbotron'>
+    <h2><i>The longer you travel in life, the closer you are to a diploma.</i></h2>
+    <p class='lead'>The <b>Recognition of Acquired Competencies</b> (RAC) is a process for which individuals can have 
+        their workplace and life experience credited towards a certification of college studies.</p>
+  
+</div>
+<div class='row'>
+    <div class='col-md-4'>
+        <hr/>
+        <h2>Getting started</h2>
+
+        <p>
+            If you're interested in signing up for the RAC process, getting registered is just a couple clicks away.
+        </p>
+        <div class='btn-container'>
+            <a class='btn btn-default' href='@Url.Action("Register", "Account")'>Register &raquo;</a>
+
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <hr/>
+        <h2>Returning User</h2>
+        <p>If you've already signed up for the RAC system, log back into your account quickly from here.</p>
+        <div class='btn-container'>
+            <a class='btn btn-default' href='@Url.Action("Login", "Account")'>Log In &raquo;</a>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <hr/>
+        <h2>About RAC</h2>
+        <p>Don't know what RAC is? Don't know if it's the right fit for you? There's only one way to find out!</p>
+        <div class='btn-container'>
+            <a class='btn btn-default' href='@Url.Action("About", "Home")'>Learn more &raquo;</a>
+
+        </div>
+    </div>
+</div>

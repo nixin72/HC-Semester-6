@@ -1,0 +1,84 @@
+﻿@using RAC.BusinessLogic;
+@using RAC.RACModels.Validation
+@model RAC.RACModels.Candidate
+
+@{
+    ViewBag.Title = "Change Program";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink(" ", "UpdateAccount", "Candidate", CandidateVal.ToCandidateVal(Model), new { id = "btnBack", @class = "bottomNav btn btn-default glyphicon glyphicon-arrow-left" })
+<h2>Change Account</h2>
+
+@using (Html.BeginForm("ChangeProgramPost", "Candidate", FormMethod.Post, new{id="ChangeProgram",name="ChangeProgram"}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>RAC Request</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <p>
+                <label class="control-label col-md-2">*Program</label>
+                <div class="col-md-10">
+                    @{
+                        IList<SelectListItem> programs = ProgramBLL.GetProgramsOffered();
+                    }
+                    @Html.DropDownListFor(model => model.RACRequest.ProgramId, programs, "Choose Program", new { @id="ProgramId", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.RACRequest.ProgramId, "", new { @class = "text-danger" })
+                </div>
+            </p>
+        </div>
+
+        <div class="form-group" id='genEdDiv'>
+            <div class="col-md-10 col-md-offset-2 checkbox">
+                <label>
+                    @Html.CheckBoxFor(model => model.RACRequest.IsGenEdOnly, new { id = "chbGenEdOnly" })
+                    General Education Only
+                </label>
+
+                @*            @Html.LabelFor(m => m.GenEdOnly, new {@class = "form-check-label"})*@
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@Html.Partial("../Shared/_PopUp", Model)
+<script>
+    function changeProgram() {
+        hidePopup();
+        $("#ChangeProgram").submit();
+    }
+
+    document.querySelector("input[type=submit]").onclick = e => {
+        e.preventDefault();
+
+        changePopupHeader("Confirm");
+
+        let text = "Are you sure that you would like to change programs? All progress you have made so far in your RAC request will be reset.<br /><br />";
+        text += "<button onclick='changeProgram();'>Confirm</button> | <a href='#' onclick='hidePopup();' >Cancel</a>";
+        changePopupContent(text);
+        showPopup();        
+    };
+</script>
+
+<div>
+    @Html.ActionLink("Cancel", "UpdateAccount", "Candidate", routeValues: CandidateVal.ToCandidateVal(Model), htmlAttributes: new {id=""})
+</div>
+
+<div id='uri' uri-containsgeneds='@Url.Action("HasGenEds", "Candidate")'></div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/change-program.js")
+}

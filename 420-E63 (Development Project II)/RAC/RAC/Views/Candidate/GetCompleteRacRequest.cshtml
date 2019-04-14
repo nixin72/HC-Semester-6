@@ -1,0 +1,191 @@
+﻿@using RAC.BusinessLogic
+@using RAC.RACModels
+@model Candidate
+@{
+    ViewBag.Title = "Self Evaluation";
+    string candidateFullName = Model.RACRequest.Candidate.FirstName + " " + Model.RACRequest.Candidate.LastName;
+}
+
+@section styles {
+    @Styles.Render("~/Styles/upload-documents.css")
+    @Styles.Render("~/Styles/candidate-home.css")
+    @Styles.Render("~/Styles/get-complete-rac-request.css")
+    @Styles.Render("~/Content/basic.min.css")
+    @Styles.Render("~/Content/dropzone.css")
+    @Styles.Render("~/Content/Site.css")
+
+}
+    
+<div>
+    <h2 class='CompletedRACPageTitle'>@candidateFullName — Self-Assessment</h2>
+    <hr/>
+    
+    <p id='RACData'>
+        @{ 
+            RACRequest racRequest = RACRequestBLL.GetRACByCandidate(Model.Id);
+            @Html.Raw("<h2 class='programHeader'>")
+            @Html.Raw(racRequest.Program.ProgramMinistryData.Name)
+            @Html.Raw("</h2>")
+            <button id='printBtn' type="button" class="btn btn-default btn-sm" onclick='window.print();'>
+                <span class="glyphicon glyphicon-print"></span> Print This Page
+            </button>
+            @Html.Raw("<br/><br/><h4 class='alignLeft'>Date Submitted: ")
+            if (racRequest.SubmissionDate.HasValue && Model.RACRequest.SubmissionDate != null)
+            {
+                    @Html.Raw(Model.RACRequest.SubmissionDate.Value.ToLongDateString()+"</h4>")
+            } else
+            {
+                @Html.Raw("Not Submitted</h4>")
+            }
+        }
+    </p>
+    <div id='competencies'>
+        @{
+            foreach (RACRequestCompetency competency in racRequest.RACRequestCompetencies)
+            {
+                @Html.Raw("<div class='competency'>")
+                @Html.Raw("<span class='competencyTitle'>Competency: " + competency.Competency.CompetencyMinistryData.MinistryCode + " - " + competency.Competency.CompetencyMinistryData.Description + "</span>")
+                @Html.Raw("<table class='cdaTable'>")
+                @Html.Raw("<tr>")
+                @Html.Raw("<th class='cdaDescriptionHead'>Element</th>")
+                @Html.Raw("<th class='cdaEvaluatorHead'>Answer</th>")
+                @Html.Raw("</tr>")
+                foreach (RACRequestCompetencyElement competencyElement in competency.RACRequestCompetencyElements)
+                {
+                    @Html.Raw("<tr>")
+                    @Html.Raw("<td class='cdaDescription'>" + competencyElement.CompetencyElement.ElementMinistryData.Description + "</td>")
+                    @Html.Raw("<td class='cdaAnswer'>")
+                    
+                    @Html.Raw(EnumToString.GetSelfEvaluationAnswer((SelfEvaluationAnswer)competencyElement.Answer))
+
+                    @Html.Raw("</td>")
+                    @Html.Raw("</tr>")
+
+                }
+
+                @Html.Raw("</table>")
+
+
+                @Html.Raw("<h4 class='alignLeft commentHeader'>Example of experience:</h4>")
+                @Html.Raw("<table class='Comments'>")
+                @Html.Raw("<tr>")
+                @Html.Raw("<td>")
+                //var html = "<span class='commenthead'>Your Comments:</span> <span class='comment'>";
+                var html = "<span class='comment'>";
+                ICollection<CompetencyComment> comment = competency.CompetencyComments;
+                if (comment.Any())
+                {
+                    if (comment.First().Comment.Equals(""))
+                    {
+                        html += "No Comment";
+                    }
+                    else
+                    {
+                        html += competency.CompetencyComments.First(i => i.User.Id == racRequest.Candidate.Id).Comment;
+                    }
+                }
+                else
+                {
+                    html += "No Comment";
+                }
+                html += "</span>";
+                @Html.Raw(html)
+                @Html.Raw("</td>")
+                @Html.Raw("</tr>")
+
+                @Html.Raw("<tr>")
+                @Html.Raw("<td>")
+  
+                @Html.Raw("</table>")
+                @Html.Raw("</div>")
+                @Html.Raw("<hr/>")
+            }
+        }
+    </div>
+    
+    @{
+        if (!Model.IsArchived)
+        {
+            if (RACAdvisorBLL.CheckIsRACAdvisor())
+            {
+                <h2 class='uploadHeader'>@Model.FirstName @Model.LastName's Uploaded Documents</h2>
+
+                <div id='viewCandidateUploaded'>
+                </div>
+
+                <h2 class='uploadHeader'>Your Uploaded Documents to @Model.FirstName @Model.LastName</h2>
+
+                <div id='viewAdvisorUploaded'>
+                </div>
+            }
+            else
+            {
+                <h2 class='uploadHeader'>Your Uploaded Documents</h2>
+
+                <div id='viewCandidateUploaded'>
+                </div>
+
+                <h2 class='uploadHeader'>Documents Uploaded to You</h2>
+
+                <div id='viewAdvisorUploaded'>
+                </div>
+            }
+            <h2 class='uploadHeader'>Upload More Documents</h2>
+
+            <div id='upload'>
+                @Html.Partial("../UploadDocument/_UploadDocuments")
+                @Html.Partial("../Shared/_PopUp", Model)
+            </div>
+        }
+        else
+        {
+
+            if (RACAdvisorBLL.CheckIsRACAdvisor())
+            {
+                <h2 class='uploadHeader'>@Model.FirstName @Model.LastName's Uploaded Documents</h2>
+
+                <div id='viewCandidateUploaded'>
+                </div>
+
+                <h2 class='uploadHeader'>Your Uploaded Documents to @Model.FirstName @Model.LastName</h2>
+
+                <div id='viewAdvisorUploaded'>
+                </div>
+            }
+            else
+            {
+                <h2 class='uploadHeader'>Your Uploaded Documents</h2>
+
+                <div id='viewCandidateUploaded'>
+                </div>
+
+                <h2 class='uploadHeader'>Documents Uploaded to You</h2>
+
+                <div id='viewAdvisorUploaded'>
+                </div>
+            }
+            <style>
+                .removeFile {
+                    display: none;
+                }
+            </style>
+        }
+    }
+    <div id='uri'
+         uri-deletefilefromdb='@Url.Action("DeleteFileFromDb", "UploadDocument")'
+         uri-getautosaveracrequesturi='@Url.Action("HomeAutosave", "Candidate")'
+         uri-istotalfilesizevalid='@Url.Action("IsTotalFileSizeValid", "UploadDocument")'
+         uri-removefilefromlocal='@Url.Action("RemoveFileFromLocal", "UploadDocument")'
+         uri-savechangestodb='@Url.Action("SaveChangesToDB", "UploadDocument")'
+         uri-showviewdocuments='@Url.Action("ShowViewDocuments", "UploadDocument")'
+         uri-checkisracadvisor = '@Url.Action("CheckIsRACAdvisor", "Account")'
+         uri-getsubmitracrequest = '@Url.Action("SubmitRACRequest", "Candidate")'>
+    </div>
+
+
+</div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/dropzone.js")    
+    @Scripts.Render("~/Scripts/uploaded-documents.js")
+}

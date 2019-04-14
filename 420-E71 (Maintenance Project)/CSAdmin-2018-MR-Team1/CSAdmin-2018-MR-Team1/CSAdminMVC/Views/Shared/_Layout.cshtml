@@ -1,0 +1,78 @@
+﻿@using System.Reflection;
+@using CSAdmin2.Model;
+@using CSAdminMVC.Models;
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - CSAdmin</title>
+	@Styles.Render("~/Content/css")
+	<!--Scripts.Render("~/bundles/modernizr")-->
+	<!-- why use bootstrap 3.7.7 when you can use bootstrap 4, bootstrap has not lts. also bootstrap 4 was already in the project... 10/10 -->
+	<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+	<script src="~/Scripts/umd/popper.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<link href="~/Content/Site.css" rel="stylesheet" />
+	<link href="~/Content/Layout.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+
+	<nav class="navbar navbar-dark navbar-expand-lg">
+        <a  class="navbar-brand">
+			<img src="~/Images/heritage-logo-v2.png" class="float-on-top" />
+			<img src="~/Images/banner-logo-bg-01.png" />
+		</a>
+		@if (Request.IsAuthenticated)
+        {
+        
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+                    <li class="nav-item">@Html.ActionLink("CSAdmin", "Index", "Home", null, new { @class = "nav-link" })</li>
+					<li class="nav-item">@Html.ActionLink("New Semester", "Index", "Semester", null, new { @class = "nav-link" })</li>
+					<li class="nav-item">@Html.ActionLink("Usernames", "Usernames", "Username", null, new { @class = "nav-link" })</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Manage Roles
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							@Html.ActionLink("Application Roles", "ApplicationRoles", "Roles", null, new { @class = "dropdown-item" })
+							@Html.ActionLink("User Roles", "ManageUserRoles", "Roles", null, new { @class = "dropdown-item" })
+						</div>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="~/Login/Logout">[@Context.User.Identity.Name] Logout</a></li>
+				</ul>
+			</div>
+
+		}
+	</nav>
+
+	<div id="wrapper">
+		<div class="container-fluid body-content">
+			@RenderBody()
+
+		</div>
+		<footer>
+			<p style="text-align:center;">
+				<strong>
+					325, boul. Cité des Jeunes, Gatineau, QC, Canada J8Y 6T3&nbsp;| T. 819.778.2270&nbsp;|
+					F. 819.778.7364
+					<br />
+				</strong>© <a style="color:black;"  target="_blank" href="http://www.cegep-heritage.qc.ca">Heritage College</a>. All Rights
+				Reserved.
+				@Html.ActionLink("About CSAdmin", "About", "Home")
+			</p>
+			<p style="text-align:center;">Version: @ViewContext.Controller.GetType().Assembly.GetName().Version</p>
+		</footer>
+	</div>
+
+</body>
+</html>

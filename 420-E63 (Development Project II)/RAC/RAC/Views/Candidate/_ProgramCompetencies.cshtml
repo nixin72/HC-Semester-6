@@ -1,0 +1,16 @@
+﻿@model List<string>
+
+<h2>Comptencies for Computer Science</h2>
+<table>
+    @foreach (string item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item)
+            </td>
+            <td class="item-category">
+                @Html.DisplayFor(modelItem => item)
+            </td>           
+        </tr>
+    }
+</table>
+

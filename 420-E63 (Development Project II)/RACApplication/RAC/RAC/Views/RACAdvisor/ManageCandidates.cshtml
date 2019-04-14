@@ -1,0 +1,141 @@
+﻿@using RAC.RACModels
+@model IEnumerable<RACUser>
+
+@{
+    ViewBag.Title = "Manage Candidates";
+    ViewBag.User = "RACAdvisor";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/candidate-and-rac-request-list.css")
+    <link href='~/Styles/candidate-and-rac-request-list.css' rel='stylesheet' />
+}
+<h2>Manage Candidates</h2>
+<hr/>
+<div id='searchBox'>
+    <h3>Search</h3>
+    <span class='formTitles' id='searchFirstName'>First Name: </span>
+        <input type='text' id='firstName' class='form-control searchCondition'/><br />
+    <span class='formTitles' id='searchLastName'>Last Name: </span>
+        <input type='text' id='lastName' class='form-control searchCondition'/><br/>
+    <span class='formTitles' id='searchStatus'>
+        RAC Status:</span>
+        <select id='racStatus' class='searchCondition form-control '>
+            <option value='-1'>All But Archived or Deleted</option>
+            <option value='0'>Started</option>
+            <option value='1' selected>Submitted</option>
+            <option value='2'>Specialist Review</option>
+            <option value='3'>Completed</option>
+            <option value='-2'>Archived</option>
+            <option value='-3'>Deleted</option>
+        </select>
+    <br />
+    <span class='formTitles' id='searchStatus'>&nbsp;</span>
+    <button id='search' class='btn btn-primary'>Search</button>
+    <hr/>
+</div>
+
+<table class="dashboardTable" sortby='lastname' orderin='desc' id='table'>
+    <tr>
+        <th id='nameCol'>
+            @Html.Raw("Name")
+            <span id='nameColArrow'>&#x25BE;</span>
+        </th>
+        <th>
+            @Html.Raw("Preferred Method of Contact")
+        </th>
+        <th>
+            @Html.Raw("RAC Status")
+        </th>
+        <th id='dateStartCol'>
+            @Html.Raw("Date Started/Submitted")
+            <span id='dateStartColArrow'>&#x25BE;</span>
+        </th>
+        <th>
+            @Html.Raw("Options")
+        </th>
+    </tr>
+
+    @foreach (RACUser item in Model)
+    {
+        if (item.CandidateProfile.RACRequest != null)
+        {
+            <tr
+                @if (item.CandidateProfile.RACRequest.SubmissionDate.HasValue)
+                {
+                    @Html.Raw("id='" + item.Id + "' firstname='" + item.FirstName + "' lastname='" + item.LastName + "' racstatus='" + item.CandidateProfile.RACRequest.Status + "' date='" + item.CandidateProfile.RACRequest.SubmissionDate.Value + 
+                              "' archived='" + item.IsArchived + "' deleted='" + item.IsDeleted + "'")
+                }
+                else
+                {
+                    @Html.Raw("id='" + item.Id + "' firstname='" + item.FirstName + "' lastname='" + item.LastName + "' racstatus='" + item.CandidateProfile.RACRequest.Status + "' date='" + item.CandidateProfile.RACRequest.StartDate + 
+                              "' archived='" + item.IsArchived + "' deleted='" + item.IsDeleted + "'")
+                }
+                class='candidate'>
+                <td class='nameCells'>
+                    @Html.Raw(item.LastName + ", " + item.FirstName)
+                </td>
+                <td>
+                    @switch (item.PreferredMethodOfContact)
+                    {
+                        case 0:
+                            @Html.Raw(PreferredMethodOfContact.Email + ": ")
+                            @Html.DisplayFor(modelItem => item.Email)
+                            break;
+                        case 1:
+                            @Html.Raw(PreferredMethodOfContact.HomePhone + ": ")
+                            @Html.DisplayFor(modelItem => item.HomePhone)
+                            break;
+                        case 2:
+                            @Html.Raw(PreferredMethodOfContact.WorkPhone + ": ")
+                            @Html.DisplayFor(modelItem => item.WorkPhone)
+                            break;
+                    }
+                </td>
+                <td>
+                    @switch (item.CandidateProfile.RACRequest.Status)
+                    {
+                        case 0:
+                            @Html.Raw(RACStatus.Started.ToString())
+                            break;
+                        case 1:
+                            @Html.Raw(RACStatus.Submitted.ToString())
+                            break;
+                        case 2:
+                            @Html.Raw(RACStatus.SpecialistReview.ToString())
+                            break;
+                        case 3:
+                            @Html.Raw(RACStatus.Completed.ToString())
+                            break;
+                    }
+                </td>
+                <td class='dateCells'>
+                    @if (item.CandidateProfile.RACRequest.SubmissionDate.HasValue)
+                    {
+                        @Html.Raw("Submitted on: " + item.CandidateProfile.RACRequest.SubmissionDate.Value.ToString("yyyy-MM-dd"))
+                    }
+                    else
+                    {
+                        @Html.Raw("Started on: " + item.CandidateProfile.RACRequest.StartDate.ToString("yyyy-MM-dd"))
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "CandidateDetails", new { id = item.CandidateProfile.Id }) 
+                    
+                    @if (!(item.IsArchived || item.IsDeleted))
+                    {
+                        @Html.Raw("| ")
+                        @Html.ActionLink("Archive", "ArchiveAccountRACAdvisor", "RACAdvisor", new { id = item.CandidateProfile.Id }, new { id = item.CandidateProfile.Id })
+                    }
+                    @Html.Raw("| ")
+                    @Html.ActionLink("Self Evaluation", "GetCompleteRacRequest", "Candidate", new { id = item.CandidateProfile.Id }, new { id = "" })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/search-candidates.js")
+}

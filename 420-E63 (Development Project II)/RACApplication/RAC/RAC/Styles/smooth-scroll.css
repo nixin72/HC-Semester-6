@@ -1,0 +1,20 @@
+﻿#divScrollButtons {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    margin-bottom: 6px;
+    vertical-align: central;
+    min-height: 30px;
+    width: 40px;
+    float: right;
+}
+
+#divScrollButtons button {
+    box-shadow: 3px 3px 3px #888888;
+    float: right;
+    margin-right: 5%;
+    width: auto;
+    height: auto;
+    font-size: 1em;
+    line-height: inherit;
+}

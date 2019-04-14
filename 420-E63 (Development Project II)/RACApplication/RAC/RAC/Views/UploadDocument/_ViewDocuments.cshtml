@@ -1,0 +1,86 @@
+﻿@using RAC.BusinessLogic
+@using RAC.RACModels
+@model IEnumerable<UploadedDocument>
+<link href="~/Styles/upload-documents.css" rel="stylesheet" />
+@if (Model.Any())
+{
+
+    <table id='uploadedDocumentTable' class='table table-hover'>
+        <thead>
+        <tr>
+            <th class='uploadedDocumentsNameCell'>
+                File Name
+            </th>
+            <th class='uploadedDocumentsTypeCell'>
+                File Type
+            </th>
+            <th class='fileSizeTD uploadedDocumentsSizeCell'>
+                File Size
+            </th>
+            <th class='buttonsTD uploadedDocumentsActionCell'>
+                Action
+            </th>
+        </tr>
+        </thead>
+
+        @{
+            var totalFileSizeOfDocuments = 0;
+            var isRACAdvisor = RACAdvisorBLL.CheckIsRACAdvisor();
+        }
+
+        @foreach (UploadedDocument item in Model)
+        {
+            totalFileSizeOfDocuments += item.Binary.Length;
+
+            string[] fileElements = item.Name.Split('.');
+            string fileName = fileElements[0];
+
+            if (!item.IsOpened && item.IsAddedByRACAdvisor && !RACAdvisorBLL.CheckIsRACAdvisor())
+            {
+                @Html.Raw("<tr id='" + item.Id + "' class='unreadDocument document'>")
+            }
+            else if (!item.IsOpened && !item.IsAddedByRACAdvisor && RACAdvisorBLL.CheckIsRACAdvisor())
+            {
+                @Html.Raw("<tr id='" + item.Id + "' class='unreadDocument document'>")
+            }
+            else
+            {
+                @Html.Raw("<tr class='document'>")
+            }
+            @Html.Raw("<td>")
+            @fileName
+            @Html.Raw("</td>")
+            @Html.Raw("<td>")
+            @UploadedDocumentBll.GetFileTypeFromExtention(fileElements[1])
+            @Html.Raw("</td>")
+            @Html.Raw("<td>")
+            @UploadedDocumentBll.FileSizeWithUnit(item.Binary.Length)
+            @Html.Raw("</td>")
+            @Html.Raw("<td class='buttonsTD'>")
+            <a href="@Url.Action("DownloadDocument", "UploadDocument", new {id = item.Id, isAddedByRACAdvisor = item.IsAddedByRACAdvisor})" onclick='removeUnread(@item.Id)'>Download File @Html.Raw("<span class='glyphicon glyphicon-download-alt'></span>")</a>
+
+            if ((item.IsAddedByRACAdvisor && isRACAdvisor) || (!item.IsAddedByRACAdvisor && !isRACAdvisor))
+            {
+                <span class='removeFile'>
+                    |
+                    <a href="javascript:void(0);" id="@item.Id" style="color: red" onclick="confirmDeleteFile(this)">Remove File <span class='glyphicon glyphicon-remove'></span></a>
+                </span>
+            }
+
+            @Html.Raw("</td>")
+            @Html.Raw("<td style='display: none;'>")
+            @fileElements[1].ToLower()
+            @Html.Raw("</td>")
+            @Html.Raw("</tr>")
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td colspan='2'><strong>Total File Size</strong>: @UploadedDocumentBll.FileSizeWithUnit(totalFileSizeOfDocuments)</td>
+        </tr>
+    </table>
+            }
+else
+{
+    <p class='noDocuments'>There are no documents uploaded</p>
+}

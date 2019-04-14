@@ -1,0 +1,41 @@
+﻿hr{
+    border-color: black;
+}
+ul {
+    margin-left: 2px;
+}
+#wrapper {
+    overflow-x: hidden;
+}
+.btn-primary {
+    width: 100%;
+    background-color: #bf8100 !important;
+    border: solid thin black;
+    font-size: 1.5em !important;
+}
+.cheverons {
+    float: left;
+}
+h2 {
+    color: white;
+    font-size: 1.5em;
+    border: solid thin black;
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+    background-color: #bf8100;
+}
+
+h3 {
+    color: #383630 !important;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+.feature {
+    font-weight: bold;
+    color: #bf8100;
+}
+
+p {
+    margin-left: 20px;
+}

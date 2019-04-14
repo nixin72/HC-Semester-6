@@ -1,0 +1,481 @@
+﻿@{
+    ViewBag.Title = "New Semester";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.AntiForgeryToken()
+
+<h2>New Semester</h2>
+
+<div>
+    <h4>Update Semester</h4>
+    <br/>
+    <label>Semester:</label>
+    <form id="SemesterList">
+        <p id="LoadingText">Loading Semesters...</p>
+    </form>
+
+    <br/>
+
+        <label>Semester End Date:</label>
+        <input type="text" id="txtSemesterEndDate" class="date-picker"/> 
+        <span id="updateMsg"></span>
+        <br />
+        <br />
+        <button id="btnUpdate">Update</button>
+        <br />
+        <br />
+        <hr />
+        <h4>Update Users</h4>
+        <br />
+        <form id="AddUsers">
+            <p id="AddUsersTitle">Please Select a Semester</p>
+            <input id="AddStudents" type="checkbox" class="chkUsers">
+            <label for="AddStudents">Add All Students</label>
+            <br />
+            <input id="AddTeacherAndCoords" type="checkbox" class="chkUsers">
+            <label for="AddTeacherAndCoords">Add All Teachers and Coordinators</label>
+            <br />
+            <br />
+            <div id="ConfirmationDiv">
+                <div id="Notes">
+
+                    <div id="StudentNotes"></div>
+                    <div id="OtherNotes"></div>
+
+                </div>
+                <div id="ConfirmButton">
+                    <input id="Confirmation" type="checkbox">
+                    <label for="Confirmation">I understand the implications of this change.</label>
+                    <br />
+                    <br />
+                    <button id="btnConfirmation">Update Users</button>
+                    <span id="rowsUpdated"></span>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </form>
+    </div>
+
+<script>
+    var currentSemester = 0;
+    var currentYear = 0;
+    var selectedSemesterValue = 0;
+
+    $(document).ready(function() {
+
+        //Page setup
+        $("#AddUsers input").prop("disabled", true);
+        $("#ConfirmationDiv").css("display", "none");
+        $("#ConfirmButton").css("display", "none");
+        $("#btnConfirmation").prop("disabled", true);
+        $("#Confirmation").prop("disabled", true);
+
+        //Setting up date picker
+        $("#txtSemesterEndDate").datepicker({
+            showOn: "button",
+            buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
+            buttonImageOnly: true
+        });
+
+        //Create the Update Semester Radio Buttons
+        SelectSettings();
+
+        //Action Listener for the radio buttons
+        $("#SemesterList").on("click", ".rdoSemester", function (e) {
+            value = e.target.value;
+            selectedSemesterValue = 0;
+            setUpAddUsers(value);
+            if (value == currentYear + "" + currentSemester) {
+                selectedSemesterValue = value;
+                GetSemesterEndDate(value);
+            }
+            else {
+                $("#txtSemesterEndDate").val("");
+            }
+        });
+
+        //Action Listener for Update Semester
+        $("#btnUpdate").on("click", function (e) {
+            if ($("#txtSemesterEndDate").val() != "" && selectedSemesterValue) {
+                var yearSemester = selectedSemesterValue;
+                var endDate = new Date($("#txtSemesterEndDate").val());
+                UpdateSemester(yearSemester, endDate);
+            }
+        });
+
+        //CheckBox wizard
+        $(".chkUsers").on("click", function (e) {
+
+            var isStudentSelected = $("#AddStudents").is(':checked');
+            var isTeachCoordSelected = $("#AddTeacherAndCoords").is(':checked');
+
+            if (!isStudentSelected && !isTeachCoordSelected) {
+                $("#ConfirmationDiv").css("display", "none");
+                $("#ConfirmButton").css("display", "none");
+            }
+
+            //Welcome to my callback hell ;)
+
+            var selectedId = e.target.id;
+            var isSelected = $("#" + selectedId).is(':checked');
+
+            $("#ConfirmationDiv").css("display", "block");
+
+            if (selectedId == "AddStudents" && isSelected) {
+                $("#StudentNotes").text("Loading Students...");
+                $("#Confirmation").prop("disabled", true);
+                var stringBuffer = "";
+
+                //Student Report Calls
+                //Each call loads the string then calls the next call and repeat
+                SelectNumNewStudents(selectedSemesterValue, function (result) {
+                    stringBuffer += "The number of new students: " + result + "<br />";
+                    SelectNumNewCSAdminStudents(selectedSemesterValue, function (result) {
+                        stringBuffer += "The number of new CSAdmin students: " + result + "<br />";
+                        SelectNumActivateStudents(selectedSemesterValue, function (result) {
+                            stringBuffer += "The number of students to activate: " + result + "<br />";
+                            SelectNumDeleteStudents(selectedSemesterValue, function (result) {
+                                stringBuffer += "The number of students to delete: " + result + "<br />";
+                                SelectNumDeactivateStudents(selectedSemesterValue, function (result) {
+                                    stringBuffer += "The number of students to deactivate: " + result + "<br /><br />";
+                                    $("#StudentNotes").html(stringBuffer);
+                                    $("#ConfirmButton").css("display", "block");
+                                    $("#Confirmation").prop("disabled", false);
+                                });
+                            });
+                        });
+                    });
+                });
+
+            }
+            if (selectedId == "AddStudents" && !isSelected) {
+                $("#StudentNotes").text("");
+            }
+
+            if (selectedId == "AddTeacherAndCoords" && isSelected) {
+                $("#OtherNotes").text("Loading Teachers and Coordinators...");
+                var stringBuffer = "";
+                $("#Confirmation").prop("disabled", true);
+
+                //Teacher & Coord calls 
+                //Each call loads the string then calls the next call and repeat
+                SelectNumNewFaculty(selectedSemesterValue, function (result) {
+                    stringBuffer += "The number of new faculty: " + result + "<br />";
+                    SelectNumNewCoordinators(selectedSemesterValue, function (result) {
+                        stringBuffer += "The number of new coordinators: " + result + "<br />";
+                        SelectNumDelCoordinators(selectedSemesterValue, function (result) {
+                            stringBuffer += "The number of coordinators to delete: " + result + "<br /><br />";
+                            $("#OtherNotes").html(stringBuffer);
+                            $("#ConfirmButton").css("display", "block");
+                            $("#Confirmation").prop("disabled", false);
+                        });
+                    });
+                });
+            }
+            if (selectedId == "AddTeacherAndCoords" && !isSelected) {
+                $("#OtherNotes").text("");
+            }
+            //#SorryNotSorry #NoRagrets #NotEvenOneLetter
+        });
+
+        //Confirm button for update users
+        $("#ConfirmButton").on("click", function (e) {
+            var selectedId = e.target.id;
+            var isSelected = $("#" + selectedId).is(':checked');
+            if (isSelected) {
+                $("#btnConfirmation").prop("disabled", false);
+            }
+            else {
+                $("#btnConfirmation").prop("disabled", true);
+            }
+        });
+
+        $("#btnConfirmation").on("click", function (e) {
+            var isStudentSelected = $("#AddStudents").is(':checked');
+            var isTeachCoordSelected = $("#AddTeacherAndCoords").is(':checked');
+
+            if (isStudentSelected) {
+                updateStudents(function (result) {
+                    if(result >= 0){
+                        $("#rowsUpdated").text("Update Successful.");
+                        $("#rowsUpdated").addClass("succmsg");
+                    }
+                });
+            }
+            if (isTeachCoordSelected) {
+                updateTeachersAndCoordinators( function (result) {
+                    if (result >= 0) {
+                        $("#rowsUpdated").text("Update Successful.");
+                        $("#rowsUpdated").addClass("succmsg");
+                    }
+                });
+            }
+        });
+    });
+
+
+    //Functions
+
+    function setUpAddUsers(yearSemester) {
+        $("#AddUsers input").prop("disabled", false);
+        var year = parseInt(yearSemester.substr(0, yearSemester.length - 1));
+        var semesterName = semesterNumToText(parseInt(yearSemester.charAt(yearSemester.length - 1)));
+
+        $("#AddUsersTitle").text("Select Users to Add to the " + semesterName + " " + year + " semester.");
+
+    }
+
+    function insertDateToField(temp) {
+        var date = new Date(temp);
+        var day = ("0" + date.getDate()).slice(-2);
+        var month = ("0" + (date.getMonth() + 1)).slice(-2);
+        var newDate = date.getFullYear() + "-" + (month) + "-" + (day);
+        $("#txtSemesterEndDate").val(newDate);
+    }
+
+    function createRadioButtons(temp) {
+
+        currentSemester = parseInt(temp.charAt(temp.length - 1));
+        //currentSemester = 3;
+        currentYear = parseInt(temp.substr(0, temp.length - 1));
+
+        if (currentSemester == 1) {
+
+            addRadioHtml(
+                (currentYear - 1) + "" + 3,
+                semesterNumToText(3) + " " + (currentYear - 1)
+            );
+            appendBreak();
+            addRadioHtml(
+                currentYear + "" + currentSemester,
+                semesterNumToText(currentSemester) + " " + currentYear + " (Current Semester)"
+            );
+            appendBreak();
+            addRadioHtml(
+                currentYear + "" + 2,
+                semesterNumToText(2) + " " + currentYear
+            );
+            appendBreak();
+            addRadioHtml(
+                currentYear + "" + 3,
+                semesterNumToText(3) + " " + currentYear
+            );
+
+        }
+        if (currentSemester == 2) {
+
+            addRadioHtml(
+                currentYear + "" + 1,
+                semesterNumToText(1) + " " + currentYear
+            );
+            appendBreak();
+            addRadioHtml(
+                currentYear + "" + currentSemester,
+                semesterNumToText(currentSemester) + " " + currentYear + " (Current Semester)"
+            );
+            appendBreak();
+            addRadioHtml(
+                currentYear + "" + 3,
+                semesterNumToText(3) + " " + currentYear
+            );
+            appendBreak();
+            addRadioHtml(
+                (currentYear + 1) + "" + 1,
+                semesterNumToText(1) + " " + (currentYear + 1)
+            );
+
+        }
+        if (currentSemester == 3) {
+
+            addRadioHtml(
+                currentYear + "" + 2,
+                semesterNumToText(2) + " " + currentYear
+            );
+            appendBreak();
+            addRadioHtml(
+                currentYear + "" + currentSemester,
+                semesterNumToText(currentSemester) + " " + currentYear + " (Current Semester)"
+            );
+            appendBreak();
+            addRadioHtml(
+                (currentYear + 1) + "" + 1,
+                semesterNumToText(1) + " " + (currentYear + 1)
+            );
+            appendBreak();
+            addRadioHtml(
+                (currentYear + 1) + "" + 2,
+                semesterNumToText(2) + " " + (currentYear + 1)
+            );
+
+        }
+    }
+
+    function addRadioHtml(value, text) {
+        $("#SemesterList").append(
+            "<input type='radio' class='rdoSemester' name='semester' value='" +
+            value +
+            "'> " +
+            text +
+            "</input>");
+    }
+
+    function semesterNumToText(num) {
+        switch (num) {
+        case 1:
+            return "Winter";
+        case 2:
+            return "Summer";
+        case 3:
+            return "Fall";
+        default:
+            return "Unknown";
+        }
+    }
+
+    function appendBreak() {
+        $("#SemesterList").append("<br />");
+    }
+
+    //AJAX Function Calls
+
+    function SelectSettings(){
+        $.ajax({
+            url: "@Url.Action("SelectSettings")",
+            type: 'Get',
+            success: function (result) {
+                var json = $.parseJSON(result);
+                $("#LoadingText").css("display", "none");
+                createRadioButtons(json.CurrentYearSemester + "");
+                $($("#SemesterList").children()[3]).prop("checked", true).click();
+            }
+        });
+    }
+
+    function GetSemesterEndDate(value) {
+        $.ajax({
+            url: "@Url.Action("GetSemesterEndDate")",
+            type: 'Get',
+            data: { "yearSemester": value },
+            success: function (result) {
+                insertDateToField(result);
+            }
+        });
+    }
+
+    function UpdateSemester(yearSemester, endDate) {
+        $.ajax({
+            url: "@Url.Action("UpdateSemester")",
+            type: 'Get',
+            data: {
+                "yearSemester": yearSemester,
+                "endDate": endDate.toISOString()
+            },
+            success: function (result) {
+                if (result > 0) {
+                    $("#updateMsg").text("The semester end date has been updated.");
+                    $("#updateMsg").addClass("succmsg");
+                }
+                else {
+                    $("#updateMsg").text("An error has occured while updating semester end date.");
+                    $("#updateMsg").addClass("errmsg");
+                }
+            },
+            fail: function (result) {
+                $("#updateMsg").text("An error has occured while updating semester end date.");
+                $("#updateMsg").addClass("errmsg");
+            }
+        });
+    }
+
+    //AJAX Function Callback Calls
+
+    function updateStudents(callback) {
+        $.ajax({
+            url: "@Url.Action("updateSemesterStudents")",
+            type: 'Get',
+            success: callback
+        });
+    }
+
+    function updateTeachersAndCoordinators(callback) {
+        $.ajax({
+            url: "@Url.Action("updateSemesterFaculty")",
+            type: 'Get',
+            success: callback
+        });
+    }
+
+    function SelectNumNewStudents(anSession, callback) {
+        $.ajax({
+            url: "@Url.Action("SelectNumNewStudents")",
+            type: 'Get',
+            data: { "AnSession": anSession },
+            success: callback
+        });
+    }
+
+    function SelectNumNewCSAdminStudents(anSession, callback) {
+        $.ajax({
+            url: "@Url.Action("SelectNumNewCSAdminStudents")",
+            type: 'Get',
+            data: { "AnSession": anSession },
+            success: callback
+        });
+    }
+
+    function SelectNumActivateStudents(anSession, callback) {
+        $.ajax({
+            url: "@Url.Action("SelectNumActivateStudents")",
+            type: 'Get',
+            data: { "AnSession": anSession },
+            success: callback
+        });
+    }
+
+    function SelectNumDeleteStudents(anSession, callback) {
+        $.ajax({
+            url: "@Url.Action("SelectNumDelStudents")",
+            type: 'Get',
+            data: { "AnSession": anSession },
+            success: callback
+        });
+    }
+
+    function SelectNumDeactivateStudents(anSession, callback) {
+        $.ajax({
+            url: "@Url.Action("SelectNumDeactivateStudents")",
+            type: 'Get',
+            data: { "AnSession": anSession },
+            success: callback
+        });
+    }
+
+    function SelectNumNewFaculty(anSession, callback) {
+        $.ajax({
+            url: "@Url.Action("SelectNumNewFaculty")",
+            type: 'Get',
+            data: { "AnSession": anSession },
+            success: callback
+        });
+    }
+
+    function SelectNumNewCoordinators(anSession, callback) {
+        $.ajax({
+            url: "@Url.Action("SelectNumNewCoordinators")",
+            type: 'Get',
+            data: { "AnSession": anSession },
+            success: callback
+        });
+    }
+
+    function SelectNumDelCoordinators(anSession, callback) {
+        $.ajax({
+            url: "@Url.Action("SelectNumDelCoordinators")",
+            type: 'Get',
+            data: { "AnSession": anSession },
+            success: callback
+        });
+    }
+</script>
+

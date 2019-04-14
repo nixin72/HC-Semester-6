@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ccacd351d544f46afa10b42835c7875" Name="Diagram1" ZoomLevel="72" DisplayType="false" >
+        <EntityTypeShape EntityType="RACModel.RACRequest" Width="2.25" PointX="8.5" PointY="8.125" />
+        <EntityTypeShape EntityType="RACModel.UploadedDocument" Width="2" PointX="8.75" PointY="13.125" />
+        <EntityTypeShape EntityType="RACModel.User" Width="2.25" PointX="1.625" PointY="7.875" />
+        <EntityTypeShape EntityType="RACModel.ContentSpecialist" Width="2" PointX="1.75" PointY="12.25" />
+        <InheritanceConnector EntityType="RACModel.ContentSpecialist" />
+        <EntityTypeShape EntityType="RACModel.Candidate" PointX="5" PointY="8.375" Width="2.375" />
+        <InheritanceConnector EntityType="RACModel.Candidate" />
+        <EntityTypeShape EntityType="RACModel.Program" Width="3.25" PointX="13.125" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RACModel.Competency" Width="2.75" PointX="13.5" PointY="3.625" />
+        <EntityTypeShape EntityType="RACModel.RACRequestCompetency" Width="3.375" PointX="8.125" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RacModel.RACRequestCompetencyElements" Width="3" PointX="8.25" PointY="0.5" />
+        <EntityTypeShape EntityType="RacModel.CompetencyElement" Width="3.125" PointX="13.125" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="RACModel.CompetencyCompetencyDescriptionAssessment" />
+        <EntityTypeShape EntityType="RacModel.CompetencyComment" Width="2.75" PointX="1.25" PointY="3.625" />
+        <AssociationConnector Association="RACModel.RACRequestCompetencyCommentRACRequestCompetency" />
+        <AssociationConnector Association="RacModel.RACRequestCompetencyElementsRACRequestCompetency" />
+        <AssociationConnector Association="RacModel.RACRequestCompetencyRACRequest" />
+        <AssociationConnector Association="RacModel.RACRequestCompetencyCompetencyComment" />
+        <AssociationConnector Association="RacModel.CandidateRACRequest" />
+        <AssociationConnector Association="RacModel.UserCompetencyComment" />
+        <AssociationConnector Association="RacModel.RACRequestUploadedDocument" />
+        <EntityTypeShape EntityType="RacModel.ValidationKey" Width="3" PointX="2.125" PointY="0.75" />
+        <EntityTypeShape EntityType="RacModel.FinalizedRACContracts" Width="2.625" PointX="4.75" PointY="13.25" />
+        <EntityTypeShape EntityType="RacModel.RACAdvisorNotifications" Width="3.375" PointX="11.375" PointY="14.875" />
+        <AssociationConnector Association="RacModel.RACAdvisorNotificationsCandidate" />
+        <AssociationConnector Association="RacModel.CandidateFinalizedRACContracts" />
+        <EntityTypeShape EntityType="RacModel.Course" Width="2.75" PointX="19.25" PointY="8.75" />
+        <EntityTypeShape EntityType="RacModel.CourseCompetency" Width="2.875" PointX="19.125" PointY="5.5" />
+        <EntityTypeShape EntityType="RacModel.ElementMinistryData" Width="3.25" PointX="18.75" PointY="0.5" />
+        <EntityTypeShape EntityType="RacModel.CompetencyMinistryData" Width="2.75" PointX="19.125" PointY="2.875" />
+        <EntityTypeShape EntityType="RacModel.ProgramMinistryData" Width="3" PointX="13.375" PointY="12.125" />
+        <EntityTypeShape EntityType="RacModel.CourseMinistryData" Width="2.25" PointX="19.375" PointY="13" IsExpanded="true" />
+        <AssociationConnector Association="RacModel.CourseMinistryDataCourse" />
+        <AssociationConnector Association="RacModel.CourseProgram" />
+        <AssociationConnector Association="RacModel.ProgramMinistryDataProgram" />
+        <AssociationConnector Association="RacModel.CompetencyMinistryDataCompetency" />
+        <AssociationConnector Association="RacModel.CompetencyProgram" />
+        <AssociationConnector Association="RacModel.ProgramRACRequest" />
+        <AssociationConnector Association="RacModel.CompetencyRACRequestCompetency" />
+        <AssociationConnector Association="RacModel.CompetencyCompetencyElement" />
+        <AssociationConnector Association="RacModel.CompetencyElementRACRequestCompetencyElements" />
+        <AssociationConnector Association="RacModel.ElementMinistryDataCompetencyElement" />
+        <AssociationConnector Association="RacModel.CourseCompetencyCourse" />
+        <AssociationConnector Association="RacModel.CourseCompetencyCompetency" />
+        <EntityTypeShape EntityType="RacModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="RacModel.aspnet_Applications" Width="1.5" PointX="11.75" PointY="22.875" />
+        <EntityTypeShape EntityType="RacModel.aspnet_Membership" Width="1.5" PointX="19" PointY="21.5" />
+        <EntityTypeShape EntityType="RacModel.aspnet_Paths" Width="1.5" PointX="14" PointY="21.375" />
+        <EntityTypeShape EntityType="RacModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="16.25" PointY="24.875" />
+        <EntityTypeShape EntityType="RacModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="16.25" PointY="21.375" />
+        <EntityTypeShape EntityType="RacModel.aspnet_Profile" Width="1.5" PointX="18.5" PointY="28.875" />
+        <EntityTypeShape EntityType="RacModel.aspnet_Roles" Width="1.5" PointX="14" PointY="30.75" />
+        <EntityTypeShape EntityType="RacModel.aspnet_SchemaVersions" Width="1.5" PointX="11.75" PointY="15.75" />
+        <EntityTypeShape EntityType="RacModel.aspnet_Users" Width="1.5" PointX="16.25" PointY="28.375" />
+        <EntityTypeShape EntityType="RacModel.aspnet_WebEvent_Events" Width="1.5" PointX="13.75" PointY="15.75" />
+        <EntityTypeShape EntityType="RacModel.AspNetRole" Width="1.5" PointX="0.75" PointY="18.5" />
+        <EntityTypeShape EntityType="RacModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="19.625" />
+        <EntityTypeShape EntityType="RacModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="17" />
+        <EntityTypeShape EntityType="RacModel.AspNetUser" Width="1.5" PointX="3" PointY="17.375" />
+        <EntityTypeShape EntityType="RacModel.sysdiagram" Width="1.5" PointX="15.75" PointY="15.75" />
+        <AssociationConnector Association="RacModel.FK__aspnet_Me__Appli__34BEB830" />
+        <AssociationConnector Association="RacModel.FK__aspnet_Pa__Appli__6DF7358C" />
+        <AssociationConnector Association="RacModel.FK__aspnet_Ro__Appli__5713D034" />
+        <AssociationConnector Association="RacModel.FK__aspnet_Us__Appli__20B7BF83" />
+        <AssociationConnector Association="RacModel.FK__aspnet_Me__UserI__35B2DC69" />
+        <AssociationConnector Association="RacModel.FK__aspnet_Pe__PathI__75985754" />
+        <AssociationConnector Association="RacModel.FK__aspnet_Pe__PathI__7B5130AA" />
+        <AssociationConnector Association="RacModel.FK__aspnet_Pe__UserI__7C4554E3" />
+        <AssociationConnector Association="RacModel.FK__aspnet_Pr__UserI__4BA21D88" />
+        <AssociationConnector Association="RacModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="RacModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="RacModel.aspnet_UsersInRoles" />
+        <AssociationConnector Association="RacModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

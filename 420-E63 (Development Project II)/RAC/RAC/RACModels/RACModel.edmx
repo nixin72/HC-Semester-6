@@ -1,0 +1,2473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RacModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="RacModelStoreContainer">
+    <EntitySet Name="RACRequest" EntityType="RacModel.Store.RACRequest" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UploadedDocument" EntityType="RacModel.Store.UploadedDocument" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="RacModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Program" EntityType="RacModel.Store.Program" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Competency" EntityType="RacModel.Store.Competency" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RACRequestCompetency" EntityType="RacModel.Store.RACRequestCompetency" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RACRequestCompetencyElement" EntityType="RacModel.Store.RACRequestCompetencyElement" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompetencyElement" EntityType="RacModel.Store.CompetencyElement" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompetencyComment" EntityType="RacModel.Store.CompetencyComment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FinalizedRACContract" EntityType="RacModel.Store.FinalizedRACContract" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RACNotification" EntityType="RacModel.Store.RACNotification" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Course" EntityType="RacModel.Store.Course" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CourseCompetency" EntityType="RacModel.Store.CourseCompetency" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ElementMinistryData" EntityType="RacModel.Store.ElementMinistryData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompetencyMinistryData" EntityType="RacModel.Store.CompetencyMinistryData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProgramMinistryData" EntityType="RacModel.Store.ProgramMinistryData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CourseMinistryData" EntityType="RacModel.Store.CourseMinistryData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="C__MigrationHistory" EntityType="RacModel.Store.C__MigrationHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Applications" EntityType="RacModel.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Membership" EntityType="RacModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Paths" EntityType="RacModel.Store.aspnet_Paths" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="RacModel.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="RacModel.Store.aspnet_PersonalizationPerUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Profile" EntityType="RacModel.Store.aspnet_Profile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Roles" EntityType="RacModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="RacModel.Store.aspnet_SchemaVersions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Users" EntityType="RacModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_WebEvent_Events" EntityType="RacModel.Store.aspnet_WebEvent_Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetRoles" EntityType="RacModel.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserClaims" EntityType="RacModel.Store.AspNetUserClaims" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserLogins" EntityType="RacModel.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUsers" EntityType="RacModel.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="RacModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User_Candidate" EntityType="RacModel.Store.User_Candidate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User_ContentSpecialist" EntityType="RacModel.Store.User_ContentSpecialist" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_UsersInRoles" EntityType="RacModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserRoles" EntityType="RacModel.Store.AspNetUserRoles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="RACRequestCompetencyElementsRACRequestCompetency" Association="RacModel.Store.RACRequestCompetencyElementsRACRequestCompetency">
+      <End Role="RACRequestCompetencyElements" EntitySet="RACRequestCompetencyElement" />
+      <End Role="RACRequestCompetency" EntitySet="RACRequestCompetency" />
+    </AssociationSet>
+    <AssociationSet Name="RACRequestCompetencyRACRequest" Association="RacModel.Store.RACRequestCompetencyRACRequest">
+      <End Role="RACRequestCompetency" EntitySet="RACRequestCompetency" />
+      <End Role="RACRequest" EntitySet="RACRequest" />
+    </AssociationSet>
+    <AssociationSet Name="RACRequestCompetencyCompetencyComment" Association="RacModel.Store.RACRequestCompetencyCompetencyComment">
+      <End Role="RACRequestCompetency" EntitySet="RACRequestCompetency" />
+      <End Role="CompetencyComment" EntitySet="CompetencyComment" />
+    </AssociationSet>
+    <AssociationSet Name="CandidateRACRequest" Association="RacModel.Store.CandidateRACRequest">
+      <End Role="Candidate" EntitySet="User_Candidate" />
+      <End Role="RACRequest" EntitySet="RACRequest" />
+    </AssociationSet>
+    <AssociationSet Name="UserCompetencyComment" Association="RacModel.Store.UserCompetencyComment">
+      <End Role="User" EntitySet="User" />
+      <End Role="CompetencyComment" EntitySet="CompetencyComment" />
+    </AssociationSet>
+    <AssociationSet Name="RACRequestUploadedDocument" Association="RacModel.Store.RACRequestUploadedDocument">
+      <End Role="RACRequest" EntitySet="RACRequest" />
+      <End Role="UploadedDocument" EntitySet="UploadedDocument" />
+    </AssociationSet>
+    <AssociationSet Name="RACAdvisorNotificationsCandidate" Association="RacModel.Store.RACAdvisorNotificationsCandidate">
+      <End Role="RACAdvisorNotifications" EntitySet="RACNotification" />
+      <End Role="Candidate" EntitySet="User_Candidate" />
+    </AssociationSet>
+    <AssociationSet Name="CandidateFinalizedRACContracts" Association="RacModel.Store.CandidateFinalizedRACContracts">
+      <End Role="Candidate" EntitySet="User_Candidate" />
+      <End Role="FinalizedRACContracts" EntitySet="FinalizedRACContract" />
+    </AssociationSet>
+    <AssociationSet Name="CourseMinistryDataCourse" Association="RacModel.Store.CourseMinistryDataCourse">
+      <End Role="CourseMinistryData" EntitySet="CourseMinistryData" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+    <AssociationSet Name="CourseProgram" Association="RacModel.Store.CourseProgram">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Program" EntitySet="Program" />
+    </AssociationSet>
+    <AssociationSet Name="ProgramMinistryDataProgram" Association="RacModel.Store.ProgramMinistryDataProgram">
+      <End Role="ProgramMinistryData" EntitySet="ProgramMinistryData" />
+      <End Role="Program" EntitySet="Program" />
+    </AssociationSet>
+    <AssociationSet Name="CompetencyMinistryDataCompetency" Association="RacModel.Store.CompetencyMinistryDataCompetency">
+      <End Role="CompetencyMinistryData" EntitySet="CompetencyMinistryData" />
+      <End Role="Competency" EntitySet="Competency" />
+    </AssociationSet>
+    <AssociationSet Name="CompetencyProgram" Association="RacModel.Store.CompetencyProgram">
+      <End Role="Competency" EntitySet="Competency" />
+      <End Role="Program" EntitySet="Program" />
+    </AssociationSet>
+    <AssociationSet Name="ProgramRACRequest" Association="RacModel.Store.ProgramRACRequest">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="RACRequest" EntitySet="RACRequest" />
+    </AssociationSet>
+    <AssociationSet Name="CompetencyRACRequestCompetency" Association="RacModel.Store.CompetencyRACRequestCompetency">
+      <End Role="Competency" EntitySet="Competency" />
+      <End Role="RACRequestCompetency" EntitySet="RACRequestCompetency" />
+    </AssociationSet>
+    <AssociationSet Name="CompetencyCompetencyElement" Association="RacModel.Store.CompetencyCompetencyElement">
+      <End Role="Competency" EntitySet="Competency" />
+      <End Role="CompetencyElement" EntitySet="CompetencyElement" />
+    </AssociationSet>
+    <AssociationSet Name="CompetencyElementRACRequestCompetencyElements" Association="RacModel.Store.CompetencyElementRACRequestCompetencyElements">
+      <End Role="CompetencyElement" EntitySet="CompetencyElement" />
+      <End Role="RACRequestCompetencyElements" EntitySet="RACRequestCompetencyElement" />
+    </AssociationSet>
+    <AssociationSet Name="ElementMinistryDataCompetencyElement" Association="RacModel.Store.ElementMinistryDataCompetencyElement">
+      <End Role="ElementMinistryData" EntitySet="ElementMinistryData" />
+      <End Role="CompetencyElement" EntitySet="CompetencyElement" />
+    </AssociationSet>
+    <AssociationSet Name="CourseCompetencyCourse" Association="RacModel.Store.CourseCompetencyCourse">
+      <End Role="CourseCompetency" EntitySet="CourseCompetency" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+    <AssociationSet Name="CourseCompetencyCompetency" Association="RacModel.Store.CourseCompetencyCompetency">
+      <End Role="CourseCompetency" EntitySet="CourseCompetency" />
+      <End Role="Competency" EntitySet="Competency" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__Appli__34BEB830" Association="RacModel.Store.FK__aspnet_Me__Appli__34BEB830">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pa__Appli__6DF7358C" Association="RacModel.Store.FK__aspnet_Pa__Appli__6DF7358C">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Ro__Appli__5713D034" Association="RacModel.Store.FK__aspnet_Ro__Appli__5713D034">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__Appli__20B7BF83" Association="RacModel.Store.FK__aspnet_Us__Appli__20B7BF83">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__35B2DC69" Association="RacModel.Store.FK__aspnet_Me__UserI__35B2DC69">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__75985754" Association="RacModel.Store.FK__aspnet_Pe__PathI__75985754">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__7B5130AA" Association="RacModel.Store.FK__aspnet_Pe__PathI__7B5130AA">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__UserI__7C4554E3" Association="RacModel.Store.FK__aspnet_Pe__UserI__7C4554E3">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__4BA21D88" Association="RacModel.Store.FK__aspnet_Pr__UserI__4BA21D88">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="RacModel.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="RacModel.Store.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_aspnet_UsersInRoles_aspnet_Roles" Association="RacModel.Store.FK_aspnet_UsersInRoles_aspnet_Roles">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_aspnet_UsersInRoles_aspnet_Users" Association="RacModel.Store.FK_aspnet_UsersInRoles_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles_AspNetRole" Association="RacModel.Store.FK_AspNetUserRoles_AspNetRole">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles_AspNetUser" Association="RacModel.Store.FK_AspNetUserRoles_AspNetUser">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_inherits_User" Association="RacModel.Store.FK_Candidate_inherits_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Candidate" EntitySet="User_Candidate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContentSpecialist_inherits_User" Association="RacModel.Store.FK_ContentSpecialist_inherits_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ContentSpecialist" EntitySet="User_ContentSpecialist" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="RACRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubmissionDate" Type="datetime" Nullable="true" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="IsGenEdOnly" Type="bit" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UploadedDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Binary" Type="varbinary(max)" Nullable="false" />
+    <Property Name="RACRequestId" Type="int" Nullable="false" />
+    <Property Name="DateUploaded" Type="datetime" Nullable="false" />
+    <Property Name="IsAddedByRACAdvisor" Type="bit" Nullable="false" />
+    <Property Name="IsOpened" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomePhone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="WorkPhone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UserType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="ProgramMinistryDataId" Type="int" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="DateExpired" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Competency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompetencyMinistryDataId" Type="int" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RACRequestCompetency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RACRequestId" Type="int" Nullable="false" />
+    <Property Name="CompetencyId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RACRequestCompetencyElement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Answer" Type="int" Nullable="false" />
+    <Property Name="RACRequestCompetencyId" Type="int" Nullable="false" />
+    <Property Name="CompetencyElementId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompetencyElement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompetencyId" Type="int" Nullable="false" />
+    <Property Name="ElementMinistryDataId" Type="int" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="DateExpired" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CompetencyComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RACRequestCompetencyId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FinalizedRACContract">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Binary" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateUploaded" Type="datetime" Nullable="false" />
+    <Property Name="Candidate_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RACNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NotificationType" Type="smallint" Nullable="false" />
+    <Property Name="CandidateId" Type="int" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="UserType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseMinistryDataId" Type="int" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CourseCompetency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="CompetencyId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ElementMinistryData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MinistryId" Type="int" Nullable="true" />
+    <Property Name="MinistryCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="DateExpired" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CompetencyMinistryData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsGenEd" Type="bit" Nullable="false" />
+    <Property Name="MinistryId" Type="int" Nullable="false" />
+    <Property Name="MinistryCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProgramMinistryData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MinistryId" Type="int" Nullable="true" />
+    <Property Name="MinistryCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CourseMinistryData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MinistryId" Type="int" Nullable="true" />
+    <Property Name="MinistryCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CourseType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="ContextKey" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="MobilePIN" Type="nvarchar" Nullable="true" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="aspnet_Paths">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredPath" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationAllUsers">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PageSettings" Type="varbinary(max)" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationPerUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PathId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="PageSettings" Type="varbinary(max)" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PropertyNames" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PropertyValuesString" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PropertyValuesBinary" Type="varbinary(max)" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_SchemaVersions">
+    <Key>
+      <PropertyRef Name="Feature" />
+      <PropertyRef Name="CompatibleSchemaVersion" />
+    </Key>
+    <Property Name="Feature" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="CompatibleSchemaVersion" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" Nullable="true" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_WebEvent_Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="char" Nullable="false" MaxLength="32" />
+    <Property Name="EventTimeUtc" Type="datetime" Nullable="false" />
+    <Property Name="EventTime" Type="datetime" Nullable="false" />
+    <Property Name="EventType" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="EventSequence" Type="decimal" Nullable="false" Precision="19" Scale="0" />
+    <Property Name="EventOccurrence" Type="decimal" Nullable="false" Precision="19" Scale="0" />
+    <Property Name="EventCode" Type="int" Nullable="false" />
+    <Property Name="EventDetailCode" Type="int" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" Nullable="true" MaxLength="1024" />
+    <Property Name="ApplicationPath" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="ApplicationVirtualPath" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="MachineName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="RequestUrl" Type="nvarchar" Nullable="true" MaxLength="1024" />
+    <Property Name="ExceptionType" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="Details" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ClaimType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" Nullable="true" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="User_Candidate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Street" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Province" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PreferredMethodOfContact" Type="int" Nullable="true" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsArchived" Type="bit" Nullable="false" />
+    <Property Name="IsPrivacyPolicyAccepted" Type="bit" Nullable="false" />
+    <Property Name="DateRegistered" Type="datetime" Nullable="false" />
+    <Property Name="RegistrationIP" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="RACRequest_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_ContentSpecialist">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="DepartmentId" Type="int" Nullable="true" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_UsersInRoles">
+    <Key>
+      <PropertyRef Name="aspnet_Roles_RoleId" />
+      <PropertyRef Name="aspnet_Users_UserId" />
+    </Key>
+    <Property Name="aspnet_Roles_RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="aspnet_Users_UserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="AspNetRoles_Id" />
+      <PropertyRef Name="AspNetUsers_Id" />
+    </Key>
+    <Property Name="AspNetRoles_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="AspNetUsers_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <Association Name="RACRequestCompetencyElementsRACRequestCompetency">
+    <End Role="RACRequestCompetencyElements" Type="RacModel.Store.RACRequestCompetencyElement" Multiplicity="*" />
+    <End Role="RACRequestCompetency" Type="RacModel.Store.RACRequestCompetency" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RACRequestCompetency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RACRequestCompetencyElements">
+        <PropertyRef Name="RACRequestCompetencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RACRequestCompetencyRACRequest">
+    <End Role="RACRequestCompetency" Type="RacModel.Store.RACRequestCompetency" Multiplicity="*" />
+    <End Role="RACRequest" Type="RacModel.Store.RACRequest" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RACRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RACRequestCompetency">
+        <PropertyRef Name="RACRequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RACRequestCompetencyCompetencyComment">
+    <End Role="RACRequestCompetency" Type="RacModel.Store.RACRequestCompetency" Multiplicity="1" />
+    <End Role="CompetencyComment" Type="RacModel.Store.CompetencyComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RACRequestCompetency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompetencyComment">
+        <PropertyRef Name="RACRequestCompetencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CandidateRACRequest">
+    <End Role="Candidate" Type="RacModel.Store.User_Candidate" Multiplicity="*" />
+    <End Role="RACRequest" Type="RacModel.Store.RACRequest" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RACRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="RACRequest_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserCompetencyComment">
+    <End Role="User" Type="RacModel.Store.User" Multiplicity="1" />
+    <End Role="CompetencyComment" Type="RacModel.Store.CompetencyComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompetencyComment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RACRequestUploadedDocument">
+    <End Role="RACRequest" Type="RacModel.Store.RACRequest" Multiplicity="1" />
+    <End Role="UploadedDocument" Type="RacModel.Store.UploadedDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RACRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UploadedDocument">
+        <PropertyRef Name="RACRequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RACAdvisorNotificationsCandidate">
+    <End Role="RACAdvisorNotifications" Type="RacModel.Store.RACNotification" Multiplicity="*" />
+    <End Role="Candidate" Type="RacModel.Store.User_Candidate" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RACAdvisorNotifications">
+        <PropertyRef Name="CandidateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CandidateFinalizedRACContracts">
+    <End Role="Candidate" Type="RacModel.Store.User_Candidate" Multiplicity="1" />
+    <End Role="FinalizedRACContracts" Type="RacModel.Store.FinalizedRACContract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FinalizedRACContracts">
+        <PropertyRef Name="Candidate_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseMinistryDataCourse">
+    <End Role="CourseMinistryData" Type="RacModel.Store.CourseMinistryData" Multiplicity="1" />
+    <End Role="Course" Type="RacModel.Store.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseMinistryData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="CourseMinistryDataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseProgram">
+    <End Role="Course" Type="RacModel.Store.Course" Multiplicity="*" />
+    <End Role="Program" Type="RacModel.Store.Program" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProgramMinistryDataProgram">
+    <End Role="ProgramMinistryData" Type="RacModel.Store.ProgramMinistryData" Multiplicity="1" />
+    <End Role="Program" Type="RacModel.Store.Program" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramMinistryData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Program">
+        <PropertyRef Name="ProgramMinistryDataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompetencyMinistryDataCompetency">
+    <End Role="CompetencyMinistryData" Type="RacModel.Store.CompetencyMinistryData" Multiplicity="1" />
+    <End Role="Competency" Type="RacModel.Store.Competency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompetencyMinistryData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Competency">
+        <PropertyRef Name="CompetencyMinistryDataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompetencyProgram">
+    <End Role="Competency" Type="RacModel.Store.Competency" Multiplicity="*" />
+    <End Role="Program" Type="RacModel.Store.Program" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Competency">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProgramRACRequest">
+    <End Role="Program" Type="RacModel.Store.Program" Multiplicity="1" />
+    <End Role="RACRequest" Type="RacModel.Store.RACRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RACRequest">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompetencyRACRequestCompetency">
+    <End Role="Competency" Type="RacModel.Store.Competency" Multiplicity="1" />
+    <End Role="RACRequestCompetency" Type="RacModel.Store.RACRequestCompetency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RACRequestCompetency">
+        <PropertyRef Name="CompetencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompetencyCompetencyElement">
+    <End Role="Competency" Type="RacModel.Store.Competency" Multiplicity="1" />
+    <End Role="CompetencyElement" Type="RacModel.Store.CompetencyElement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompetencyElement">
+        <PropertyRef Name="CompetencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompetencyElementRACRequestCompetencyElements">
+    <End Role="CompetencyElement" Type="RacModel.Store.CompetencyElement" Multiplicity="1" />
+    <End Role="RACRequestCompetencyElements" Type="RacModel.Store.RACRequestCompetencyElement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompetencyElement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RACRequestCompetencyElements">
+        <PropertyRef Name="CompetencyElementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ElementMinistryDataCompetencyElement">
+    <End Role="ElementMinistryData" Type="RacModel.Store.ElementMinistryData" Multiplicity="1" />
+    <End Role="CompetencyElement" Type="RacModel.Store.CompetencyElement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ElementMinistryData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompetencyElement">
+        <PropertyRef Name="ElementMinistryDataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseCompetencyCourse">
+    <End Role="CourseCompetency" Type="RacModel.Store.CourseCompetency" Multiplicity="*" />
+    <End Role="Course" Type="RacModel.Store.Course" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseCompetency">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseCompetencyCompetency">
+    <End Role="CourseCompetency" Type="RacModel.Store.CourseCompetency" Multiplicity="*" />
+    <End Role="Competency" Type="RacModel.Store.Competency" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Competency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseCompetency">
+        <PropertyRef Name="CompetencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__Appli__34BEB830">
+    <End Role="aspnet_Applications" Type="RacModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="RacModel.Store.aspnet_Membership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pa__Appli__6DF7358C">
+    <End Role="aspnet_Applications" Type="RacModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Paths" Type="RacModel.Store.aspnet_Paths" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Paths">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Ro__Appli__5713D034">
+    <End Role="aspnet_Applications" Type="RacModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Roles" Type="RacModel.Store.aspnet_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__Appli__20B7BF83">
+    <End Role="aspnet_Applications" Type="RacModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Users" Type="RacModel.Store.aspnet_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__35B2DC69">
+    <End Role="aspnet_Users" Type="RacModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="RacModel.Store.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__75985754">
+    <End Role="aspnet_Paths" Type="RacModel.Store.aspnet_Paths" Multiplicity="1" />
+    <End Role="aspnet_PersonalizationAllUsers" Type="RacModel.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationAllUsers">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__7B5130AA">
+    <End Role="aspnet_Paths" Type="RacModel.Store.aspnet_Paths" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="RacModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__UserI__7C4554E3">
+    <End Role="aspnet_Users" Type="RacModel.Store.aspnet_Users" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="RacModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__4BA21D88">
+    <End Role="aspnet_Users" Type="RacModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="RacModel.Store.aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUser" Type="RacModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaim" Type="RacModel.Store.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUser" Type="RacModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogin" Type="RacModel.Store.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_aspnet_UsersInRoles_aspnet_Roles">
+    <End Role="aspnet_Roles" Type="RacModel.Store.aspnet_Roles" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="RacModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="aspnet_Roles_RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_aspnet_UsersInRoles_aspnet_Users">
+    <End Role="aspnet_UsersInRoles" Type="RacModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+    <End Role="aspnet_Users" Type="RacModel.Store.aspnet_Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="aspnet_Users_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles_AspNetRole">
+    <End Role="AspNetRole" Type="RacModel.Store.AspNetRoles" Multiplicity="1" />
+    <End Role="AspNetUserRoles" Type="RacModel.Store.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="AspNetRoles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles_AspNetUser">
+    <End Role="AspNetUserRoles" Type="RacModel.Store.AspNetUserRoles" Multiplicity="*" />
+    <End Role="AspNetUser" Type="RacModel.Store.AspNetUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="AspNetUsers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_inherits_User">
+    <End Role="User" Type="RacModel.Store.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Candidate" Type="RacModel.Store.User_Candidate" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContentSpecialist_inherits_User">
+    <End Role="User" Type="RacModel.Store.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ContentSpecialist" Type="RacModel.Store.User_ContentSpecialist" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContentSpecialist">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="RacModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="RacModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RACRequest" EntityType="RacModel.RACRequest" />
+          <EntitySet Name="UploadedDocument" EntityType="RacModel.UploadedDocument" />
+          <EntitySet Name="User" EntityType="RacModel.User" />
+          <EntitySet Name="Program" EntityType="RacModel.Program" />
+          <EntitySet Name="Competency" EntityType="RacModel.Competency" />
+          <EntitySet Name="RACRequestCompetency" EntityType="RacModel.RACRequestCompetency" />
+          <EntitySet Name="RACRequestCompetencyElement" EntityType="RacModel.RACRequestCompetencyElement" />
+          <EntitySet Name="CompetencyElement" EntityType="RacModel.CompetencyElement" />
+          <EntitySet Name="CompetencyComment" EntityType="RacModel.CompetencyComment" />
+          <AssociationSet Name="RACRequestCompetencyElementsRACRequestCompetency" Association="RacModel.RACRequestCompetencyElementsRACRequestCompetency">
+            <End Role="RACRequestCompetencyElements" EntitySet="RACRequestCompetencyElement" />
+            <End Role="RACRequestCompetency" EntitySet="RACRequestCompetency" />
+          </AssociationSet>
+          <AssociationSet Name="RACRequestCompetencyRACRequest" Association="RacModel.RACRequestCompetencyRACRequest">
+            <End Role="RACRequestCompetency" EntitySet="RACRequestCompetency" />
+            <End Role="RACRequest" EntitySet="RACRequest" />
+          </AssociationSet>
+          <AssociationSet Name="RACRequestCompetencyCompetencyComment" Association="RacModel.RACRequestCompetencyCompetencyComment">
+            <End Role="RACRequestCompetency" EntitySet="RACRequestCompetency" />
+            <End Role="CompetencyComment" EntitySet="CompetencyComment" />
+          </AssociationSet>
+          <AssociationSet Name="CandidateRACRequest" Association="RacModel.CandidateRACRequest">
+            <End EntitySet="User" Role="Candidate" />
+            <End EntitySet="RACRequest" Role="RACRequest" />
+          </AssociationSet>
+          <AssociationSet Name="UserCompetencyComment" Association="RacModel.UserCompetencyComment">
+            <End Role="User" EntitySet="User" />
+            <End Role="CompetencyComment" EntitySet="CompetencyComment" />
+          </AssociationSet>
+          <AssociationSet Name="RACRequestUploadedDocument" Association="RacModel.RACRequestUploadedDocument">
+            <End Role="RACRequest" EntitySet="RACRequest" />
+            <End Role="UploadedDocument" EntitySet="UploadedDocument" />
+          </AssociationSet>
+          <EntitySet Name="FinalizedRACContract" EntityType="RacModel.FinalizedRACContract" />
+          <EntitySet Name="RACNotification" EntityType="RacModel.RACNotification" />
+          <AssociationSet Name="RACAdvisorNotificationsCandidate" Association="RacModel.RACAdvisorNotificationsCandidate">
+            <End Role="RACAdvisorNotifications" EntitySet="RACNotification" />
+            <End Role="Candidate" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="CandidateFinalizedRACContracts" Association="RacModel.CandidateFinalizedRACContracts">
+            <End Role="Candidate" EntitySet="User" />
+            <End Role="FinalizedRACContracts" EntitySet="FinalizedRACContract" />
+          </AssociationSet>
+          <EntitySet Name="Course" EntityType="RacModel.Course" />
+          <EntitySet Name="CourseCompetency" EntityType="RacModel.CourseCompetency" />
+          <EntitySet Name="ElementMinistryData" EntityType="RacModel.ElementMinistryData" />
+          <EntitySet Name="CompetencyMinistryData" EntityType="RacModel.CompetencyMinistryData" />
+          <EntitySet Name="ProgramMinistryData" EntityType="RacModel.ProgramMinistryData" />
+          <EntitySet Name="CourseMinistryData" EntityType="RacModel.CourseMinistryData" />
+          <AssociationSet Name="CourseMinistryDataCourse" Association="RacModel.CourseMinistryDataCourse">
+            <End Role="CourseMinistryData" EntitySet="CourseMinistryData" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="CourseProgram" Association="RacModel.CourseProgram">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Program" EntitySet="Program" />
+          </AssociationSet>
+          <AssociationSet Name="ProgramMinistryDataProgram" Association="RacModel.ProgramMinistryDataProgram">
+            <End Role="ProgramMinistryData" EntitySet="ProgramMinistryData" />
+            <End Role="Program" EntitySet="Program" />
+          </AssociationSet>
+          <AssociationSet Name="CompetencyMinistryDataCompetency" Association="RacModel.CompetencyMinistryDataCompetency">
+            <End Role="CompetencyMinistryData" EntitySet="CompetencyMinistryData" />
+            <End Role="Competency" EntitySet="Competency" />
+          </AssociationSet>
+          <AssociationSet Name="CompetencyProgram" Association="RacModel.CompetencyProgram">
+            <End Role="Competency" EntitySet="Competency" />
+            <End Role="Program" EntitySet="Program" />
+          </AssociationSet>
+          <AssociationSet Name="ProgramRACRequest" Association="RacModel.ProgramRACRequest">
+            <End Role="Program" EntitySet="Program" />
+            <End Role="RACRequest" EntitySet="RACRequest" />
+          </AssociationSet>
+          <AssociationSet Name="CompetencyRACRequestCompetency" Association="RacModel.CompetencyRACRequestCompetency">
+            <End Role="Competency" EntitySet="Competency" />
+            <End Role="RACRequestCompetency" EntitySet="RACRequestCompetency" />
+          </AssociationSet>
+          <AssociationSet Name="CompetencyCompetencyElement" Association="RacModel.CompetencyCompetencyElement">
+            <End Role="Competency" EntitySet="Competency" />
+            <End Role="CompetencyElement" EntitySet="CompetencyElement" />
+          </AssociationSet>
+          <AssociationSet Name="CompetencyElementRACRequestCompetencyElements" Association="RacModel.CompetencyElementRACRequestCompetencyElements">
+            <End Role="CompetencyElement" EntitySet="CompetencyElement" />
+            <End Role="RACRequestCompetencyElements" EntitySet="RACRequestCompetencyElement" />
+          </AssociationSet>
+          <AssociationSet Name="ElementMinistryDataCompetencyElement" Association="RacModel.ElementMinistryDataCompetencyElement">
+            <End Role="ElementMinistryData" EntitySet="ElementMinistryData" />
+            <End Role="CompetencyElement" EntitySet="CompetencyElement" />
+          </AssociationSet>
+          <AssociationSet Name="CourseCompetencyCourse" Association="RacModel.CourseCompetencyCourse">
+            <End Role="CourseCompetency" EntitySet="CourseCompetency" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="CourseCompetencyCompetency" Association="RacModel.CourseCompetencyCompetency">
+            <End Role="CourseCompetency" EntitySet="CourseCompetency" />
+            <End Role="Competency" EntitySet="Competency" />
+          </AssociationSet>
+          <EntitySet Name="C__MigrationHistory" EntityType="RacModel.C__MigrationHistory" />
+          <EntitySet Name="aspnet_Applications" EntityType="RacModel.aspnet_Applications" />
+          <EntitySet Name="aspnet_Membership" EntityType="RacModel.aspnet_Membership" />
+          <EntitySet Name="aspnet_Paths" EntityType="RacModel.aspnet_Paths" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="RacModel.aspnet_PersonalizationAllUsers" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="RacModel.aspnet_PersonalizationPerUser" />
+          <EntitySet Name="aspnet_Profile" EntityType="RacModel.aspnet_Profile" />
+          <EntitySet Name="aspnet_Roles" EntityType="RacModel.aspnet_Roles" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="RacModel.aspnet_SchemaVersions" />
+          <EntitySet Name="aspnet_Users" EntityType="RacModel.aspnet_Users" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="RacModel.aspnet_WebEvent_Events" />
+          <EntitySet Name="AspNetRoles" EntityType="RacModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="RacModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="RacModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="RacModel.AspNetUser" />
+          <EntitySet Name="sysdiagrams" EntityType="RacModel.sysdiagram" />
+          <AssociationSet Name="FK__aspnet_Me__Appli__34BEB830" Association="RacModel.FK__aspnet_Me__Appli__34BEB830">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pa__Appli__6DF7358C" Association="RacModel.FK__aspnet_Pa__Appli__6DF7358C">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Ro__Appli__5713D034" Association="RacModel.FK__aspnet_Ro__Appli__5713D034">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__Appli__20B7BF83" Association="RacModel.FK__aspnet_Us__Appli__20B7BF83">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Me__UserI__35B2DC69" Association="RacModel.FK__aspnet_Me__UserI__35B2DC69">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__75985754" Association="RacModel.FK__aspnet_Pe__PathI__75985754">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__7B5130AA" Association="RacModel.FK__aspnet_Pe__PathI__7B5130AA">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__UserI__7C4554E3" Association="RacModel.FK__aspnet_Pe__UserI__7C4554E3">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pr__UserI__4BA21D88" Association="RacModel.FK__aspnet_Pr__UserI__4BA21D88">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="RacModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="RacModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="aspnet_UsersInRoles" Association="RacModel.aspnet_UsersInRoles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="RacModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="RACRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubmissionDate" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="IsGenEdOnly" Nullable="false" Type="Boolean" />
+          <NavigationProperty Name="RACRequestCompetencies" Relationship="RacModel.RACRequestCompetencyRACRequest" FromRole="RACRequest" ToRole="RACRequestCompetency" />
+          <NavigationProperty Name="Candidate" Relationship="RacModel.CandidateRACRequest" FromRole="RACRequest" ToRole="Candidate" />
+          <NavigationProperty Name="UploadedDocuments" Relationship="RacModel.RACRequestUploadedDocument" FromRole="RACRequest" ToRole="UploadedDocument" />
+          <NavigationProperty Name="Program" Relationship="RacModel.ProgramRACRequest" FromRole="RACRequest" ToRole="Program" />
+          <Property Name="ProgramId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UploadedDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Binary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="RACRequest" Relationship="RacModel.RACRequestUploadedDocument" FromRole="UploadedDocument" ToRole="RACRequest" />
+          <Property Name="RACRequestId" Type="Int32" Nullable="false" />
+          <Property Name="DateUploaded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsAddedByRACAdvisor" Type="Boolean" Nullable="false" />
+          <Property Name="IsOpened" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="HomePhone" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="WorkPhone" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CompetencyComments" Relationship="RacModel.UserCompetencyComment" FromRole="User" ToRole="CompetencyComment" />
+        </EntityType>
+        <EntityType Name="ContentSpecialist" BaseType="RacModel.User">
+          <Property Name="DepartmentId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Candidate" BaseType="RacModel.User">
+          <Property Name="Street" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Province" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PreferredMethodOfContact" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="RACRequest" Relationship="RacModel.CandidateRACRequest" FromRole="Candidate" ToRole="RACRequest" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsArchived" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="RACAdvisorNotifications" Relationship="RacModel.RACAdvisorNotificationsCandidate" FromRole="Candidate" ToRole="RACAdvisorNotifications" />
+          <Property Name="IsPrivacyPolicyAccepted" Type="Boolean" Nullable="false" />
+          <Property Name="DateRegistered" Type="DateTime" Nullable="false" Precision="3" >
+            <Documentation>
+              <LongDescription>[Column(TypeName = "datetime2")]</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="RegistrationIP" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="FinalizedRACContract" Relationship="RacModel.CandidateFinalizedRACContracts" FromRole="Candidate" ToRole="FinalizedRACContracts" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Courses" Relationship="RacModel.CourseProgram" FromRole="Program" ToRole="Course" />
+          <NavigationProperty Name="ProgramMinistryData" Relationship="RacModel.ProgramMinistryDataProgram" FromRole="Program" ToRole="ProgramMinistryData" />
+          <Property Name="ProgramMinistryDataId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Competencies" Relationship="RacModel.CompetencyProgram" FromRole="Program" ToRole="Competency" />
+          <NavigationProperty Name="RACRequests" Relationship="RacModel.ProgramRACRequest" FromRole="Program" ToRole="RACRequest" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+          <Property Name="DateExpired" Type="DateTime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Competency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CompetencyMinistryData" Relationship="RacModel.CompetencyMinistryDataCompetency" FromRole="Competency" ToRole="CompetencyMinistryData" />
+          <Property Name="CompetencyMinistryDataId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Program" Relationship="RacModel.CompetencyProgram" FromRole="Competency" ToRole="Program" />
+          <Property Name="ProgramId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RACRequestCompetencies" Relationship="RacModel.CompetencyRACRequestCompetency" FromRole="Competency" ToRole="RACRequestCompetency" />
+          <NavigationProperty Name="CompetencyElements" Relationship="RacModel.CompetencyCompetencyElement" FromRole="Competency" ToRole="CompetencyElement" />
+          <NavigationProperty Name="CourseCompetencies" Relationship="RacModel.CourseCompetencyCompetency" FromRole="Competency" ToRole="CourseCompetency" />
+        </EntityType>
+        <EntityType Name="RACRequestCompetency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="RACRequestCompetencyElements" Relationship="RacModel.RACRequestCompetencyElementsRACRequestCompetency" FromRole="RACRequestCompetency" ToRole="RACRequestCompetencyElements" />
+          <NavigationProperty Name="RACRequest" Relationship="RacModel.RACRequestCompetencyRACRequest" FromRole="RACRequestCompetency" ToRole="RACRequest" />
+          <Property Name="RACRequestId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CompetencyComments" Relationship="RacModel.RACRequestCompetencyCompetencyComment" FromRole="RACRequestCompetency" ToRole="CompetencyComment" />
+          <NavigationProperty Name="Competency" Relationship="RacModel.CompetencyRACRequestCompetency" FromRole="RACRequestCompetency" ToRole="Competency" />
+          <Property Name="CompetencyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RACRequestCompetencyElement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Answer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RACRequestCompetency" Relationship="RacModel.RACRequestCompetencyElementsRACRequestCompetency" FromRole="RACRequestCompetencyElements" ToRole="RACRequestCompetency" />
+          <Property Name="RACRequestCompetencyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CompetencyElement" Relationship="RacModel.CompetencyElementRACRequestCompetencyElements" FromRole="RACRequestCompetencyElements" ToRole="CompetencyElement" />
+          <Property Name="CompetencyElementId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompetencyElement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Competency" Relationship="RacModel.CompetencyCompetencyElement" FromRole="CompetencyElement" ToRole="Competency" />
+          <Property Name="CompetencyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RACRequestCompetencyElements" Relationship="RacModel.CompetencyElementRACRequestCompetencyElements" FromRole="CompetencyElement" ToRole="RACRequestCompetencyElements" />
+          <NavigationProperty Name="ElementMinistryData" Relationship="RacModel.ElementMinistryDataCompetencyElement" FromRole="CompetencyElement" ToRole="ElementMinistryData" />
+          <Property Name="ElementMinistryDataId" Type="Int32" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+          <Property Name="DateExpired" Type="DateTime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CompetencyComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="RACRequestCompetency" Relationship="RacModel.RACRequestCompetencyCompetencyComment" FromRole="CompetencyComment" ToRole="RACRequestCompetency" />
+          <Property Name="RACRequestCompetencyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="RacModel.UserCompetencyComment" FromRole="CompetencyComment" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="RACRequestCompetencyElementsRACRequestCompetency">
+          <End Type="RacModel.RACRequestCompetencyElement" Role="RACRequestCompetencyElements" Multiplicity="*" />
+          <End Type="RacModel.RACRequestCompetency" Role="RACRequestCompetency" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="RACRequestCompetency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RACRequestCompetencyElements">
+              <PropertyRef Name="RACRequestCompetencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RACRequestCompetencyRACRequest">
+          <End Type="RacModel.RACRequestCompetency" Role="RACRequestCompetency" Multiplicity="*" />
+          <End Type="RacModel.RACRequest" Role="RACRequest" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="RACRequest">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RACRequestCompetency">
+              <PropertyRef Name="RACRequestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RACRequestCompetencyCompetencyComment">
+          <End Type="RacModel.RACRequestCompetency" Role="RACRequestCompetency" Multiplicity="1" />
+          <End Type="RacModel.CompetencyComment" Role="CompetencyComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RACRequestCompetency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompetencyComment">
+              <PropertyRef Name="RACRequestCompetencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CandidateRACRequest">
+          <End Type="RacModel.Candidate" Multiplicity="1" Role="Candidate" />
+          <End Type="RacModel.RACRequest" Multiplicity="1" Role="RACRequest" />
+        </Association>
+        <Association Name="UserCompetencyComment">
+          <End Type="RacModel.User" Role="User" Multiplicity="1" />
+          <End Type="RacModel.CompetencyComment" Role="CompetencyComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompetencyComment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RACRequestUploadedDocument">
+          <End Type="RacModel.RACRequest" Role="RACRequest" Multiplicity="1" />
+          <End Type="RacModel.UploadedDocument" Role="UploadedDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RACRequest">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UploadedDocument">
+              <PropertyRef Name="RACRequestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FinalizedRACContract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Binary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DateUploaded" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Candidate" Relationship="RacModel.CandidateFinalizedRACContracts" FromRole="FinalizedRACContracts" ToRole="Candidate" />
+        </EntityType>
+        <EntityType Name="RACNotification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationType" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Candidate" Relationship="RacModel.RACAdvisorNotificationsCandidate" FromRole="RACAdvisorNotifications" ToRole="Candidate" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="RACAdvisorNotificationsCandidate">
+          <End Type="RacModel.RACNotification" Role="RACAdvisorNotifications" Multiplicity="*" />
+          <End Type="RacModel.Candidate" Role="Candidate" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RACAdvisorNotifications">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CandidateFinalizedRACContracts">
+          <End Type="RacModel.Candidate" Role="Candidate" Multiplicity="1" />
+          <End Type="RacModel.FinalizedRACContract" Role="FinalizedRACContracts" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CourseMinistryData" Relationship="RacModel.CourseMinistryDataCourse" FromRole="Course" ToRole="CourseMinistryData" />
+          <Property Name="CourseMinistryDataId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Program" Relationship="RacModel.CourseProgram" FromRole="Course" ToRole="Program" />
+          <Property Name="ProgramId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CourseCompetencies" Relationship="RacModel.CourseCompetencyCourse" FromRole="Course" ToRole="CourseCompetency" />
+        </EntityType>
+        <EntityType Name="CourseCompetency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Course" Relationship="RacModel.CourseCompetencyCourse" FromRole="CourseCompetency" ToRole="Course" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Competency" Relationship="RacModel.CourseCompetencyCompetency" FromRole="CourseCompetency" ToRole="Competency" />
+          <Property Name="CompetencyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ElementMinistryData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="MinistryId" Type="Int32" Nullable="true" />
+          <Property Name="MinistryCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="CompetencyElements" Relationship="RacModel.ElementMinistryDataCompetencyElement" FromRole="ElementMinistryData" ToRole="CompetencyElement" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+          <Property Name="DateExpired" Type="DateTime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CompetencyMinistryData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="IsGenEd" Type="Boolean" Nullable="false" />
+          <Property Name="MinistryId" Type="Int32" Nullable="false" />
+          <Property Name="MinistryCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="Competencies" Relationship="RacModel.CompetencyMinistryDataCompetency" FromRole="CompetencyMinistryData" ToRole="Competency" />
+        </EntityType>
+        <EntityType Name="ProgramMinistryData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="MinistryId" Type="Int32" Nullable="true" />
+          <Property Name="MinistryCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="Programs" Relationship="RacModel.ProgramMinistryDataProgram" FromRole="ProgramMinistryData" ToRole="Program" />
+        </EntityType>
+        <EntityType Name="CourseMinistryData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="MinistryId" Type="Int32" Nullable="true" />
+          <Property Name="MinistryCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="Courses" Relationship="RacModel.CourseMinistryDataCourse" FromRole="CourseMinistryData" ToRole="Course" />
+          <Property Name="CourseType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="CourseMinistryDataCourse">
+          <End Type="RacModel.CourseMinistryData" Role="CourseMinistryData" Multiplicity="1" />
+          <End Type="RacModel.Course" Role="Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseMinistryData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="CourseMinistryDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CourseProgram">
+          <End Type="RacModel.Course" Role="Course" Multiplicity="*" />
+          <End Type="RacModel.Program" Role="Program" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="ProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProgramMinistryDataProgram">
+          <End Type="RacModel.ProgramMinistryData" Role="ProgramMinistryData" Multiplicity="1" />
+          <End Type="RacModel.Program" Role="Program" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramMinistryData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Program">
+              <PropertyRef Name="ProgramMinistryDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompetencyMinistryDataCompetency">
+          <End Type="RacModel.CompetencyMinistryData" Role="CompetencyMinistryData" Multiplicity="1" />
+          <End Type="RacModel.Competency" Role="Competency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyMinistryData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Competency">
+              <PropertyRef Name="CompetencyMinistryDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompetencyProgram">
+          <End Type="RacModel.Competency" Role="Competency" Multiplicity="*" />
+          <End Type="RacModel.Program" Role="Program" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Competency">
+              <PropertyRef Name="ProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProgramRACRequest">
+          <End Type="RacModel.Program" Role="Program" Multiplicity="1" />
+          <End Type="RacModel.RACRequest" Role="RACRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RACRequest">
+              <PropertyRef Name="ProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompetencyRACRequestCompetency">
+          <End Type="RacModel.Competency" Role="Competency" Multiplicity="1" />
+          <End Type="RacModel.RACRequestCompetency" Role="RACRequestCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RACRequestCompetency">
+              <PropertyRef Name="CompetencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompetencyCompetencyElement">
+          <End Type="RacModel.Competency" Role="Competency" Multiplicity="1" />
+          <End Type="RacModel.CompetencyElement" Role="CompetencyElement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompetencyElement">
+              <PropertyRef Name="CompetencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompetencyElementRACRequestCompetencyElements">
+          <End Type="RacModel.CompetencyElement" Role="CompetencyElement" Multiplicity="1" />
+          <End Type="RacModel.RACRequestCompetencyElement" Role="RACRequestCompetencyElements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyElement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RACRequestCompetencyElements">
+              <PropertyRef Name="CompetencyElementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ElementMinistryDataCompetencyElement">
+          <End Type="RacModel.ElementMinistryData" Role="ElementMinistryData" Multiplicity="1" />
+          <End Type="RacModel.CompetencyElement" Role="CompetencyElement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ElementMinistryData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompetencyElement">
+              <PropertyRef Name="ElementMinistryDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CourseCompetencyCourse">
+          <End Type="RacModel.CourseCompetency" Role="CourseCompetency" Multiplicity="*" />
+          <End Type="RacModel.Course" Role="Course" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CourseCompetency">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CourseCompetencyCompetency">
+          <End Type="RacModel.CourseCompetency" Role="CourseCompetency" Multiplicity="*" />
+          <End Type="RacModel.Competency" Role="Competency" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Competency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CourseCompetency">
+              <PropertyRef Name="CompetencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="RacModel.FK__aspnet_Me__Appli__34BEB830" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="RacModel.FK__aspnet_Pa__Appli__6DF7358C" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="RacModel.FK__aspnet_Ro__Appli__5713D034" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="aspnet_Users" Relationship="RacModel.FK__aspnet_Us__Appli__20B7BF83" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="MobilePIN" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="RacModel.FK__aspnet_Me__Appli__34BEB830" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="RacModel.FK__aspnet_Me__UserI__35B2DC69" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredPath" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="RacModel.FK__aspnet_Pa__Appli__6DF7358C" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="RacModel.FK__aspnet_Pe__PathI__75985754" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="RacModel.FK__aspnet_Pe__PathI__7B5130AA" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="RacModel.FK__aspnet_Pe__PathI__75985754" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="RacModel.FK__aspnet_Pe__PathI__7B5130AA" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Users" Relationship="RacModel.FK__aspnet_Pe__UserI__7C4554E3" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="PropertyNames" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyValuesString" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyValuesBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Users" Relationship="RacModel.FK__aspnet_Pr__UserI__4BA21D88" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="RacModel.FK__aspnet_Ro__Appli__5713D034" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="RacModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+          </Key>
+          <Property Name="Feature" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CompatibleSchemaVersion" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="RacModel.FK__aspnet_Us__Appli__20B7BF83" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="RacModel.FK__aspnet_Me__UserI__35B2DC69" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="RacModel.FK__aspnet_Pe__UserI__7C4554E3" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+          <NavigationProperty Name="aspnet_Profile" Relationship="RacModel.FK__aspnet_Pr__UserI__4BA21D88" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="RacModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+          <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventType" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EventSequence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="EventOccurrence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="EventCode" Type="Int32" Nullable="false" />
+          <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MachineName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="RequestUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ExceptionType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="RacModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="RacModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="RacModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="RacModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="RacModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="RacModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__Appli__34BEB830">
+          <End Type="RacModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+          <End Type="RacModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pa__Appli__6DF7358C">
+          <End Type="RacModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+          <End Type="RacModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Paths">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Ro__Appli__5713D034">
+          <End Type="RacModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+          <End Type="RacModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Roles">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__Appli__20B7BF83">
+          <End Type="RacModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+          <End Type="RacModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Users">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Me__UserI__35B2DC69">
+          <End Type="RacModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="RacModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__75985754">
+          <End Type="RacModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="1" />
+          <End Type="RacModel.aspnet_PersonalizationAllUsers" Role="aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationAllUsers">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__7B5130AA">
+          <End Type="RacModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="0..1" />
+          <End Type="RacModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__UserI__7C4554E3">
+          <End Type="RacModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
+          <End Type="RacModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pr__UserI__4BA21D88">
+          <End Type="RacModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="RacModel.aspnet_Profile" Role="aspnet_Profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="RacModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="RacModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="RacModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="RacModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="aspnet_UsersInRoles">
+          <End Type="RacModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+          <End Type="RacModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="RacModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="RacModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RacModelStoreContainer" CdmEntityContainer="RacModelContainer">
+    <EntitySetMapping Name="RACRequest">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.RACRequest)">
+        <MappingFragment StoreEntitySet="RACRequest">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubmissionDate" ColumnName="SubmissionDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsGenEdOnly" ColumnName="IsGenEdOnly" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UploadedDocument">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.UploadedDocument)">
+        <MappingFragment StoreEntitySet="UploadedDocument">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Binary" ColumnName="Binary" />
+          <ScalarProperty Name="RACRequestId" ColumnName="RACRequestId" />
+          <ScalarProperty Name="DateUploaded" ColumnName="DateUploaded" />
+          <ScalarProperty Name="IsAddedByRACAdvisor" ColumnName="IsAddedByRACAdvisor" />
+          <ScalarProperty Name="IsOpened" ColumnName="IsOpened" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.User)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.Candidate)">
+        <MappingFragment StoreEntitySet="User_Candidate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PreferredMethodOfContact" ColumnName="PreferredMethodOfContact" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+          <ScalarProperty Name="IsPrivacyPolicyAccepted" ColumnName="IsPrivacyPolicyAccepted" />
+          <ScalarProperty Name="DateRegistered" ColumnName="DateRegistered" />
+          <ScalarProperty Name="RegistrationIP" ColumnName="RegistrationIP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.ContentSpecialist)">
+        <MappingFragment StoreEntitySet="User_ContentSpecialist">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Program">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.Program)">
+        <MappingFragment StoreEntitySet="Program">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ProgramMinistryDataId" ColumnName="ProgramMinistryDataId" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Competency">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.Competency)">
+        <MappingFragment StoreEntitySet="Competency">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompetencyMinistryDataId" ColumnName="CompetencyMinistryDataId" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RACRequestCompetency">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.RACRequestCompetency)">
+        <MappingFragment StoreEntitySet="RACRequestCompetency">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RACRequestId" ColumnName="RACRequestId" />
+          <ScalarProperty Name="CompetencyId" ColumnName="CompetencyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RACRequestCompetencyElement">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.RACRequestCompetencyElement)">
+        <MappingFragment StoreEntitySet="RACRequestCompetencyElement">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="RACRequestCompetencyId" ColumnName="RACRequestCompetencyId" />
+          <ScalarProperty Name="CompetencyElementId" ColumnName="CompetencyElementId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompetencyElement">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.CompetencyElement)">
+        <MappingFragment StoreEntitySet="CompetencyElement">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompetencyId" ColumnName="CompetencyId" />
+          <ScalarProperty Name="ElementMinistryDataId" ColumnName="ElementMinistryDataId" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompetencyComment">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.CompetencyComment)">
+        <MappingFragment StoreEntitySet="CompetencyComment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="RACRequestCompetencyId" ColumnName="RACRequestCompetencyId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinalizedRACContract">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.FinalizedRACContract)">
+        <MappingFragment StoreEntitySet="FinalizedRACContract">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Binary" ColumnName="Binary" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DateUploaded" ColumnName="DateUploaded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RACNotification">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.RACNotification)">
+        <MappingFragment StoreEntitySet="RACNotification">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Course">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.Course)">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CourseMinistryDataId" ColumnName="CourseMinistryDataId" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseCompetency">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.CourseCompetency)">
+        <MappingFragment StoreEntitySet="CourseCompetency">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CompetencyId" ColumnName="CompetencyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElementMinistryData">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.ElementMinistryData)">
+        <MappingFragment StoreEntitySet="ElementMinistryData">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+          <ScalarProperty Name="MinistryCode" ColumnName="MinistryCode" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompetencyMinistryData">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.CompetencyMinistryData)">
+        <MappingFragment StoreEntitySet="CompetencyMinistryData">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsGenEd" ColumnName="IsGenEd" />
+          <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+          <ScalarProperty Name="MinistryCode" ColumnName="MinistryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramMinistryData">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.ProgramMinistryData)">
+        <MappingFragment StoreEntitySet="ProgramMinistryData">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+          <ScalarProperty Name="MinistryCode" ColumnName="MinistryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseMinistryData">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.CourseMinistryData)">
+        <MappingFragment StoreEntitySet="CourseMinistryData">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+          <ScalarProperty Name="MinistryCode" ColumnName="MinistryCode" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.C__MigrationHistory)">
+        <MappingFragment StoreEntitySet="C__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Applications">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.aspnet_Applications)">
+        <MappingFragment StoreEntitySet="aspnet_Applications">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Membership">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.aspnet_Membership)">
+        <MappingFragment StoreEntitySet="aspnet_Membership">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Paths">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.aspnet_Paths)">
+        <MappingFragment StoreEntitySet="aspnet_Paths">
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.aspnet_PersonalizationAllUsers)">
+        <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_PersonalizationPerUser">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.aspnet_PersonalizationPerUser)">
+        <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Profile">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.aspnet_Profile)">
+        <MappingFragment StoreEntitySet="aspnet_Profile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+          <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+          <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.aspnet_Roles)">
+        <MappingFragment StoreEntitySet="aspnet_Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_SchemaVersions">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.aspnet_SchemaVersions)">
+        <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+          <ScalarProperty Name="Feature" ColumnName="Feature" />
+          <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+          <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Users">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.aspnet_Users)">
+        <MappingFragment StoreEntitySet="aspnet_Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_WebEvent_Events">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.aspnet_WebEvent_Events)">
+        <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventType" ColumnName="EventType" />
+          <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+          <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+          <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+          <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+          <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+          <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.AspNetRole)">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.AspNetUserClaim)">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.AspNetUserLogin)">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.AspNetUser)">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(RacModel.sysdiagram)">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CandidateRACRequest" TypeName="RacModel.CandidateRACRequest" StoreEntitySet="User_Candidate">
+      <EndProperty Name="RACRequest">
+        <ScalarProperty Name="Id" ColumnName="RACRequest_Id" />
+      </EndProperty>
+      <EndProperty Name="Candidate">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CandidateFinalizedRACContracts" TypeName="RacModel.CandidateFinalizedRACContracts" StoreEntitySet="FinalizedRACContract">
+      <EndProperty Name="Candidate">
+        <ScalarProperty Name="Id" ColumnName="Candidate_Id" />
+      </EndProperty>
+      <EndProperty Name="FinalizedRACContracts">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="RacModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+      <EndProperty Name="aspnet_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="aspnet_Roles_RoleId" />
+      </EndProperty>
+      <EndProperty Name="aspnet_Users">
+        <ScalarProperty Name="UserId" ColumnName="aspnet_Users_UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="RacModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

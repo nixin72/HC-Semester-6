@@ -1,0 +1,54 @@
+﻿@model CSAdminMVC.Models.LoginModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/login.css")
+<h1>Login</h1>
+<p>
+    Welcome to the CSAdmin System. In order to access the secure system, you
+    must be a administrator at Heritage College. To login, enter your Heritage network username and password.
+</p>
+<div class="loginFieldsDiv">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+            <div class="form-group">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new {@class = "control-label col-xs-2"})
+                <div class="col-xs-3">
+                    <div class="loginFields">
+                        @Html.EditorFor(model => model.Username, new {htmlAttributes = new {@class = "form-control"}})
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Username, "", new {@class = "text-danger"})
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.password, htmlAttributes: new {@class = "control-label col-xs-2"})
+                <div class="col-xs-3">
+                    <div class="loginFields">
+                        @Html.PasswordFor(model => model.password, new {@class = "form-control"})
+                    </div>
+                    @Html.ValidationMessageFor(model => model.password, "", new {@class = "text-danger"})
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Log In" class="btn btn-default"/>
+                </div>
+            </div>
+        </div>
+        if (ViewBag.LoginFailed ?? false)
+        {
+            <p class="text-danger">Login failed</p>
+        }
+    }
+
+</div>

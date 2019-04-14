@@ -1,0 +1,10 @@
+H:\Maintenance\CSAdmin\CSAdmin-2018-MR-Team1\CSAdminCode\bin\Debug\CSAdminCode.dll
+H:\Maintenance\CSAdmin\CSAdmin-2018-MR-Team1\CSAdminCode\bin\Debug\CSAdminCode.pdb
+H:\Maintenance\CSAdmin\CSAdmin-2018-MR-Team1\CSAdminCode\bin\Debug\CSAdminCode.xml
+H:\Maintenance\CSAdmin\CSAdmin-2018-MR-Team1\CSAdminCode\bin\Debug\AjaxControlToolkit.dll
+H:\Maintenance\CSAdmin\CSAdmin-2018-MR-Team1\CSAdminCode\obj\Debug\CSAdminCode.vbprojResolveAssemblyReference.cache
+H:\Maintenance\CSAdmin\CSAdmin-2018-MR-Team1\CSAdminCode\obj\Debug\CSAdminCode.Resources.resources
+H:\Maintenance\CSAdmin\CSAdmin-2018-MR-Team1\CSAdminCode\obj\Debug\CSAdminCode.vbproj.GenerateResource.Cache
+H:\Maintenance\CSAdmin\CSAdmin-2018-MR-Team1\CSAdminCode\obj\Debug\CSAdminCode.dll
+H:\Maintenance\CSAdmin\CSAdmin-2018-MR-Team1\CSAdminCode\obj\Debug\CSAdminCode.xml
+H:\Maintenance\CSAdmin\CSAdmin-2018-MR-Team1\CSAdminCode\obj\Debug\CSAdminCode.pdb

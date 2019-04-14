@@ -1,0 +1,83 @@
+﻿@model IEnumerable<RAC.RACModels.Program>
+
+@{
+    ViewBag.Title = "View All Programs";
+    ViewBag.User = "RACAdvisor";
+}
+<h2>View Programs</h2>
+
+<p>
+    @Html.ActionLink("Import Program", "CreateProgram")
+</p>
+<p>
+    @Html.ActionLink("View All Competency Elements", "ViewElements")
+</p>
+
+<div id="res">
+
+    @Html.Partial("_Programs", Model)
+    
+</div>
+
+
+
+
+
+<div id="confirmDelete" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Confirm Delete</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <b class="courseName"></b></p>
+            </div>
+            <div class="modal-footer">
+                <button id="ConfirmDelete" class="btn btn-danger">Confirm Delete</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function() {
+            $('.Delete').click(function() {
+                Delete($(this));
+            });
+
+            function Delete(instance) {
+                $("#ConfirmDelete").off();
+                var description = $(instance).closest('tr').find('.description').text();
+                $("#ConfirmDelete").click(function() {
+                    $.ajax({
+                        url: '@Url.Action("DeleteProgram", "RACAdvisor")',
+                        data: AddAntiForgeryToken({ id: instance.attr('id') }),
+                        error: function() {},
+                        dataType: 'html',
+                        success: function(data) {
+                            $("#confirmDelete").modal('hide');
+                            $("#res").html(data);
+                            //$('.Delete').off();
+                            //$('.Delete').click(function () {
+                            //    Delete($(this));
+                            //})
+                        },
+                        type: 'POST'
+                    });
+                });
+
+            }
+        });
+
+        function AddAntiForgeryToken(data) {
+            data.__RequestVerificationToken = $('input[name=__RequestVerificationToken]').val();
+            return data;
+        }
+    </script>
+}

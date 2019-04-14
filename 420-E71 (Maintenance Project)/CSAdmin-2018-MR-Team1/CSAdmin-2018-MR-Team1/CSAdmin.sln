@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSAdmin2", "CSAdmin2\CSAdmin2.csproj", "{75A6026A-A640-4481-99A3-83E3A1410458}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSAdminTest", "CSAdminTest\CSAdminTest.csproj", "{26D9CC09-27D4-4F6F-8D9F-5F971F5499A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSAdminMVC", "CSAdminMVC\CSAdminMVC.csproj", "{A19794C0-766D-42E0-A20B-8471568B5ADA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Test|Any CPU = Test|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75A6026A-A640-4481-99A3-83E3A1410458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75A6026A-A640-4481-99A3-83E3A1410458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75A6026A-A640-4481-99A3-83E3A1410458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75A6026A-A640-4481-99A3-83E3A1410458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75A6026A-A640-4481-99A3-83E3A1410458}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{75A6026A-A640-4481-99A3-83E3A1410458}.Test|Any CPU.Build.0 = Release|Any CPU
+		{26D9CC09-27D4-4F6F-8D9F-5F971F5499A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26D9CC09-27D4-4F6F-8D9F-5F971F5499A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26D9CC09-27D4-4F6F-8D9F-5F971F5499A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26D9CC09-27D4-4F6F-8D9F-5F971F5499A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26D9CC09-27D4-4F6F-8D9F-5F971F5499A1}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{26D9CC09-27D4-4F6F-8D9F-5F971F5499A1}.Test|Any CPU.Build.0 = Release|Any CPU
+		{A19794C0-766D-42E0-A20B-8471568B5ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19794C0-766D-42E0-A20B-8471568B5ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19794C0-766D-42E0-A20B-8471568B5ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19794C0-766D-42E0-A20B-8471568B5ADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A19794C0-766D-42E0-A20B-8471568B5ADA}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{A19794C0-766D-42E0-A20B-8471568B5ADA}.Test|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {242BFC5B-2F54-4CD4-B3E3-F311E851DFF6}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://cstfs.cegep-heritage.qc.ca:8080/tfs/csadmin
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CSAdmin2\\CSAdmin2.csproj
+		SccProjectName1 = CSAdmin2
+		SccLocalPath1 = CSAdmin2
+		SccProjectUniqueName2 = CSAdminMVC\\CSAdminMVC.csproj
+		SccProjectName2 = CSAdminMVC
+		SccLocalPath2 = CSAdminMVC
+		SccProjectUniqueName3 = CSAdminTest\\CSAdminTest.csproj
+		SccProjectName3 = CSAdminTest
+		SccLocalPath3 = CSAdminTest
+	EndGlobalSection
+EndGlobal

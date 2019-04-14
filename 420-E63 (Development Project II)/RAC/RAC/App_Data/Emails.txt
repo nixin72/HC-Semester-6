@@ -1,0 +1,141 @@
+Please confirm your account by clicking <a href="http://localhost:23799/Account/ConfirmEmail?userId=20f6c1d7-4ab0-4c03-80d2-b30f430ec1fa&code=%2FK5ovUrV4IeAaGP0XH3EM%2F52ja2ov5nWdTtr1Qu7geud7bexKEwpR2g%2FVs4%2BbqTg5GLRbHBCuVUcg3CgPizbF%2Bai3hiUp%2F6X1ZNEVXyUoemo2jTXRWMaKc17pAxRUyh0u%2FojobrO1M3nIYKTxqAc259FPkHkqx0Gc1wRBR%2FpX5bIeos6etzKme0UoaxbcSro">here</a>
+Please confirm your account by clicking <a href="http://localhost:23799/Account/ConfirmEmail?userId=067a3170-5fa4-40d2-8341-2e6aaf035af3&code=tZpVX2ZEH%2FZ044T0KQmNHTcE0eFuGurZTfJbKL6UQMY8oSN1TuT%2FSoDpHK4hb5bqvrvHHUca09lEj5PNMQECSR%2F1ATHclf6p10NAdbY9YpzdfK8nRLodhccoMH9J%2BHRy1lwz89q9DcrX68bF%2FQDsjJ1H%2BdITmsKNDm6c7ZrkbJDcTAya%2F7mfxsr2QnwwEYlY">here</a>
+Please confirm your account by clicking <a href="http://localhost:23799/Account/ConfirmEmail?userId=ec5ce29d-6bbb-45ea-97da-f3cd10384bf2&code=E59KcIUUFhPc3zzskfILsk5q4SGvzK1TUs44Vpn0KoPYAZe4tQnbMi4RKpPQkEjJV66xCaivt7GU0f5GISBbXidaBuUP6XMGmIhm6bq1fs%2FDXR9V%2F0EbUSIbJH4lbspMih6TdbG6C4n0mKsSePL3vIHe7cj0LO1sV6rJ%2Bd99zEzZ%2B6O969RX8HmMoNvO8%2Bio">here</a>
+Please confirm your account by clicking <a href="http://localhost:23799/Account/ConfirmEmail?userId=fdfc3519-74b8-4416-addc-18492f2e2465&code=3c6Zdm%2FzAOFNEq2j%2FALymUDJ7Z3n5zxeNdvIpDkXMBWcPyUb2lxQIj25sGD%2FqVshOPsb%2FZ7R5UvLtGQ5nCg15D4tF6eoMzLuvo1uY3U3ZEeCNSsvu7Qtzn1aA7BZdZWfLtQmPH2%2BchgjAdblQnxPL6cHoMbKf4FwGuLVDZWbPReB0aMwxu9hAyx6e9LyAijq">here</a>
+Please confirm your account by clicking <a href="http://localhost:23799/Account/ConfirmEmail?userId=2442cbb0-f416-4099-911f-0e3c36a7d697&code=GmHaapjB1sv6DGCdm4bTGiXhZRRVPDQpt2gTlnfCsj6ahi7yRzkYCxQdwzVbRKkJfoQ5Qtynkp5IpGEAp3B8pYkiCfAr7rMbybPODuX6HfQfFY54woQxj9bX8MdbErElOGCjn0%2FDCeBCXazv36x8Iy4ThNOjxygFiQfIwr53UsOjXHMqfP4Ur42cZAMV17fX">here</a>
+
+ TO:braew1walker@live.ca
+ FROMpostmaster@cegep-heritage.qc.ca
+ MESSAGE:
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMpostmaster@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMpostmaster@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMpostmaster@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+ TO: ber.c@hotmail.ca
+ From: POSTMASTER 
+ Please confirm your account by clicking <a href="http://localhost:23799/Account/ConfirmEmail?userId=3e2cd19a-2c97-48b5-a900-7c9f241659c4&code=VLS0vQj1E6e2wHcziO8l3QZSEzrGbKvFsns1ZcQSeY1QKanvCVIJONImWbr%2FJ9WY%2BnTfMjD%2BgPpXdsWrYeuUuaH3aYOhKZn4Fj%2F5pGFE6aIrUqpUVUrlW%2B9V1xE%2FOJivBNXfmvVvQb4qQmOLNKkMe6OqNFa2cy8cxPftytBvbOQkl5LCxe6gSGrKz%2FoKEiZw">here</a>
+ ---------------------------------------
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMpostmaster@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+ TO: b@hotmail.ca
+ From: POSTMASTER 
+ Please confirm your account by clicking <a href="http://localhost:23799/Account/ConfirmEmail?userId=763fff8e-568e-4d2f-87f5-7d08faaacb93&code=%2FSLYn9lfbvx8%2FtWC%2BexAExeLdJg0nvG6QciSg%2BsjGvTqwaNtBQAU76ABlhR%2F0mNk%2FBa3Yn27IoBQVhCkyN4GGA7xBt3JFAeL6945ws%2Fq54iJACXZw4jMdF4mkSabMfTE5uCp6imFBlVx5WUZtKAjYbL061%2FhyXxBjXpcnGwzBdQbUjvZb5owdT9MKKHKH5ty">here</a>
+ ---------------------------------------
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMpostmaster@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+ TO: be@hotmail.ca
+ From: POSTMASTER 
+ Please confirm your account by clicking <a href="http://localhost:23799/Account/ConfirmEmail?userId=b818e179-fe6b-4dfb-af7b-b1cd18280b6c&code=ZoZgtoqDf29SC%2B3rAdQJdWcSl0LCTU1tCHDGpCPcaagtXp%2FM1gPv%2Ff9f1Tw852KLJD2kfRfC%2BZmr05WqDF3%2BAYf7kwmCAyIr7ZIduODZqUq46xCI5YeQCOUCd%2F8k%2B%2BcEKLuEzL2oFdNrLPj0hsonAkLVOKEITxpx50A%2F5GKolwXb4bDQdoDnfyu7OI7NS3Jj">here</a>
+ ---------------------------------------
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMpostmaster@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMpostmaster@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMpostmaster@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMpostmaster@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+
+ TO:braewwalker@live.caa
+ FROMNoReply@cegep-heritage.qc.ca
+ MESSAGE:Please confirm your account by clicking <a href='http://localhost:23799/Account/ConfirmEmail?userId=94d5c0de-1d16-47c7-bc81-edfe2611a173&code=FpXsNOEBj5rL4EVWTYn3UeczA4zrbO0ef0Us9R4%2BsmwxFJXvviEkfDD69BoIpVq0Gz%2FTmImtKalLz1jPe0MKR73iB76VeCRkIWo4xrO2TmZXRU1bRGVbuvi1f4TTRH6ptjodFg%2FiaxLx%2BXWvSm5%2BQrjGkcXPpFrSegW22AbBp6vcoQPiTpW0YFS7Po%2Fnl2yK">here</a>
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMNoReply@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+
+ TO:mikeySmitherson@gmail.com
+ FROMNoReply@cegep-heritage.qc.ca
+ MESSAGE:Please confirm your account by clicking <a href='http://localhost:23799/Account/ConfirmEmail?userId=60ce4862-2754-4e13-8c75-61a8df016adc&code=Esyizqy3uVxSMWlIHulVCp6Zg0Nx89oi78X%2BkW4BAu9syDkNIBmxxVurcTq8fo0xMNESGft%2Bckz4iZ4YDvN2pVD9YcUXSwXfqL4KSjQNMSziqkENc7YzKmqqtqeMQfIylKVzynfqGHfUnwDhVSPmVPnltF2vNVOBWG0IaIg%2BkcaaPorhkJwlDq4Z9f5QzNvM">here</a>
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMNoReply@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+ TO: mikeySmitherson@gmail.com
+ From: POSTMASTER 
+ Please reset your password by clicking < a href ="http://localhost:23799/Account/ResetPassword?userId=60ce4862-2754-4e13-8c75-61a8df016adc&code=FSkCWmplmrdRgE3V0xEBgu%2BoTDs8S6LAricSct%2FQ0MijGDxEwB0kxDu8EAn2G65Di3K9Z6LhyDB9OwgD40oDlKs%2BzqGbbAelBvnP6MycNSDByPK1qcUSa2ipRLq2IrGAoIGnH5NyQzzbM9uPOg9OwvkZAWOAtwyIARZZNt87LXt%2BJ3o3JZkjiFz8aOX47%2F81FQXD%2FYy1uBdML9u94ofAyA%3D%3D">here</a>
+ ---------------------------------------
+
+ TO:dude@bro.ca
+ FROMNoReply@cegep-heritage.qc.ca
+ MESSAGE:Please confirm your account by clicking <a href='http://localhost:23799/Account/ConfirmEmail?userId=74c57f90-58ba-410a-bd3a-4457b63013df&code=%2BzgaeEh3RuYhvW86Z99cqH0sjs4NRKvxnCvnvH1N79L2g%2BcQpN9uPvSUSnvJLbP4vc%2ByvJebe6otK4OiemzUiS3NQewgWubLCqy8G6fzW1KUswvNqdXGS9Wqey%2BtE0RYFw4j5711SwoMfxD34YxCYfn1nqcU9XwsV%2F6Sj8i643FP2hJ3ZRPTcUTydaPrbilf">here</a>
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMNoReply@cegep-heritage.qc.ca
+ MESSAGE:Hello Alain, <br /><br /> You are receiving this email to notify you that  has create a new account in the RAC system. <a href=''>Click here</a> to view their profile.
+ --------------------------------------- 
+
+
+ TO:cliff.jacked@buff.huge
+ FROMNoReply@cegep-heritage.qc.ca
+ MESSAGE:<html><head><style>body {background-image: url('../images/topbar-bg.gif'), url('../images/bg.gif');background-position: left top, left top;background-repeat: repeat-x, repeat;font-family: Verdana, sans-serif;font-size: 14px;}p {font-size: 14px;line-height: 1.7;}h1, h2, h3 {	/* color: #daa728; */	color: #bf8100;}.content {	background-color: #fff;	margin:10px;padding: 10px;}hr {border-top: 1px solid #d6d4d0;}</style></head><body><div class='content'><h1>Recognition of Acquired Competencies<h1><hr/><p>Please confirm your account by clicking <a href='http://localhost:23799/Account/ConfirmEmail?userId=2573e1e4-919e-4009-af4d-e70b9af87d5b&code=vzdiUDsMz6UySnT6bAgRSDpEDQwe3tqXrVjaNIUp02nvR1rewzzaxnfpocJ98qGnMGlHVrhIXx%2B%2BiFbn4gE1%2F%2F%2Fm3h1ymFNZJzFxI1mt5cEO3C2B3HtBlfA%2FocLRrtFIh1Ze7%2BrVXhRlNvQEEnFYqSQOP79S%2Fztoy3rtYAXCePITdOuo8MRNahnVZaDyIe9N">here</a></p></div></body></html>
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMNoReply@cegep-heritage.qc.ca
+ MESSAGE:<html><head><style>body {background-image: url('../images/topbar-bg.gif'), url('../images/bg.gif');background-position: left top, left top;background-repeat: repeat-x, repeat;font-family: Verdana, sans-serif;font-size: 14px;}p {font-size: 14px;line-height: 1.7;}h1, h2, h3 {	/* color: #daa728; */	color: #bf8100;}.content {	background-color: #fff;	margin:10px;padding: 10px;}hr {border-top: 1px solid #d6d4d0;}</style></head><body><div class='content'><h1>Recognition of Acquired Competencies<h1><hr/><p>Hello Alain, <br /><br /> You are receiving this email to notify you that Cliff Jacked has create a new account in the RAC system. Sign in to view their details</p></div></body></html>
+ --------------------------------------- 
+
+
+ TO:robB@hotmail.ca
+ FROMNoReply@cegep-heritage.qc.ca
+ MESSAGE:<html><head><style>body {background-image: url('../images/topbar-bg.gif'), url('../images/bg.gif');background-position: left top, left top;background-repeat: repeat-x, repeat;font-family: Verdana, sans-serif;font-size: 14px;}p {font-size: 14px;line-height: 1.7;}h1, h2, h3 {	/* color: #daa728; */	color: #bf8100;}.content {	background-color: #fff;	margin:10px;padding: 10px;}hr {border-top: 1px solid #d6d4d0;}</style></head><body><div class='content'><h1>Recognition of Acquired Competencies<h1><hr/><p>Please confirm your account by clicking <a href='http://localhost:23799/Account/ConfirmEmail?userId=1ffc725e-7721-4a85-83ee-8f733c42a402&code=ohVS8SwcOQJTEygNtCgQJAa9FYp2NkeasG3KYRKjC8lBnKQuBakNAqvZfbPhJhFDbpCv2NsfAFZS2OwjM4OqRhsQINdlnaZbiR3afMHtwmbhHpE2Pde03aF9eWwh3ubuunVwTZ%2BuQyQiH1RKANzKl7v8veuhzhReGc3X%2BwLDkiYmtingmrUxoZWsw2lFkK5h">here</a></p></div></body></html>
+ --------------------------------------- 
+
+
+ TO:walker.brae@cegep-heritage.qc.ca
+ FROMNoReply@cegep-heritage.qc.ca
+ MESSAGE:<html><head><style>body {background-image: url('../images/topbar-bg.gif'), url('../images/bg.gif');background-position: left top, left top;background-repeat: repeat-x, repeat;font-family: Verdana, sans-serif;font-size: 14px;}p {font-size: 14px;line-height: 1.7;}h1, h2, h3 {	/* color: #daa728; */	color: #bf8100;}.content {	background-color: #fff;	margin:10px;padding: 10px;}hr {border-top: 1px solid #d6d4d0;}</style></head><body><div class='content'><h1>Recognition of Acquired Competencies<h1><hr/><p>Hello Alain, <br /><br /> You are receiving this email to notify you that Bob Burger has create a new account in the RAC system. Sign in to view their details</p></div></body></html>
+ --------------------------------------- 
+

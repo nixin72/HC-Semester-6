@@ -1,0 +1,23 @@
+﻿@model RAC.RACModels.ElementViewModel
+
+<form id="ElementField">
+    <div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">@Html.LabelFor(model => model.Description)
+            <div class="col-md-12">@Html.TextAreaFor(model => model.Description, new { @class = "form-control", @cols = 80, @rows = 10 } )
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+        </div>
+        <div>
+            <button id="Edit" type="button" class="btn btn-default edit">Update</button>
+            <button id="Add" type="button" class="btn btn-default add">Add</button>
+        </div>
+
+    </div>
+</form>
+
+@section scripts {
+@Scripts.Render("~/Scripts/jquery.validate.js")
+@Scripts.Render("~/Scripts/jquery.validate.unobtrusive.js")
+@Scripts.Render("~/Scripts/create-program.js")
+}

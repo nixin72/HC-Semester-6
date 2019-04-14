@@ -1,0 +1,140 @@
+﻿@model RAC.RACModels.ProgramSearchViewModel
+
+@{
+    ViewBag.Title = "Create Program";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.User = "RACAdvisor";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/rac-advisor-add-program.css") 
+}
+
+<h2>Import Program From Clara</h2>
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @action = "CreateProgram", enctype = "multipart/form-data", id = "SearchProgram" })) 
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class='form-group'>
+        @Html.LabelFor(model => model.ProgramCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class='col-md-10'>
+            @Html.EditorFor(model => model.ProgramCode, new { htmlAttributes = new { @class = "form-control inputControl", placeholder="Ex: 420AA", tabindex = 2 } })
+            @Html.ValidationMessageFor(model => model.ProgramCode, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+
+    <div class='form-group'>
+        <div class='col-md-10 col-md-offset-2'>
+            <label class='control-label'>
+                @Html.CheckBoxFor(model => model.IsNoGenEds, new { @id = "chbNoGenEds" })
+                No General Education Courses
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group" id='GenEdsDiv'>
+        @Html.LabelFor(model => model.GenEdCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GenEdCode, new { htmlAttributes = new { @class = "form-control inputControl", placeholder="Ex: " + ViewBag.GenEdCode, Value=ViewBag.GenEdCode, tabindex = 3 } })
+            @Html.ValidationMessageFor(model => model.GenEdCode, "", new { @class = "text-danger" })
+            <p>Note: General Education code: 08101 contains all the general education competencies</p>
+        </div>
+    </div>
+
+    <div class='form-group'>
+        <label class='control-label col-md-2'></label>
+        <div class='col-md-10'>
+            <button id='btnSearch' class="btn btn-primary" type="button" tabindex='4'>Search &nbsp;<span class='glyphicon glyphicon-search'></span></button>
+            <a href="javascript:;" id="ResetForm">Reset Form</a>
+        </div>
+
+    </div>
+
+
+
+</div>
+    <div>
+        <div>
+            <img id='LoadingIconProg' class='LoadingIcon img-responsive ' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        <div id='ProgramSearchResults'>
+
+        </div>
+    </div> 
+
+    <div>
+        <div>
+            <img id='LoadingIconGenEd' class='LoadingIcon img-responsive ' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        <div id='GenEdSearchResults'>
+
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <img id='LoadingIconProgComp' class='LoadingIcon img-responsive' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        
+        <div id='ProgramCompetencyResults'></div>
+        
+       
+
+    </div>
+
+    <div>
+        <div>
+            <img id='LoadingIconGenEdComp' class='LoadingIcon img-responsive' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        <div id='GenEdCompetencyResults'></div>
+    </div>
+
+    <div>
+        <div>
+
+        </div>
+    </div>
+    <div>
+        <div>
+            <img id='LoadingIconCourseProfile' class='LoadingIcon img-responsive' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        
+        <div id='ProgramCourseProfileResults'></div>
+    </div>
+
+    <div>
+        <div>
+            <img id='LoadingIconCourses' class='LoadingIcon img-responsive' alt='spinner' src='~/Images/spinner.svg' />
+        </div>
+        
+        <div id='SubmitRAC'><input type='submit' class='btn btn-warning' value='Select This Configuration' /></div>
+    </div>
+
+        
+}
+
+<div id='uri'
+     uri-searchprogram='@Url.Action("SearchProgram", "RACAdvisor")'
+     uri-searchgened='@Url.Action("SearchGenEd", "RACAdvisor")'
+     uri-getprogramcompetencies='@Url.Action("GetProgramCompetencies", "RACAdvisor")'
+     uri-getgenedcompetencies='@Url.Action("GetGenEdCompetencies", "RACAdvisor")'
+     uri-getcourseprofile='@Url.Action("GetCourseProfiles", "RACAdvisor")'
+     uri-checkexistingprogram='@Url.Action("CheckExistingProgram", "RACAdvisor")'
+     >
+</div>
+
+
+@Html.Partial("_PopUp")
+       
+
+@section scripts {
+    @Scripts.Render("~/Scripts/jquery.validate.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.js")
+    @Scripts.Render("~/Scripts/import-program.js")
+}

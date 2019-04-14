@@ -1,0 +1,3 @@
+CREATE SCHEMA [ClaraProgrammes]
+AUTHORIZATION [CSAdmin]
+GO

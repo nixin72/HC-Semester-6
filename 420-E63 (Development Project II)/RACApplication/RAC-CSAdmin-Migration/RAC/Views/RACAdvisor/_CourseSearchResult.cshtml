@@ -1,0 +1,51 @@
+﻿@using RAC.RACModels
+@model IEnumerable<CourseViewModel>
+
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#CourseRes">Available Courses</a>
+            </h4>
+        </div>
+        <div id="CourseRes" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table table-responsive">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CourseCode)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CourseName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CourseType)
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CourseCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CourseName)
+                            </td>
+                            <td>
+                                @item.CourseType.GetDisplayName()
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <input type='submit' class='btn btn-warning' value='Select This Configuration' />
+</div>
+
+<br/>
+

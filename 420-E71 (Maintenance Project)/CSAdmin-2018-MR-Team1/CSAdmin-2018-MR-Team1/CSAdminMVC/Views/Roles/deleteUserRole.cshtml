@@ -1,0 +1,43 @@
+﻿@model UserRole
+
+@{
+    ViewBag.Title = "deleteUserRole";
+}
+<h4>
+    <b>Delete This User Role?</b>
+</h4>
+<hr/>
+<h6><b>Name:</b> @Model.User.LastName, @Model.User.FirstName</h6>
+<h6>
+    <b>Role:</b> @Model.Role.Description</h6>
+<h6>
+    <b>Username:</b> @Model.User.Username</h6>
+
+<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+<button type="button" RoleId="@Model.Role.Code" UserId="@Model.IDUser" class="btn btn-danger DeleteUserRole">Delete</button>
+
+<script>
+    $(".DeleteUserRole").on('click',
+        function() {
+            try {
+                $.ajax({
+                    url: "@Url.Action("deactivateUserRole")",
+                    data: { roleID: $(this).attr('RoleId'), userID: $(this).attr("UserId") },
+                    type: "POST",
+                    success: function(data) {
+                        $("#editModal").modal('hide');
+                        displayBoxFunc();
+                        $("#success-alert").fadeTo(2000, 500).slideUp(500,
+                            function() {
+                                $("#success-alert").slideUp(500);
+                            });
+                    }
+                });
+            } catch (e) {
+                $("#fail-alert").fadeTo(2000, 500).slideUp(500,
+                    function() {
+                        $("#fail-alert").slideUp(500);
+                    });
+            }
+        });
+</script>

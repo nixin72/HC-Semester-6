@@ -1,0 +1,92 @@
+﻿@model IEnumerable<RAC.RACModels.ProgramResultsViewModel>
+
+
+
+<div class="panel-group">
+    <div class="panel panel-default">
+
+            <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseFeatures" data-target='#GenEdRes'>
+                Gen-Ed Results
+            </button>
+        <div id="GenEdRes" aria-expanded='true' class="collapse in">
+            <div class="panel-body">
+                <div class='table-responsive'>
+                    @if (Model.Any())
+                    {
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    Select One
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ClaraCode)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProgramNameFromClaraEN)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProgramNameFromClaraFR)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TypeOfProgram)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Year)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NumberOfCompetencies)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NumberOfCourseProfiles)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (item.NumberOfCompetencies == 0)
+                                        {@Html.Raw("-")
+                                    }
+                                    else
+                                    {<input type="radio" name="GenEdId" value='@item.ClaraId'>}
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ClaraCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProgramNameFromClaraEN)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProgramNameFromClaraFR)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TypeOfProgram)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Year)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NumberOfCompetencies)
+                                    </td>
+                                    <td>
+                                        N/A
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </table>
+                    }
+                    else
+                    { <h4>No gen-ed results found</h4>}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

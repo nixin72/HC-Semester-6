@@ -1,0 +1,49 @@
+﻿@model UserRole
+<h5><b>Name:</b> @Model.User.LastName, @Model.User.FirstName</h5>
+<h5>
+    <b>Role:</b> @Model.Role.Description</h5>
+<div class="form-inline">
+	<label style="margin-right:5px;" for="txtUsername">Username: </label>
+	<input type="text" class="form-control" id="txtUsername" value="@Model.User.Username"/>
+	<div class="errmsg" id="errEdit"></div>
+</div>
+
+<br/>
+
+<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+<button type="button" userRoleId="@Model.IDUser" class="btn btn-primary SaveUserRole">Save changes</button>
+
+<script>
+	$(".SaveUserRole").on('click', function () {
+		if ($("#txtUsername").val() != "" && $("#txtUsername").val() != null) {
+			if($("#txtUsername").val().length > 60){
+				try {
+					$.ajax({
+						url: "@Url.Action("SaveUserRole")",
+						data: { UserId: $(this).attr('userRoleId'), newUserName: $("#txtUsername").val() },
+						type: "POST",
+						success: function (data) {
+							$("#editModal").modal('hide');
+							displayBoxFunc();
+							$("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+								$("#success-alert").slideUp(500);
+							});
+						}
+					});
+				} catch (e) {
+					$("#fail-alert").fadeTo(2000, 500).slideUp(500, function () {
+						$("#fail-alert").slideUp(500);
+					});
+				}
+			}else{
+				$("#errEdit").html("<p>Username can not exceed 60 characters. please enter a username of no more then 60 characters.</p>")
+				$("#txtUsername").addClass("invalid");
+			}
+		} else {
+			$("#errEdit").html("<p>Username can not be empty. please enter a username.</p>")
+			$("#txtUsername").addClass("invalid");
+		}
+	});
+
+
+</script>

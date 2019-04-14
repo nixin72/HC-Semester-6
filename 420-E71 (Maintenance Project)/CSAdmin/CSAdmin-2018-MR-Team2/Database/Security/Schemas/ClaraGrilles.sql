@@ -1,0 +1,3 @@
+CREATE SCHEMA [ClaraGrilles]
+AUTHORIZATION [CSAdmin]
+GO

@@ -1,0 +1,31 @@
+﻿@using RAC.BusinessLogic;
+@using RAC.RACModels;
+@model Competency
+<table id="ExistingCompetencies" class='table table-striped'>
+    <thead>
+        <tr class="competencyElementHeader">
+            <th>Competency Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var competencyElement in ProgramBLL.GetAllElementsNotAlreadyInCompetency(Model.Id))
+        {
+            <tr>
+                <td>
+                    <input type="hidden" class="MinistryId" value="@competencyElement.Id" />
+                    <input type="hidden" class="CompetencyId" value="@Model.Id" />
+
+                    @competencyElement.Description
+                </td>
+                <td>
+                    <a href="javascript:;" class="AddToCompetency">Add To Competency</a>
+
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+

@@ -1,0 +1,11 @@
+﻿.underlinedText {
+    font-weight: bold;
+}
+ul li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.listIcon {
+    color: #E89D00;
+}

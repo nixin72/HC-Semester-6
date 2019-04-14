@@ -1,0 +1,42 @@
+﻿@model IEnumerable<RAC.RACModels.CourseProfileViewModel>
+<div class="panel-group">
+    <div class="panel panel-default">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseFeatures" data-target='#ProfRes'>
+                Course Profiles
+            </button>
+        <div id="ProfRes" class="collapse in">
+            <div class="panel-body"><table class="table table-responsive">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CourseProfileClaraId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CourseProfileCode)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProfileName)
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        <input type="radio" name="CourseProfileId" value='@item.CourseProfileClaraId'>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CourseProfileCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfileName)
+                    </td>
+
+                </tr>
+                }
+
+            </table></div>
+        </div>
+    </div>
+</div>
+
+

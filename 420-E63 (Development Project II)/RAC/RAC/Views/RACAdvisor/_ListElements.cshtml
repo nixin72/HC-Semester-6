@@ -1,0 +1,27 @@
+﻿@model IEnumerable<RAC.RACModels.ElementMinistryData>
+
+<div id="res">
+    <table id="Elements" class="table table-striped">
+        <tr class="elementHeader">
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <span class="description">@Html.DisplayFor(modelItem => item.Description)</span>
+                </td>
+                <td>
+                    <a href="javascript:;" data-toggle="modal" data-target="#editModal" class="Edit" id="@item.Id">Edit</a> |
+                    <a href="javascript:;" data-toggle="modal" data-target="#deleteModal" class="Delete" id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

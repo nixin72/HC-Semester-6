@@ -1,0 +1,45 @@
+﻿@using RAC.RACModels
+@*@model RAC.Models.Candidate*@
+
+@if (Session["User"] != null)
+{
+    RACUser user = (RACUser) Session["User"];
+
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        //AuthorizeAdAttribute auth = new AuthorizeAdAttribute();
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            @try
+            {
+                if (user.UserType == (int)userType.Candidate)
+                {
+                    <li>@Html.ActionLink("Self Evaluation", "SelfEvaluation", "Candidate", null)</li>
+                    <li class='hideSeparator'><a>|</a></li>
+                    <li>@Html.ActionLink("Account", "ViewAccount", "Candidate", new { ((RACUser)Session["User"]).Id }, null)</li>
+                }
+
+            }
+            catch (InvalidCastException e)
+            {
+                Console.WriteLine(e);
+            }
+            @if (user.UserType == (int)userType.Candidate)
+            {
+                <li class='hideSeparator'><a>|</a></li>
+            }
+
+            @* ReSharper disable once Html.IdNotResolved *@
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li class='hideSeparator'><a>|</a></li>
+        <li>@Html.ActionLink("Log In", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

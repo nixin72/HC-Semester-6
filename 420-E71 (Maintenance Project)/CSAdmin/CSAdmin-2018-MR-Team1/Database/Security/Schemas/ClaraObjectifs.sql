@@ -1,0 +1,3 @@
+CREATE SCHEMA [ClaraObjectifs]
+AUTHORIZATION [CSAdmin]
+GO

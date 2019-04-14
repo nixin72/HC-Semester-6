@@ -1,0 +1,118 @@
+﻿@model RAC.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Update Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Update Account</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.UserId)
+        @Html.HiddenFor(model => model.Email)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", tabindex = 2 } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", tabindex = 3 } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HomePhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HomePhone, new { htmlAttributes = new { @class = "form-control", tabindex = 4 } })
+                @Html.ValidationMessageFor(model => model.HomePhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WorkPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.WorkPhone, new { htmlAttributes = new { @class = "form-control", tabindex = 5 } })
+                @Html.ValidationMessageFor(model => model.WorkPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PreferredMethodOfContact, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.PreferredMethodOfContact, EnumHelper.GetSelectList(typeof(RAC.RACModels.PreferredMethodOfContact)), null, new { @class = "form-control", tabindex = 6 })
+                @{Html.ValidateFor(m => m.PreferredMethodOfContact);}
+                @Html.ValidationMessageFor(m => m.PreferredMethodOfContact, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Street, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Street, new { htmlAttributes = new { @class = "form-control", tabindex = 7 } })
+                @Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", tabindex = 8 } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Province, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Province, EnumHelper.GetSelectList(typeof(RAC.RACModels.provinces)), new { @class = "form-control", tabindex = 9 })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id='btnSave' type="submit" value="Save" class="btn btn-primary" tabindex='10' />
+                | 
+                @Html.ActionLink("Change Program", "ChangeProgram", "Candidate",  new { Id = Model.UserId }, new { tabindex = 11 })   
+                |
+                @Html.ActionLink("Delete Account", "DeleteAccountCandidate", "Candidate", routeValues: null, htmlAttributes: new { id = "btnDeleteAccount", style = "color: red;", tabindex = 12 })
+            </div>
+        </div>
+    </div>
+    
+}
+
+@Html.Partial("../Shared/_PopUp", Model)
+@section scripts {
+    <script>
+        function deleteAccount() {
+            hidePopup();
+            document.querySelector("#btnDeleteAccount").onclick = () => {};
+            document.querySelector("#btnDeleteAccount").click();
+        }
+
+        document.querySelector("#btnDeleteAccount").onclick = e => {
+            e.preventDefault();
+
+            changePopupHeader("Confirm");
+
+            let text =
+                "Are you sure that you would like to delete your account? All progress you have made will be deleted and this cannot be undone.<br /><br />";
+            text +=
+                "<button onclick='deleteAccount();'>Yes, I'm sure</button> | <a href='#' onclick='hidePopup();' >Cancel</a>";
+            changePopupContent(text);
+            showPopup();
+        };
+    </script>
+}
+

@@ -1,0 +1,543 @@
+﻿@using RAC.RACModels
+@model Program
+
+@{
+    ViewBag.Title = "Edit Program";
+    ViewBag.User = "RACAdvisor";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/edit-program.css")
+}
+<h2>Edit Program</h2>
+
+@using (Html.BeginForm("EditProgram", "RACAdvisor", FormMethod.Post))
+{
+    @* ReSharper disable UnknownCssClass *@
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@Model.ProgramMinistryData.MinistryCode - @Model.ProgramMinistryData.Name</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsActive)
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        @{ var competencyIndex = 0;}
+
+        @if (Model.Competencies.Any(x => x.CompetencyMinistryData.IsGenEd == false))
+        {
+            <div class="list-group-item" id="programSpecificCompetencies">
+                <div id="expander" data-target="#programSpecificCompetencyList" data-toggle="collapse" data-group-id="programSpecificCompetencies" data-role="expander">
+                    <ul class="list-inline">
+                        <li id="grandparentIcon">&gt;</li>
+                        <li><h3 class="competencyTitle">Program Specific Competencies</h3></li>
+                    </ul>
+                </div>
+
+                <div class="collapse" id="programSpecificCompetencyList" aria-expanded="true">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Competency Code</th>
+                                <th>Competency Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (Competency modelCompetency in Model.Competencies.Where(x => x.CompetencyMinistryData.IsGenEd == false))
+                            {
+                                <tr data-toggle="collapse" data-target=".child@(modelCompetency.Id)" class="competencyTitle">
+                                    <td><div>&gt;</div></td>
+                                    <td>
+                                    <input type="hidden" value="@modelCompetency.Id" name="Competencies[@(competencyIndex)].Id"/>
+                                    @modelCompetency.CompetencyMinistryData.MinistryCode</td>
+                                    <td><p><strong>@modelCompetency.CompetencyMinistryData.Description</strong></p></td>
+                                    <td></td>
+
+                                </tr>
+                                var elementIndex = 0;
+                                if (modelCompetency.CompetencyElements.Any())
+                                {
+                                    foreach (CompetencyElement modelElement in modelCompetency.CompetencyElements.Where(x=> x.DateExpired == null))
+                                    {
+                                        <tr class="collapse child@(modelCompetency.Id) element">
+                                            <td></td>
+                                            <td></td>
+                                            <td class="descriptionCell">
+                                                <input type="hidden" value="@modelElement.Id" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].Id" />
+                                                <input type="hidden" value="@modelElement.ElementMinistryData.Id" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].ElementMinistryData.Id" />
+                                                <input type="hidden" class="descriptionInput" value="@modelElement.ElementMinistryData.Description" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].ElementMinistryData.Description" />
+                                                <span class="descriptionDisplay">@modelElement.ElementMinistryData.Description</span>
+                                            </td>
+                                            <td><a class="edit" href="javascript:;">Edit</a> | <a class="remove" href="javascript:;">Remove</a></td>
+                                        </tr>
+                                        elementIndex++;
+                                    }
+
+                                    if (modelCompetency.CompetencyElements.Where(x => x.DateExpired != null).Count() == modelCompetency.CompetencyElements.Count())
+                                    {
+                                        <tr class="collapse child@(modelCompetency.Id) placeholder">
+                                            <td></td>
+                                            <td></td>
+                                            <td class="">
+
+                                                <span class="descriptionDisplay">There are no competency elements in this competency</span>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr class="collapse child@(modelCompetency.Id) placeholder">
+                                        <td></td>
+                                        <td></td>
+                                        <td class="">
+                                            
+                                            <span class="descriptionDisplay">There are no competency elements in this competency</span>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                }
+
+
+                                <tr class="collapse child@(modelCompetency.Id)">
+                                    <td></td>
+                                    <td></td>                                    
+                                    <td></td>
+                                    <td><a class="add" href="javascript:;">Add new element</a></td>
+                                </tr>
+
+                               competencyIndex++;
+                                
+
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        }
+
+@if (Model.Competencies.Any(x => x.CompetencyMinistryData.IsGenEd))
+{
+    <div class="list-group-item" id="GenEdCompetencies">
+        <div id="expander" data-target="#genEdCompetencyList" data-toggle="collapse" data-group-id="programSpecificCompetencies" data-role="expander">
+            <ul class="list-inline">
+                <li id="grandparentIcon">&gt;</li>
+                <li><h3 class="competencyTitle">General Education Competencies</h3></li>
+            </ul>
+        </div>
+
+        <div class="collapse" id="genEdCompetencyList" aria-expanded="true">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Competency Code</th>
+                        <th>Competency Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (Competency modelCompetency in Model.Competencies.Where(x => x.CompetencyMinistryData.IsGenEd))
+                    {
+                        <tr data-toggle="collapse" data-target=".child@(modelCompetency.Id)" class="competencyTitle">
+                            <td><div>&gt;</div></td>
+                            <td>
+                                <input type="hidden" value="@modelCompetency.Id" name="Competencies[@(competencyIndex)].Id" />
+                                @modelCompetency.CompetencyMinistryData.MinistryCode
+                            </td>
+                            <td><p><strong>@modelCompetency.CompetencyMinistryData.Description</strong></p></td>
+                            <td></td>
+
+                        </tr>
+                        var elementIndex = 0;
+                        if (modelCompetency.CompetencyElements.Any())
+                        {
+                            foreach (CompetencyElement modelElement in modelCompetency.CompetencyElements.Where(x=> x.DateExpired == null))
+                            {
+                                <tr class="collapse child@(modelCompetency.Id) element">
+                                    <td></td>
+                                    <td></td>
+                                    <td class="descriptionCell">
+                                        <input type="hidden" value="@modelElement.Id" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].Id" />
+                                        <input type="hidden" value="@modelElement.ElementMinistryData.Id" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].ElementMinistryData.Id" />
+                                        <input type="hidden" class="descriptionInput" value="@modelElement.ElementMinistryData.Description" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].ElementMinistryData.Description" />
+                                        <span class="descriptionDisplay">@modelElement.ElementMinistryData.Description</span>
+                                    </td>
+                                    <td><a class="edit" href="javascript:;">Edit</a> | <a class="remove" href="javascript:;">Remove</a></td>
+                                </tr>
+                                elementIndex++;
+                            }
+
+                            if (modelCompetency.CompetencyElements.Where(x => x.DateExpired != null).Count() == modelCompetency.CompetencyElements.Count())
+                            {
+                                <tr class="collapse child@(modelCompetency.Id) placeholder">
+                                    <td></td>
+                                    <td></td>
+                                    <td class="">
+
+                                        <span class="descriptionDisplay">There are no competency elements in this competency</span>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr class="collapse child@(modelCompetency.Id) placeholder">
+                                <td></td>
+                                <td></td>
+                                <td class="">
+
+                                    <span class="descriptionDisplay">There are no competency elements in this competency</span>
+                                </td>
+                                <td></td>
+                            </tr>
+                        }
+
+
+                        <tr class="collapse child@(modelCompetency.Id)">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a class="add" href="javascript:;">Add new element</a></td>
+                        </tr>
+
+                        competencyIndex++;
+
+
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+}
+
+
+
+
+        @*@if (Model.Competencies.Any(x => x.CompetencyMinistryData.IsGenEd == false))
+            {
+                <div class='form-group'>
+                    <div class="panel-group col-md-10">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#ProgramSpecificCompetencies">Program Specific Competencies</a>
+                                </h4>
+                            </div>
+                            <div id="ProgramSpecificCompetencies" class="panel-collapse collapse">
+                                <div class="panel-body table-responsive">
+                                    <table class='table striped'>
+                                        <thead>
+                                            <tr>
+                                                <th>Competency Code</th>
+                                                <th>Competency Description</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+
+                                        @foreach (Competency modelCompetency in Model.Competencies.Where(x => x.CompetencyMinistryData.IsGenEd == false))
+                                        {
+                                            <tr class="header expand">
+                                                <td>@modelCompetency.CompetencyMinistryData.MinistryCode</td>
+                                                <td><a data-toggle="collapse" href="#collapse@(modelCompetency.Id)">@modelCompetency.CompetencyMinistryData.Description</a></td>
+                                                <td>@Html.ActionLink("View Competency Elements", "EditCompetencyElements", "RACAdvisor", new { id = modelCompetency.Id }, null)</td>
+                                            </tr>
+                                            <tr id="collapse@(modelCompetency.Id)" class="panel-collapse collapse">
+
+                                                <td></td>
+                                                <td>
+                                                    <div>
+                                                        <table>
+                                                            @foreach (var element in modelCompetency.CompetencyElements)
+                                                            {
+
+                                                                <tr>
+                                                                    <td>@element.ElementMinistryData.Description</td>
+
+                                                                </tr>
+
+
+                                                            }
+                                                            <tr>
+                                                                <td class="Description">@Html.Partial("_CreateElement", new ElementViewModel())</td>
+
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }*@
+
+        @*@if (Model.Competencies.Any(x => x.CompetencyMinistryData.IsGenEd == true))
+        {
+            <div class='form-group'>
+                <div class="panel-group col-md-10">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#GeneralEducationCompetencies">General Education Competencies</a>
+                            </h4>
+                        </div>
+                        <div id="GeneralEducationCompetencies" class="panel-collapse collapse">
+                            <div class="panel-body table-responsive">
+                                <table class='table'>
+                                    <thead>
+                                        <tr>
+                                            <th>Competency Code</th>
+                                            <th>Competency Description</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+
+                                    @foreach (Competency modelCompetency in Model.Competencies.Where(x => x.CompetencyMinistryData.IsGenEd == true))
+                                    {
+                                        <tr>
+                                            <td>@modelCompetency.CompetencyMinistryData.MinistryCode</td>
+                                            <td>@modelCompetency.CompetencyMinistryData.Description</td>
+                                            <td>@Html.ActionLink("View Competency Elements", "EditCompetencyElements", "RACAdvisor", new { id = modelCompetency.Id }, null)</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }*@
+
+        @*<div class='form-group'>
+                <div class="panel-group col-md-10">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#Courses">Courses</a>
+                            </h4>
+                        </div>
+                        <div id="Courses" class="panel-collapse collapse">
+                            <div class="panel-body table-responsive">
+                                <table class='table'>
+                                    <thead>
+                                        <tr>
+                                            <th>Course Code</th>
+                                            <th>Course Name</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+
+                                    @foreach (Course course in Model.Courses)
+                                    {
+                                        <tr>
+                                            <td>@course.CourseMinistryData.MinistryCode</td>
+                                            <td>@course.CourseMinistryData.Name</td>
+                                            <td>@Html.ActionLink("Map Competencies", "MapCompetencies", "RACAdvisor", new { programId = Model.Id, Id = course.Id }, null)</td>
+                                        </tr>
+
+
+
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        <br />
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+@* ReSharper restore UnknownCssClass *@
+
+
+@Html.Partial("_PopUp")
+
+@section Scripts {
+@Scripts.Render("~/bundles/jqueryval")
+
+<script>
+    $(document).ready(function () {
+        ResetLinks();
+        ResetNames();
+
+
+        function Edit(context)
+        {
+            changePopupHeader("Edit Element");
+            changePopupContent(`@Html.Partial("_CreateElement", new ElementViewModel())`);
+            var editLink = context;
+            var description = context.closest("tr").find(".descriptionInput").val();
+            console.log(description);
+            $("#Description").val(description);
+            $("#Add").hide();
+            $("#Edit").show();
+            showPopup();
+            $("#Edit").off();
+            $("#Edit").click(function () {
+                $('#ElementField').validate();
+                $('#ElementField').validate().element('#Description');
+                if ($("#ElementField").valid()) {
+                    console.log($("#Description").val());
+                    editLink.closest("tr").find('.descriptionDisplay').text($("#Description").val());
+                    editLink.closest("tr").find('.descriptionInput').val($("#Description").val());
+                    hidePopup();
+                    ResetLinks();
+                }
+            });
+        }
+
+        function Add(context)
+        {
+            var links = '<a class="edit" href="javascript:;">Edit</a> | <a class="remove" href="javascript:;">Remove</a>';
+
+            changePopupHeader("Add Element");
+            changePopupContent(`@Html.Partial("_CreateElement", new ElementViewModel())`);
+            var addLink = context;
+            var description = context.closest("tr").find(".descriptionCell").text().trim();
+            $("#Description").val(description);
+            $("#Edit").hide();
+            $("#Add").show();
+            showPopup();
+            $("#Add").off();
+            $("#Add").click(function () {
+                $('#ElementField').validate();
+                $('#ElementField').validate().element('#Description');
+                if ($("#ElementField").valid()) {
+                    console.log($("#Description").val());
+                    var hiddenInput = '<input type="hidden" class="descriptionInput" value="' + $("#Description").val() + '"/>';
+                    var childClass = context.closest('tr').prevAll('.competencyTitle:first').attr('data-target').replace(".", "");
+                    
+                    if (!context.closest('tr').prev("tr").hasClass("element"))
+                    {
+                        context.parent().parent().prevAll('tr.placeholder:first').html("<td></td><td></td><td class='descriptionCell'>" + hiddenInput + "<span class='descriptionDisplay'>" + $("#Description").val() + "</span>" + "</td><td>" + links + "</td>");
+                        context.parent().parent().prevAll('tr.placeholder:first').addClass('element');
+                        context.parent().parent().prevAll('tr.placeholder:first').removeClass('placeholder');
+                    }
+                    else
+                    {
+                        addLink.closest("tr").before("<tr class='" + childClass + " element collapse in'><td></td><td></td><td class='descriptionCell'>" + hiddenInput + "<span class='descriptionDisplay'>" + $("#Description").val() + "</span>" + "</td><td>" + links + "</td></tr>");
+
+                    }
+
+                    
+                    hidePopup();
+                    ResetLinks();
+                    ResetNames();
+                }
+            });
+        }
+
+        function Remove(context)
+        {
+            var description = context.closest("tr").find(".descriptionCell").text().trim();
+            changePopupHeader("Are you sure you want to delete?");
+            changePopupContent("<div><p>Element: " + description + "</p></div><button id='Delete' class='btn btn-default'>Confirm</button>");
+            showPopup();
+            $("#Delete").click(function () {
+                
+                if (!context.closest('tr').prev("tr").hasClass("element") && !context.closest('tr').next("tr").hasClass("element")) {
+                    console.log("Replace first one with placeholder");
+                    var placeholder = `<td></td> <td></td><td class="descriptionCell"><span class="descriptionDisplay">There are no competency elements in this competency</span></td><td></td>`;
+                    var lastElement = context.parent().parent().closest('tr.element');
+                    lastElement.html(placeholder);
+                    lastElement.removeClass('element');
+                    lastElement.addClass('placeholder');                    
+                    
+                }
+                else {
+                    console.log("Do nothing");
+                    context.closest("tr").remove();
+                }
+
+                hidePopup();
+                ResetLinks();
+                ResetNames();
+            });
+        }
+
+        function ResetLinks()
+        {
+            $(".edit").click(function () {
+                Edit($(this));
+            });
+
+            $(".add").click(function () {
+                Add($(this));
+            });
+
+            $(".remove").click(function () {
+                Remove($(this));
+
+            });
+        }
+
+        function ResetNames()
+        {
+            console.log("\n");
+            var competencyIndex = -1;
+            var elementIndex = 0;
+            $('tr').each(function (index, tr) {
+
+
+                if ($(tr).hasClass('competencyTitle'))
+                {
+                    console.log("Increment");
+
+                    competencyIndex++;
+                    elementIndex = 0;
+                }
+                else if ($(tr).hasClass("element")) {
+                    console.log("Change Name");
+                    var name = "Competencies[" + competencyIndex + "].CompetencyElements[" + elementIndex + "].ElementMinistryData.Description";
+                    $(tr).children('td.descriptionCell').children('.descriptionInput').attr('name', name);
+                    console.log(tr);
+                    elementIndex++;
+                }
+            });
+        }
+    })
+
+
+</script>
+
+
+
+
+
+
+}
+

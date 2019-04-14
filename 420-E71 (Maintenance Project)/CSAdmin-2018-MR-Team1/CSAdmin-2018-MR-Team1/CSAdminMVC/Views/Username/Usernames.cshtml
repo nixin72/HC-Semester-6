@@ -1,0 +1,145 @@
+﻿@model PagedList.BasePagedList<CSAdmin2.Model.User>
+@using PagedList.Mvc;
+
+@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/CSAdminJS/Usernames.js")
+@Styles.Render("~/Content/ApplicationRoles.css")
+@Styles.Render("~/Content/Username.css")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+</head>
+<body>
+    <br />
+    <h2>Usernames</h2>
+
+    @using (Html.BeginForm())
+	{
+        <div>
+		<table style="display:inline-block">
+			<tbody>
+				<tr>
+					<td class="text-right">Find by last name:</td>
+					<td style="width:30em">@Html.TextBox("lastName", null, null, new { @class = "form-control", placeholder = "Last Name", @id = "lblLastName"})</td>
+				</tr>
+				<tr>
+					<td class="text-right">Find by first name:</td>
+					<td>@Html.TextBox("firstName", null, null, new { @class = "form-control", placeholder = "First Name", @id = "lblFirstName" })</td>
+				</tr>
+				<tr>
+					<td class="text-right">Find by username:</td>
+					<td>@Html.TextBox("Username", null, null, new { @class = "form-control", placeholder = "Username", @id = "lblUsername" })</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button class="btn w-50" type="submit">Search</button><button id="btnClear" class="btn w-50" type="button">Clear</button></td>
+				</tr>
+			</tbody>
+		</table>
+        <table style="display:inline-block">
+            <tbody>
+                @{ 
+                    bool allChecked = false;
+                    bool dupChecked = false;
+                    bool notChecked = false;
+
+                    allChecked = ViewBag.all;
+                    dupChecked = ViewBag.duplicates;
+                    notChecked = ViewBag.not_in_ad;
+                }
+                @if(!allChecked && !dupChecked && !notChecked)
+                {
+                    allChecked = true;
+                }
+    <tr>
+
+        <td style="width:30em">@Html.RadioButton("searchParam", "all", allChecked ) Select all usernames</td>
+    </tr>
+                <tr>
+                    <td style="width:30em">@Html.RadioButton("searchParam", "duplicates",dupChecked ) Select duplicate usernames</td>
+                </tr>
+                <tr>
+                    <td style="width:30em">@Html.RadioButton("searchParam", "not_in_ad",  notChecked ) Select usernames not in AD</td>
+                </tr>
+
+            </tbody>
+        </table>
+            </div>
+    }
+	<br/>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Full Name", "Usernames", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+           
+            <th>
+                @Html.ActionLink("Username", "Usernames", new { sortOrder = ViewBag.UserNameSortParm })
+            </th>
+            <th>
+                AD Username
+            </th>
+            <th>
+                Is Active           
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName), @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+      
+            <td class="username">
+               <input disabled type="text" value="@Html.DisplayFor(modelItem => item.Username)"/>
+            </td>
+            <td class="adusername">
+               @{
+                    string adUsername = item.getAdUsername();
+                }
+              <p>  @Html.ValueFor(modelItem => adUsername)  
+                    </p>
+            </td>
+            <td>
+              <p>  @Html.DisplayFor(modelItem => item.IsActive)</p>
+            </td>
+            <td class="buttonsTd">
+                <a class="editUserBtn" href="#" id="@item.IDUser">Edit</a> |
+                @if (adUsername.Length != 0)
+                {
+                <a class="replaceUserBtn" href="#" id="@item.IDUser">Replace</a>                
+                }
+                else
+                {
+                    <p style="display:inline">Replace</p>
+                }
+                |
+                @if (adUsername.Length != 0)
+                {
+
+                    <a class="findUserBtn tooltipcontainer" href="#" id="@item.IDUser">Find in AD<span class="tooltiptext">Active Directory Username: @Html.ValueFor(modelItem => adUsername)</span></a>
+                }
+                else
+                {
+        <p style="display:inline">Find in AD</p>
+                }
+            </td>
+        </tr>
+    }
+    
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Usernames",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</body>
+</html>

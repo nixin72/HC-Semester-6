@@ -1,0 +1,250 @@
+﻿@model UserRolesVM
+
+@{
+	ViewBag.Title = "ManageUserRoles";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage User Roles</h2>
+<style>
+	.table-fixed {
+		display: block;
+		max-height: 500px;
+		overflow-y: scroll;
+	}
+
+	#CreateBox {
+		border: grey thin solid;
+		margin-bottom: 10px;
+	}
+
+	.invalid {
+		border: thin solid red;
+	}
+
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+
+	.switch-wrapper {
+		display: inline-block;
+		position: relative;
+		top: 3px;
+	}
+</style>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap2-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap2-toggle.min.js"></script>
+<div>
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+
+		<hr />
+
+
+		<div style="display: flex; justify-content: space-between; margin: auto; width: 90%;">
+			<div>
+
+				<div id="CreateBox" style="padding:1rem 1rem 0rem 1rem;">
+					<div class="form-horizontal">
+						<div class="form-group form-row">
+							<label class="col-lg-3 text-lg-right" for="ddlEmployee" style="line-height:calc(2.25rem + 2px);">Employees :</label>
+							<div class="col-lg-9">
+								<select name="ddlEmployee" onchange="" class="form-control dropdown" id="ddlEmployee">
+									<option value="-1">Select an Employee</option>
+									@foreach (User u in Model.Users)
+									{
+										<option value="@u.IDUser">@u.LastName, @u.FirstName</option>
+									}
+								</select>
+							</div>
+						</div>
+						<div class="form-group form-row">
+							<label class="col-lg-3 text-lg-right" for="ddlRole" style="line-height:calc(2.25rem + 2px);">Roles :</label>
+							<div class="col-lg-9 ">
+								<select name="ddlRole" onchange="" class="form-control dropdown" id="ddlRole">
+									<option value="-1">Select a Role</option>
+									@foreach (Role r in Model.Roles)
+									{
+										<option value="@r.IDRole">@r.Description</option>
+									}
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="offset-lg-3 col-lg-9 p-0">
+								<button id="addUserRole" class="w-100 btn btn-default">Add</button><br />
+
+								<div class="errmsg" id="errCreate"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="displayBox" style="flex: 3;">
+
+				</div>
+			</div>
+			<div id="SelectBox" style="width:300px;margin-left:15px;">
+				<h3>View User Roles</h3>
+				<b>Search method:</b><div>
+
+				<label for="AndSearch">Matches All:</label>
+				<input type="radio" class="rdoSearch"  id="AndSearch" name="search" value="AND">
+				|
+				<label for="OrSearch">Matches Any:</label>
+				<input type="radio" class="rdoSearch"  id="OrSearch" checked name="search" value="OR">
+				</div>
+				<hr />
+				<script type="text/javascript">
+					$(document).ready(function () {
+						$("#success-alert").hide();
+						$("#fail-alert").hide();
+						$("#errmsg").hide();
+						$(".common:checkbox").switchbutton();
+
+					});
+
+					$(".rdoSearch").on("click", displayBoxFunc);
+
+					function displayBoxFunc() {
+						var chked = "";
+						var holder = "";
+						holder = `<table class="table table-fixed">
+						<thead>
+						<tr>
+							<th>Name</th>
+							<th>Username</th>
+							<th>Role</th>
+							<th></th>
+							</tr>
+						</thead>
+						<tbody>`;
+
+						if ($(".roleChk:checked").length > 0) {
+							if (document.getElementById("OrSearch").checked) {
+								$(".roleChk:checked").each(function () {
+									$.get(
+										 {
+										 	url: "ViewUserRoles/" + $(this).attr("DisplayID"),
+										 	success: function (data) { holder += data; },
+										 	async: false
+										 }
+									);
+								});
+
+							} else {
+								$(".roleChk:checked").each(function () {
+									chked += $(this).attr("DisplayID") + "-";
+								});
+
+								chked = chked.substring(0, chked.length - 1);
+								$.get(
+									 {
+									 	url: "ViewUserRolesAnd/" + chked,
+									 	success: function (data) { holder += data; },
+									 	async: false
+									 }
+								);
+							}
+
+							$("#displayBox").html(holder + `</tbody></table>`);
+						}
+
+				}
+
+					$("#something").on('click', '.roleChk', displayBoxFunc());
+
+					$("#addUserRole").on('click', function () {
+						$("#errCreate").html("");
+						$("#uID").html("");
+						$("#errmsg").hide();
+						var uID = $("#ddlEmployee").val();
+						var rID = $("#ddlRole").val();
+						if (uID != -1 && rID != -1) {
+							console.log(uID);
+							try {
+								$.ajax({
+									type: "POST",
+									url: "AddUserRole",
+									data: {
+										userID: uID,
+										roleID: rID,
+										__RequestVerificationToken: $("input[name=__RequestVerificationToken]").val()
+									}
+								}).done(function () {
+									displayBoxFunc();
+									$("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+										$("#success-alert").slideUp(500);
+									});
+								});
+							} catch (e) {
+								$("#fail-alert").fadeTo(2000, 500).slideUp(500, function () {
+									$("#fail-alert").slideUp(500);
+								});
+							}
+						} else {
+							if (uID == -1) {
+								$("#errCreate").append("<p>must select a user to add a new user-role</p>");
+							}
+							if (rID == -1) {
+								$("#errCreate").append("<p>must select a role to add a new user-role</p>");
+							}
+							$("#errCreate").show();
+						}
+					});
+
+
+				</script>
+
+				<table>
+					@foreach (Role r in Model.Roles)
+					{
+						<tr id="something" onclick="">
+							<td>
+								<input type="checkbox" onchange="displayBoxFunc()" class="roleChk" id="@(r.IDRole)check" DisplayID="@r.IDRole" />
+								<label for="@(r.IDRole)check">@r.Description</label>
+							</td>
+						</tr>
+					}
+				</table>
+			</div>
+
+
+		</div>
+	</div>
+
+	<div>
+		@Html.ActionLink("Back To Home", "Index", "Home")
+	</div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalLabel">Edit User Role</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+			</div>
+			<div class="modal-footer">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="alert alert-success" id="success-alert">
+	<strong>Success! </strong><br />
+	The User Role has been saved
+</div>
+
+<div class="alert alert-danger" id="fail-alert">
+	<strong>Failure! </strong><br />
+	The User Role has not been saved, an error has occured with the process.
+</div>

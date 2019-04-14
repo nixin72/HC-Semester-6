@@ -1,0 +1,156 @@
+﻿@model ApplicationRolesVM
+
+@{
+    ViewBag.Title = "Application Roles";
+}
+@Scripts.Render("~/Scripts/CSAdminJS/ApplicationRoles.js")
+@Styles.Render("~/Content/ApplicationRoles.css")
+<h1>Application Roles</h1>
+<hr/>
+<h2>Applications</h2>
+
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Applications.ElementAt(1).Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applications.ElementAt(1).Code)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Applications)
+    {
+        <tr id="App@{@item.IDApplication}">
+            <td class="applicationDescription">
+                <div class="expandAppRoles" id="expandAppRoles@{@item.IDApplication}">
+                    <input class="hoverInput" disabled type='text' maxlength="50" value="@Html.DisplayFor(modelItem => item.Description)" />
+                    <img id="img@{@item.IDApplication}" src="~/Images/caret.png" height="20" width="20" />
+                </div>
+                <div class="appRoles@{@item.IDApplication} appRoles panel">
+
+                    <table>
+                        <tr>
+                            <th>Role</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        @foreach (var roles in item.ApplicationRoles)
+                        {
+                            <tr>
+                                <td>@roles.Role.Description</td>
+                                @if (roles.IsActive)
+                                {
+                                    <td><a class="setInactive orangeLink" value="@{@roles.IDApplicationRole}">Set Inactive</a></td>
+    }
+    else
+    {
+        <td><a class="setActive orangeLink" value="@{@roles.IDApplicationRole}">Set Active</a></td>
+    }
+                                <td><a class="orangeLink deleteApplicationRole" id="appRole@{@roles.IDApplicationRole}">Delete</a></td>
+                            </tr>
+    }
+                    </table>
+                    <select class="btn roleDropdown" id="applicationDropdown@{@item.IDApplication}">
+                        <option>-- Select a Role --</option>
+                        @{
+                            bool run;
+                            int count = 0;
+                        }
+                        @foreach (var role in Model.Roles)
+                        {
+                            run = true;
+                            foreach (var roles in item.ApplicationRoles)
+                            {
+                                if (roles.IDRole == role.IDRole)
+                                {
+                                    run = false;
+                                }
+                            }
+                            if (run)
+                            {
+                                count++;
+                                <option value="@role.IDRole">
+                                    @role.Description
+                                </option>
+                            }
+
+                        }
+                    </select>
+                    <button class="btn btn-default addRoleToApp" appId="@item.IDApplication" @{if (count==0) {@Html.Raw("disabled")} }>Add</button>
+
+                </div>
+            </td>
+            <td class="applicationCode">
+                <input disabled type='text' maxlength="3" value="@Html.DisplayFor(modelItem => item.Code)" />
+            </td>
+            <td class="buttonsTd">
+                <a class="editApplicationBtn" id="@item.IDApplication">Edit</a> |
+                @Html.ActionLink("Delete", "DeleteApplication", new { id = item.IDApplication }, new { @class = "deleteApplicationBtn" })
+
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            <input id="newApplicationDescription" maxlength="50" placeholder="Application Description" />
+        </td>
+        <td>
+            <input id="newApplicationCode" maxlength="3" placeholder="Code" />
+        </td>
+        <td>
+            <button class="btn btn-default addApplicationBtn">Add</button>
+        </td>
+    </tr>
+
+</table>
+
+<h2>Roles</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Roles.ElementAt(1).Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Roles.ElementAt(1).Code)
+        </th>
+        <th>
+            Active in Applications
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Roles)
+    {
+        <tr id="Role@{@item.IDRole}">
+            <td class="roleDescription">
+                <input disabled type='text' maxlength="50" value="@Html.DisplayFor(modelItem => item.Description)" />
+            </td>
+            <td class="roleCode">
+                <input disabled type='text' maxlength="3" value="@Html.DisplayFor(modelItem => item.Code)" />
+            </td>
+            <td>               
+                @(string.Join(", ", item.Applications(true).Select(x => x.Description)))
+            </td>
+            <td class="buttonsTd">
+                <a class="editRoleBtn" id="@item.IDRole">Edit</a> |
+                @Html.ActionLink("Delete", "DeleteRole", new { id = item.IDRole }, new { @class = "deleteRoleBtn" })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            <input id="newRoleDescription" placeholder="Role Description" maxlength="50" />
+        </td>
+        <td>
+            <input id="newRoleCode" placeholder="Code" maxlength="3" />
+        </td>
+        <td></td>
+        <td>
+            <button class="btn btn-default addRoleBtn">Add</button>
+        </td>
+    </tr>
+
+</table>

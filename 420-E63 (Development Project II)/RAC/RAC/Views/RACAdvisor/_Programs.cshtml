@@ -1,0 +1,65 @@
+﻿@model IEnumerable<RAC.RACModels.Program>
+
+<h3>Active Programs</h3>
+<link href="~/Styles/view-programs.css" rel="stylesheet" />
+@if (Model.Any(x => x.IsActive == true))
+{
+    <table class="table">
+        <tr>
+            <th class='programCol'>
+                Program
+            </th>
+            <th class='actionsCol'>Actions</th>
+        </tr>
+
+        @foreach (var item in Model.Where(x => x.IsActive == true && x.DateExpired == null))
+        {
+            <tr>
+                <td class="description">
+                    @Html.DisplayFor(modelItem => item.ProgramMinistryData.MinistryCode) - @Html.DisplayFor(modelItem => item.ProgramMinistryData.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditProgram", new { id = item.Id })
+                    | <a href="javascript:;" class="Delete" id="@item.Id" data-toggle="modal" data-target="#confirmDelete">Remove Program</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h4>No active programs</h4>
+}
+
+<h3>Inactive Programs</h3>
+@if (Model.Any(x => x.IsActive == false))
+{
+
+    <table class="table">
+        <tr>
+            <th class='programCol'>
+                Program
+            </th>
+            <th class='actionsCol'>Actions</th>
+        </tr>
+
+        @foreach (var item in Model.Where(x => x.IsActive == false && x.DateExpired == null))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProgramMinistryData.MinistryCode) - @Html.DisplayFor(modelItem => item.ProgramMinistryData.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditProgram", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}
+else
+{
+    <h4>No inactive programs</h4>
+}

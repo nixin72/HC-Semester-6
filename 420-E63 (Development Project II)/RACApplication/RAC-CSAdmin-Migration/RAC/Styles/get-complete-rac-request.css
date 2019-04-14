@@ -1,0 +1,135 @@
+﻿#printBtn {
+    float: right;
+    margin-bottom: 10px;
+    display: inline;
+}
+
+.programHeader {
+    display: inline-block;
+}
+
+tr {
+    border-bottom: solid black 1px;
+}
+
+.competency {
+    margin-bottom: 50px;
+}
+
+.competencyTitle {
+    font-size: 1.5em;
+}
+#viewAdvisorUploaded {
+    margin-top: 40px;
+}
+.cdaTable {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.cdaEvaluatorHead {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.cdaDescription {
+    width: 50%;
+}
+.cdaDescriptionHead {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.cdaAnswer {
+    width: 15%;
+    text-align: center;
+}
+
+.Comments {
+    width: 100%;
+}
+.commentHeader {
+    font-size: 1em !important;
+    font-weight: bold;
+}
+.commenthead {
+    font-weight: bold;
+}
+
+.commentHead {
+    width: 70%;
+}
+
+.course-divs {
+    margin-bottom: 10px;
+}
+.commentHeader{
+    font-weight: bold;
+}
+.elementHeader{
+    width: 30%;
+}
+.compTable{
+    margin-bottom: 35px;
+}
+#upload {
+    margin-top: 40px;
+}
+@media print
+{   
+    .wrapper {
+        margin-top: 0;
+        clear: both;
+        padding: 0;
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+    .dropzone {
+        display: none;
+    }
+    .displayNone {
+        display: none;
+    }
+    .alignLeft {
+        text-align: left;
+    }
+    .links {
+        display: none;
+    }
+    #printBtn {
+        display: none !important;
+    }
+    .buttonsTD {
+        display: none;
+    }
+    .fileSizeTD {
+        margin-left: 100px;
+    }
+
+    .uploadHeader {
+        display: none;
+    }
+
+    #uploadButtonContainer {
+        display: none;
+    }
+
+    #uploadedDocumentTable {
+        display: none;
+    }
+
+    #divScrollButtons {
+        display: none;
+    }
+
+    #btnBack {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+}

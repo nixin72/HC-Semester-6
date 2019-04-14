@@ -1,0 +1,9 @@
+﻿#divExistingCompetencies{
+        height: 20em;
+        overflow: auto;
+}
+
+.Description {
+    max-width: 50% !important;
+}
+

@@ -1,0 +1,98 @@
+﻿@using RAC.RACModels
+@model RAC.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "View/Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>View/Update</h2>
+
+<div>
+    <hr />
+    <p class="text-success">@ViewBag.StatusMessage</p>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            <span class='capitalized'>
+                @Html.DisplayFor(model => model.FirstName)
+            </span>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd> 
+            <span class='capitalized'>
+                @Html.DisplayFor(model => model.LastName)
+            </span>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomePhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomePhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Province)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Province)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+    </dl>
+</div>
+<p>
+    @if (!Model.IsArchived)
+    {
+        @Html.ActionLink("Edit", "UpdateAccount", "Candidate", new { Id = ((Candidate)Session["user"]).Id }, null)
+    }
+    @Html.Raw(" | ")
+    @Html.ActionLink("Change your password", "ChangePassword")
+</p>

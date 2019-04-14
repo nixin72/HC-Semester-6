@@ -1,0 +1,23 @@
+﻿h4 {
+    color: #57534A;
+    font-size: 1.6em;
+}
+
+@media only screen and (min-width: 992px) {
+    
+    .form-divider {
+        display: none;
+    }
+    .personal-information-container {
+        border: solid thin lightgray;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 50px;
+    }
+    .account-information-container {
+        border: solid thin lightgray;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px !important;
+    }
+}

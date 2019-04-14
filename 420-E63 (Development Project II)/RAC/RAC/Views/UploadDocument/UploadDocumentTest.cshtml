@@ -1,0 +1,24 @@
+﻿@model IEnumerable<RAC.RACModels.UploadedDocument>
+@{
+    ViewBag.Title = "Upload Document Test";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <h2>Upload Document Test</h2>
+@{
+    if (Model != null && Model.Count() > 0)
+    {
+        Html.RenderPartial("_ViewDocuments");
+    }
+    else
+    {
+        Html.RenderPartial("_UploadDocuments");
+    }
+}
+
+</body>
+</html>

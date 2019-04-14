@@ -1,0 +1,93 @@
+﻿hr{
+    border-color: black;
+}
+
+ul {
+    margin-left: 2px;
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: #bf8100 !important;
+    border: solid thin black;
+    font-size: 1.5em !important;
+}
+
+h2 {
+    color: white;
+    font-size: 1.5em;
+    border: solid thin black;
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+    background-color: #bf8100;
+}
+img {
+    margin-left: 20px;
+    width: 95%;
+}
+h3 {
+    color: #383630 !important;
+    margin-left: 20px;
+}
+
+p {
+    margin-left: 20px;
+}
+
+.subSection {
+    background-color: #B8B19E !important;
+    color: white;
+}
+.cheverons {
+    float: left;
+}
+.notes {
+    color: #E23636;
+}
+h4 {
+    margin-left: 20px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+
+.help-note {
+    color: red;
+}
+.smallImage {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+.largeImage {
+    width: 100%;
+}
+
+.programImage {
+    margin-left: 20px;
+    width: 95%;
+    max-height: initial !important;
+}
+
+@media (min-width: 1200px) {
+    .smallImage {
+    display: block;
+    width: 27%;
+    margin: 0 auto;
+}
+}
+@media (min-width: 1600px) {
+    .smallImage {
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+    }
+}
+
+

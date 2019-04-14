@@ -1,0 +1,68 @@
+﻿body {
+    padding-top: 65px;
+}
+
+#wrapper {
+    background-color: white;
+    border: solid thin rgba(47, 47, 47, 0.52);
+    border-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    width: 97%;
+    overflow: auto;
+    text-wrap: normal;
+    overflow-wrap: break-word;
+}
+
+.text-footer {
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+.hideSeparator {
+    display: none !important;
+}
+#banner {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.bannerImg {
+    width: 100%;
+    height: auto;
+}
+.bottomNav {
+    width: 70px !important;
+    margin-top: 2%;
+    border: solid thin black;
+    height: auto !important;
+    font-size: 1.2em !important;
+    line-height: 1em !important;
+    text-align: center !important;
+}
+.backButtonText {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.capitalized {
+    text-transform: capitalize;
+}
+
+.loginControl {
+    width: auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .hideSeparator {
+        display: inline !important;
+    }
+    #wrapper {
+        width: 80%;
+    }
+    .captcha-container {
+        display: inline-block !important;
+    }
+}

@@ -1,0 +1,240 @@
+﻿@using RAC.RACModels
+@model RAC.RACModels.RACUser
+
+@{
+    ViewBag.Title = "Candidate Profile";
+    ViewBag.User = "RACAdvisor";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/details.css")
+    @Styles.Render("~/Styles/upload-documents.css")
+    @Styles.Render("~/Content/basic.min.css")
+    @Styles.Render("~/Content/dropzone.css")
+    @Styles.Render("~/Content/Site.css")
+
+}
+
+<h2>Candidate Profile</h2>
+<div>
+    <h4>@Html.Raw(Model.LastName + ", " + Model.FirstName)</h4>
+    <div class='extraDetails'>
+        <br />
+        @if (Model.IsArchived)
+        {
+            @Html.Raw("<p><span class='glyphicon glyphicon-info-sign' aria-hidden='true'></span> This account has been archived</p>")
+        }
+
+
+        @if (Model.IsDeleted)
+        {
+            @Html.Raw("<p><span class='glyphicon glyphicon-info-sign' aria-hidden='true'></span> This account has been deleted</p>")
+        }
+
+
+        @if (Model.CandidateProfile.RACRequest.IsGenEdOnly)
+        {
+            @Html.Raw("<p><span class='glyphicon glyphicon-info-sign' aria-hidden='true'></span> This RAC request is for general education only</p>")
+        }
+
+
+    </div>
+    <hr />
+</div>
+<div id='leftDiv'>
+
+    <dl class='candidateDetailsDl dl-horizontal'>
+        <dt>
+            @Html.Raw("Date Registered")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRegistered)
+        </dd>
+
+        <dt>
+            @Html.Raw("Date Started")
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.CandidateProfile.RACRequest.StartDate.ToString("yyyy-MM-dd"))
+        </dd>
+
+        <dt>
+            @Html.Raw("Date Submitted")
+        </dt>
+
+        <dd>
+            @if (Model.CandidateProfile.RACRequest.Status != (int) RACStatus.Started)
+            {
+                if (Model.CandidateProfile.RACRequest.SubmissionDate != null)
+                {
+                    @Html.Raw(Model.CandidateProfile.RACRequest.SubmissionDate.Value.ToString("yyyy-MM-dd"))
+                }
+            }
+            else
+            {
+                @Html.Raw("Not submitted")
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateProfile.RACRequest.Status)
+        </dt>
+
+        <dd>
+            @switch (Model.CandidateProfile.RACRequest.Status)
+            {
+                case 0:
+                    @Html.Raw(RACStatus.Started.ToString())
+                    break;
+                case 1:
+                    @Html.Raw(RACStatus.Submitted.ToString())
+                    break;
+                case 2:
+                    @Html.Raw(RACStatus.SpecialistReview.ToString())
+                    break;
+                case 3:
+                    @Html.Raw(RACStatus.Completed.ToString())
+                    break;
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateProfile.RACRequest.Program)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateProfile.RACRequest.Program.ProgramMinistryData.Name)
+        </dd>
+
+        <dt>
+            &nbsp;
+        </dt>
+        <dd>
+            @Html.ActionLink("View Self Evaluation", "GetCompleteRacRequest", "Candidate", new {id = Model.CandidateProfile.Id}, new {@class = "btn btn-warning"})
+        </dd>
+    </dl>
+</div>
+<div id='rightDiv'>
+    <dl class='candidateDetailsDl dl-horizontal'>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.Raw("Home Phone")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomePhone)
+        </dd>
+
+        <dt>
+            @Html.Raw("Work Phone")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkPhone)
+        </dd>
+
+        <dt>
+            @Html.Raw("Preferred Method of Contact")
+        </dt>
+
+        <dd>
+            @switch (Model.PreferredMethodOfContact)
+            {
+                case 0:
+                    @Html.Raw(PreferredMethodOfContact.Email.ToString())
+                    break;
+                case 1:
+                    @Html.Raw(PreferredMethodOfContact.HomePhone.ToString())
+                    break;
+                case 2:
+                    @Html.Raw(PreferredMethodOfContact.WorkPhone.ToString())
+                    break;
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Province)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Province)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+    </dl>
+</div>
+
+<h3 class='uploadHeader'>@Model.FirstName @Model.LastName's Uploaded Documents</h3>
+
+<div id='viewCandidateUploaded'>
+</div>
+
+<h3>Your uploaded documents to @Model.FirstName @Model.LastName</h3>
+
+<div id='viewAdvisorUploaded'>
+</div>
+
+@if (!Model.IsArchived && !Model.IsDeleted)
+{
+    <h3>Upload documents to @Model.FirstName @Model.LastName</h3>
+
+    @Html.Raw("<div id='upload'>")
+    @Html.Partial("../UploadDocument/_UploadDocuments")
+    @Html.Partial("../Shared/_PopUp", Model)
+    @Html.Raw("</div>")
+}
+<p>
+
+    @Html.ActionLink("Return to List", "ManageCandidates")
+    @if (!(Model.IsArchived || Model.IsDeleted))
+    {
+        @Html.Raw(" | ")
+        @Html.ActionLink("Archive", "ArchiveAccountRACAdvisor", "RACAdvisor", new {Model.CandidateProfile.Id}, new {id = Model.CandidateProfile.Id})
+    }
+
+</p>
+<div id='uri'
+     uri-deletefilefromdb='@Url.Action("DeleteFileFromDb", "UploadDocument")'
+     uri-istotalfilesizevalid='@Url.Action("IsTotalFileSizeValid", "UploadDocument")'
+     uri-removefilefromlocal='@Url.Action("RemoveFileFromLocal", "UploadDocument")'
+     uri-savechangestodb='@Url.Action("SaveChangesToDB", "UploadDocument")'
+     uri-showviewdocuments='@Url.Action("ShowViewDocuments", "UploadDocument")'
+     uri-getautosaveracrequesturi='@Url.Action("HomeAutosave", "Candidate")'
+     uri-checkisracadvisor='@Url.Action("CheckIsRACAdvisor", "Account")'>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/dropzone.js")
+    @Scripts.Render("~/Scripts/uploaded-documents.js")
+}

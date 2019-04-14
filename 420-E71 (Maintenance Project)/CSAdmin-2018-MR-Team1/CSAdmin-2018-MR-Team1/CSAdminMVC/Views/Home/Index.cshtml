@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Home</h2>
+<div id="HomeContent">
+    <hr/>
+    <h3>@Html.ActionLink("New Semester", "Index", "Semester")</h3>
+    <p>Update the systems to a new semester and add the new semesters students, co-op students, teachers and coordinators to the database.</p>
+    <hr/>
+    <h3>@Html.ActionLink("Manage Usernames", "Usernames", "Username")</h3>
+    <p>Search and modify usernames from the database and locate them in LDAP.</p>
+    <hr/>
+    <h3>@Html.ActionLink("Manage Application Roles", "ApplicationRoles", "Roles")</h3>
+    <p>Add, edit and remove applications and roles associated with them.</p>
+    <hr/>
+    <h3>@Html.ActionLink("Manage User Roles", "ManageUserRoles", "Roles")</h3>
+    <p>Manage the roles of Heritage faculty.</p>
+
+</div>

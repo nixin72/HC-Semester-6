@@ -1,0 +1,81 @@
+﻿.competencyTitle {
+    cursor: pointer;
+}
+button+.btn-primary {
+    width: 100%;
+    background-color: #bf8100 !important;
+    border: solid thin black;
+    font-size: 1.5em !important;
+    display: inline-block;
+}
+.subSection {
+    background-color: #B8B19E !important;
+    color: white !important;
+    width: 89% !important;
+    font-size: 1em !important;
+    text-align: left !important;
+}
+.cheverons {
+    float: left;
+}
+.SetActiveComp {
+    display: inline-block;
+    width: 10%;
+    text-align: center;
+}
+
+.largeCheck {
+    width: 1.25em;
+    height: 1.25em;
+}
+.usedInProg {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+}
+.competencyContent {
+    margin-left: 10.5%;
+    width: 89%;
+    border: black solid thin;
+    border-radius: 6px;
+}
+.descriptionCell {
+    display: inline-block;
+    width: 80%;
+}
+.optionsCell {
+    display: inline-block;
+    width: 9%;
+}
+.addNewElemetCell {
+    margin-top: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+.element {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    border-bottom: solid thin black;
+}
+.placeholder {
+    display: block;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: solid thin black;
+}
+}
+
+#NewEntry {
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+tr {
+    height: auto;
+}

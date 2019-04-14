@@ -1,0 +1,341 @@
+﻿@{
+    ViewBag.Title = "Release Notes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Styles/release-notes.css" rel="stylesheet" />
+
+<h1>Release Notes</h1>
+
+<!-- New Notes-->
+
+<!-------------------------------------------------------------------------------------------------------------------->
+
+<button class="btn btn-primary" id="acordionVersion227" type="button" data-toggle="collapse" data-target="#collapse227" aria-expanded="true" aria-controls="collapseFeatures">
+    <span class="glyphicon glyphicon-chevron-down cheverons" aria-hidden="true"></span>Version 2.2.7 - May 11th 2018
+</button>
+
+<div class="collapse in" aria-expanded="true" id="collapse227">
+
+    <h3>Highlights</h3>
+    <ul>
+        <li>Redesign of the Import Program and Edit Program Pages</li>
+        <li>Various bug fixes (resolved Issues)</li>
+    </ul>
+
+
+    <h3>No New Features</h3>
+
+
+    <h3>Enhancements</h3>
+
+
+    <p class="feature">Registration</p>
+    <ul>
+        <li>Candidate can no longer enter a country for registration.</li>
+    </ul>
+
+    <p class="feature">Programs</p>
+
+    <ul>
+        <li>Programs will now contain DEC or AEC in the program name</li>
+    </ul>
+    
+    <p class="feature">Self Evaluation</p>
+
+    <ul>
+        <li>Candidates can now get to the Self-Evaluation page through the navigation menu</li>
+    </ul>
+    
+    <p class="feature">Help</p>
+
+    <ul>
+        <li>Only RAC Advisors can view the RAC Advisor section in the 'Help' Page</li>
+    </ul>
+
+
+
+    <h3>Resolved Issues</h3>
+    
+    <p class="feature">Notifications</p>
+    <ul>
+        <li>Fixed issue where candidate does not receive email notifying them that a document was uploaded to their profile.</li>
+        <li>Fixed issue where RAC Advisor home has an empty notification.</li>
+    </ul>
+
+    <p class="feature">Oddities</p>
+    <ul>
+        <li>Heritage logo now links to the RAC homepage rather than the college website.</li>
+        <li>Fixed tab ordering throughout the system</li>
+    </ul>
+    
+    <p class="feature">Documents</p>
+    <ul>
+        <li>Archived candidates will no longer be able to receive documents from the RAC Advisor</li>
+        <li>Page will no longer refresh each time a document is uploaded</li>
+    </ul>
+    
+    <p class='feature'>Chrome</p>
+    <ul>
+        <li>Fixed page bouncing on chrome when the download bar is at the bottom.</li>
+    </ul>
+    
+    <p class="feature">Safari</p>
+    <ul>
+        
+        <li>Scroll buttons now work on Safari.</li>
+        <li>Fixed text-size on Safari</li>
+    </ul>
+    
+
+
+    <h3>Current Issues</h3>
+    <p class="feature">Programs</p>
+    <ul>
+        <li>There is no instant feedback when importing a program.</li>
+        <li>There is no instant feedback when modifying competency elements.</li>
+    </ul>
+
+
+
+    
+
+
+
+</div>
+
+
+<!-------------------------------------------------------------------------------------------------------------------->
+
+<button class="btn btn-primary" id="acordionVersion226" type="button" data-toggle="collapse" data-target="#collapse226" aria-expanded="false" aria-controls="collapseFeatures">
+    <span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span>Version 2.2.6 - May 4th 2018
+</button>
+
+<div class="collapse" aria-expanded="true" id="collapse226">
+
+    <h3>Highlights</h3>
+    <ul>
+        <li>Redesign of the implementation of general education</li>
+        <li>Various enhancements</li>
+        <li>Various bug fixes (resolved Issues)</li>
+    </ul>
+
+
+    <h3>No New Features</h3>
+
+
+    <h3>Enhancements</h3>
+
+
+    <p class="feature">Registration</p>
+    <ul>
+        <li>candidate can no longer enter a country for registration.</li>
+    </ul>
+
+    <p class="feature">Programs</p>
+
+    <ul>
+        <li>There can no longer be two active programs with the same code.</li>
+        <li>Programs can no longer be deleted only archived.</li>
+        <li>General education competencies are now manually selected by the RAC Advisor.</li>
+    </ul>
+
+
+    <h3>Resolved Issues</h3>
+    <p class="feature">Self Evaluation</p>
+
+    <ul>
+        <li>Self Evaluation validation will function even if the Candidate has not uploaded documents.</li>
+    </ul>
+
+    <p class="feature">Password Validation</p>
+    <ul>
+        <li>Password validation is consistent across entire system.</li>
+    </ul>
+
+    <p class="feature">Back button fully functional</p>
+    <ul>
+        <li>The back button is now fully functional.</li>
+    </ul>
+
+    <h3>Current Issues</h3>
+    <p class="feature">Programs</p>
+    <ul>
+        <li>Modified programs remain active rather than being deactivated and a modified copy being created and activated.</li>
+        <li>Inactive programs can be fully modified.</li>
+        <li>There is no instant feedback when importing a program.</li>
+        <li>There is no instant feedback when modifying competency elements.</li>
+    </ul>
+
+    <p class="feature">Safari</p>
+    <ul>
+        <li>Strange page bouncing on chrome when the download bar is at the bottom.</li>
+        <li>Scroll buttons do not work on Safari.</li>
+        <li>Login fields on Safari mobile are very small.</li>
+    </ul>
+
+    <p class="feature">Documents</p>
+    <ul>
+        <li>Documents can be uploaded to an archived Candidate.</li>
+    </ul>
+
+    <p class="feature">Notifications</p>
+    <ul>
+        <li>Candidate does not receive email notifying them that a document was uploaded to their profile.</li>
+        <li>RAC Advisor home has an empty notification.</li>
+    </ul>
+
+    <p class="feature">Oddities</p>
+    <ul>
+        <li>Heritage logo links to college website rather than the RAC homepage.</li>
+        <li>Tab order is inconsistent.</li>
+    </ul>
+</div>
+
+<!-------------------------------------------------------------------------------------------------------------------->
+
+<button class="btn btn-primary" id="acordionVersion225" type="button" data-toggle="collapse" data-target="#collapse225" aria-expanded="false" aria-controls="collapseFeatures">
+    <span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span>Version 2.2.5 - April 27th 2018
+</button>
+
+<div class="collapse" aria-expanded="false" id="collapse225">
+    
+    <h3>Highlights</h3>
+    <ul>
+        <li>Editing a program has been re-designed</li>
+        <li>Users can register and login from home</li>
+        <li>Fixed candidate archiving</li>
+        <li>Various enhancements</li>
+        <li>Various bug fixes</li>
+    </ul>
+
+
+    <h3>New Features</h3>
+    <p class="feature">Help Page</p>
+    <ul>
+        <li>
+            A help page has been implemented in the system. It can be accessed through the navbar at the top of the page. The help page explains the various flows of the system and how to use the functionality.
+        </li>
+    </ul>
+
+    <p class="feature">User Aid</p>
+    <ul>
+        <li>
+            We have implemented user aid in pages such as register in order to help the user understand what is asked of them without having to navigate away from the page, or having to submit and get error messages.
+        </li>
+    </ul>
+
+
+    <h3>Enhancements</h3>
+
+
+    <p class="feature">Editing a Program Has Been Redesigned</p>
+    <ul>
+        <li>The workflow to map competency elements to competencies has been changed. Mapping competency elements to a competency now occur on a single page.</li>
+    </ul>
+
+    <p class="feature">Styling Change to ViewPrograms Page</p>
+    <ul><li>The styling on the tables has been changed to make the table column the same width for both tables in order to make it flow better.</li></ul>
+
+
+    <p class="feature">Styling of Print Page Improved</p>
+    <ul>
+        <li>
+            The print page for both candidates or the RAC advisor for the self-assessment had a lot of white space in the header. This has been improved. There is still some white space which is not removable, but is a lot better than before.
+        </li>
+        <li>
+            The page also displayed "Completed self-assessment" even when the assessment had not been submitted. These inconsistencies have been fixed.
+        </li>
+    </ul>
+
+
+    <h3>Resolved Issues</h3>
+    <p class="feature">
+
+        Incorrect Log-in Information Leads to Error Page
+
+    </p>
+
+    <ul>
+        <li>
+            Whenever a candidate would login with incorrect information, the system would crash. This issue has now been resolved.
+        </li>
+    </ul>
+
+    <p class="feature">Cannot Register and Log Into New Accounts From Home</p>
+    <ul>
+        <li>
+            There was an issue where people could not register from home or log into an existing account. This issue has now been resolved.
+        </li>
+    </ul>
+
+    <p class="feature">Candidate Archiving Does Not Work</p>
+    <ul>
+        <li>
+            Whenever a RAC advisor would click on "archive" on a candidate, no changes were made. This issue has now been resolved.
+        </li>
+    </ul>
+
+    <p class="feature">Candidate Update Account Crashes System</p>
+    <ul>
+        <li>
+            Whenever a candidate would click on "edit" in order to modify their account, the system would crash. This issue has now been resolved.
+        </li>
+    </ul>
+
+    <p class="feature">Various Typo Fixes</p>
+    <ul>
+        <li>
+            There were a lot of typos that had been raised such as the word "submitted" not being spelt correctly. This has now been fixed.
+        </li>
+    </ul>
+
+    <p class="feature">No Documents Uploaded Still Displays Tables</p>
+    <ul>
+        <li>
+            Whenever a RAC advisor or candidate would look at a table that did not have documents, the empty table would show with only headers. This has been changed to display "There are no documents uploaded".
+        </li>
+    </ul>
+
+    <p class="feature">Update Account Not Saving Changes</p>
+    <ul>
+        <li>
+            Whenever the candidate would click on "save" after changing account information, the page would display the new information, but when refreshed, would lose all changes.
+        </li>
+        <li>
+            This has been fixed. All information saves properly now.
+        </li>
+    </ul>
+
+    <h3>Current Issues</h3>
+    <p class="feature">No Unique Program Codes</p>
+    <ul>
+        <li>When creating a program, we can create multiple programs with the same code.</li>
+        <li>
+            We want to fix this issue so that you can create programs with the same name, but they must
+            have different codes.
+        </li>
+    </ul>
+
+    <p class="feature">Modifying a Program and Keeping Old Information</p>
+    <ul>
+        <li>When modifying a program, we want to keep the old structure in our records so that candidates who have already started a RAC with that prorgram, can continue to complete their self-evaluation. New candidates will have to use the new program structure.</li>
+        <li>At the moment we do not have this backwards compatibility implemented.</li>
+    </ul>
+
+    <p class="feature">Error Checking Consistencies</p>
+    <ul>
+        <li>
+            There are some minor inconsistencies on the register page when it comes to error checking that will be fixed for the next release.
+        </li>
+    </ul>
+    </div>
+
+<!-------------------------------------------------------------------------------------------------------------------->
+
+@section scripts {
+        @Scripts.Render("~/Scripts/glyphicon-chevrons-toggle-right-bottom.js")
+    }
+
+
+
+

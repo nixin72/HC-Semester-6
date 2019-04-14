@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNet.Identity
+@using RAC.RACModels
+@*@model RAC.Models.Candidate*@
+
+@if (Session["User"] != null)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        //AuthorizeAdAttribute auth = new AuthorizeAdAttribute();
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            @try
+            {
+                <li>@Html.ActionLink("Account", "ViewAccount", "Candidate", new { Id = ((Candidate)Session["user"]).Id}, null)</li>
+            }
+            catch (InvalidCastException e)
+            {
+                Console.WriteLine(e);
+            }
+            <li class='hideSeparator'><a disabled='disabled'>|</a></li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li class='hideSeparator'><a disabled='disabled'>|</a></li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

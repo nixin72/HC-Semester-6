@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RAC.RACModels.CompetenciesViewModel>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#ProgCompRes">Program Competencies</a>
+            </h4>
+        </div>
+        <div id="ProgCompRes" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table table-responsive">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CompetencyCode)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CompetencyDescription)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CompetencyCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CompetencyDescription)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

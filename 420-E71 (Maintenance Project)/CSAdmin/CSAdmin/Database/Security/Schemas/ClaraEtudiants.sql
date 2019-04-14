@@ -1,0 +1,3 @@
+CREATE SCHEMA [ClaraEtudiants]
+AUTHORIZATION [CSAdmin]
+GO

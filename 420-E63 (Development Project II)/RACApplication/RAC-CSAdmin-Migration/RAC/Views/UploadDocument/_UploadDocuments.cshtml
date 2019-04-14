@@ -1,0 +1,14 @@
+﻿@using System.Web.Configuration
+@using RAC.BusinessLogic
+
+<div id='dropZone'>
+    <form action='@Url.Action("SaveUploadedFileLocal", "UploadDocument", new {isAddedByRACAdvisor = RACAdvisorBLL.CheckIsRACAdvisor()})' method='post' enctype='multipart/form-data' class='dropzone dz-clickable' id='dropzoneForm'>
+        @Html.AntiForgeryToken()
+        <p class='dropMessage dz-message'>
+            Drop files here or click to upload.
+        </p>
+    </form>
+    <br />
+    <div id='uploadFileErrorMessage'></div>
+    <div id='appsettings' acceptedfiletypes='@Html.Raw(WebConfigurationManager.AppSettings.Get("AcceptedFileTypes"))'></div>
+</div>

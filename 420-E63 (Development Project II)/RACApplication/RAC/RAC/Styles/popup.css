@@ -1,0 +1,47 @@
+﻿#pageBlur {
+    display: none;
+    position: fixed;
+    left:0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #888888;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+#closeBtn {
+    margin-top: 1px;
+    margin-right: 2px;
+    margin: -33px;
+    float: right;
+}
+
+#closeBtn:hover {
+    background-color: #D1CBBD;
+    border-radius: 26px;    
+}
+
+#popupContent {
+    padding-top: 25px;
+    font-size: 120%;
+}
+
+#messageBox {    
+    display: none;
+    background-color: white;
+    color: black;
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 200px;
+    padding: 40px;
+    opacity:1;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    #messageBox {        
+        width: 40%;
+    }
+}

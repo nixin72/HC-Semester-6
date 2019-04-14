@@ -1,0 +1,70 @@
+﻿.roleDescription input, .applicationDescription input,
+.applicationCode input, .roleCode input, .username input,
+#newRoleDescription, #newRoleCode,
+#newApplicationDescription, #newApplicationCode {
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    color: #495057;
+    height: 27px;
+    margin: 0px;
+    padding: 0px;
+}
+
+input:disabled {
+    background-color: inherit;
+    border: 1px solid white;
+    margin: 0px;
+    width: 100%;
+}
+
+.table td { padding: 5px; }
+
+.buttonsTd a, .orangeLink { color: #bf8100 !important; }
+
+.editRoleBtn:hover, .editApplicationBtn:hover, .orangeLink:hover {
+    cursor: pointer;
+    text-decoration: underline !important;
+}
+
+.roleDescription input, .applicationDescription input, 
+#newApplicationDescription , #newRoleDescription  {
+    width:380px;
+}
+ .applicationCode input, .roleCode input, 
+ #newApplicationCode , #newRoleCode  {
+    width:70px;
+}
+.addApplicationBtn, .addRoleBtn {
+    font-size: 100%;
+    height: 30px;
+    padding: 0px;
+    width: 80px;
+}
+
+.appRoles {
+    background-color: #efe6d5;
+    border: 2px #BF8100 solid;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.addRoleToApp {
+    background-color: white;
+    border: 1px lightgray solid;       
+}
+
+.addRoleToApp:active {
+    background-color: gray;
+    color: white;
+}
+
+.roleDropdown {
+    font-size: 110%;
+    width: 240px !important;
+}
+.appRoles {
+    display: none;
+}
+.appRoles table, .appRoles td, .appRoles th { border-color: #BF8100; }

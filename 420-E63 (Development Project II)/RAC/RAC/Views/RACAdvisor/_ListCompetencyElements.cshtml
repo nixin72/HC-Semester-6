@@ -1,0 +1,32 @@
+﻿@model IEnumerable<RAC.RACModels.CompetencyElement>
+
+
+<table id="CurrentCompetencyElements" class="table">
+    <thead>
+        <tr>
+            <th>
+                Description
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @{int i = 0; }
+@foreach (var item in Model.Where(x=> x.DateExpired == null))
+{
+    <tr>
+        <td>
+            <span class="MinistryInput"><input type="hidden" name="Competency.CompetencyElements[@i].ElementMinistryDataId" value="@item.ElementMinistryData.Id" /></span>
+            <span class="Desc">@Html.DisplayFor(modelItem => item.ElementMinistryData.Description)</span>
+        </td>
+        <td>
+            <a href="javascript:;" class="remove">Remove</a>
+        </td>
+    </tr>
+    i++;
+}
+    </tbody>
+
+</table>

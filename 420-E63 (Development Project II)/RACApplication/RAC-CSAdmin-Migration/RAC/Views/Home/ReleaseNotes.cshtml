@@ -1,0 +1,158 @@
+﻿<!--Release notes format:
+
+-->
+
+
+@{
+    ViewBag.Title = "Release Notes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Styles/release-notes.css" rel="stylesheet" />
+
+
+<!-------------------------------------------------------------------------------------------------------------------->
+<h1>Release Notes</h1>
+<button class="btn btn-primary" id="acordionVersion225" type="button" data-toggle="collapse" data-target="#collapse225" aria-expanded="true" aria-controls="collapseFeatures">
+    <span class="glyphicon glyphicon-chevron-down cheverons" aria-hidden="true"></span>Version 2.2.5
+</button>
+
+<div class="collapse in" aria-expanded="true" id="collapse225">
+    
+    <h3>Highlights</h3>
+    <ul>
+        <li>Editing a program has been re-designed</li>
+        <li>Users can register and login from home</li>
+        <li>Fixed candidate archiving</li>
+        <li>Various enhancements</li>
+        <li>Various bug fixes</li>
+    </ul>
+
+
+    <h3>New Features</h3>
+    <p class="feature">Help Page</p>
+    <ul>
+        <li>
+            A help page has been implemented in the system. It can be accessed through the navbar at the top of the page. The help page explains the various flows of the system and how to use the functionality.
+        </li>
+    </ul>
+
+    <p class="feature">User Aid</p>
+    <ul>
+        <li>
+            We have implemented user aid in pages such as register in order to help the user understand what is asked of them without having to navigate away from the page, or having to submit and get error messages.
+        </li>
+    </ul>
+
+
+    <h3>Enhancements</h3>
+
+
+    <p class="feature">Editing a Program Has Been Redesigned</p>
+    <ul>
+        <li>The workflow to map competency elements to competencies has been changed. Mapping competency elements to a competency now occur on a single page.</li>
+    </ul>
+
+    <p class="feature">Styling Change to ViewPrograms Page</p>
+    <ul><li>The styling on the tables has been changed to make the table column the same width for both tables in order to make it flow better.</li></ul>
+
+
+    <p class="feature">Styling of Print Page Improved</p>
+    <ul>
+        <li>
+            The print page for both candidates or the RAC advisor for the self-assessment had a lot of white space in the header. This has been improved. There is still some white space which is not removable, but is a lot better than before.
+        </li>
+        <li>
+            The page also displayed "Completed self-assessment" even when the assessment had not been submitted. These inconsistencies have been fixed.
+        </li>
+    </ul>
+
+
+    <h3>Resolved Issues</h3>
+    <p class="feature">
+
+        Incorrect Log-in Information Leads to Error Page
+
+    </p>
+
+    <ul>
+        <li>
+            Whenever a candidate would login with incorrect information, the system would crash. This issue has now been resolved.
+        </li>
+    </ul>
+
+    <p class="feature">Cannot Register and Log Into New Accounts From Home</p>
+    <ul>
+        <li>
+            There was an issue where people could not register from home or log into an existing account. This issue has now been resolved.
+        </li>
+    </ul>
+
+    <p class="feature">Candidate Archiving Does Not Work</p>
+    <ul>
+        <li>
+            Whenever a RAC advisor would click on "archive" on a candidate, no changes were made. This issue has now been resolved.
+        </li>
+    </ul>
+
+    <p class="feature">Candidate Update Account Crashes System</p>
+    <ul>
+        <li>
+            Whenever a candidate would click on "edit" in order to modify their account, the system would crash. This issue has now been resolved.
+        </li>
+    </ul>
+
+    <p class="feature">Various Typo Fixes</p>
+    <ul>
+        <li>
+            There were a lot of typos that had been raised such as the word "submitted" not being spelt correctly. This has now been fixed.
+        </li>
+    </ul>
+
+    <p class="feature">No Documents Uploaded Still Displays Tables</p>
+    <ul>
+        <li>
+            Whenever a RAC advisor or candidate would look at a table that did not have documents, the empty table would show with only headers. This has been changed to display "There are no documents uploaded".
+        </li>
+    </ul>
+
+    <p class="feature">Update Account Not Saving Changes</p>
+    <ul>
+        <li>
+            Whenever the candidate would click on "save" after changing account information, the page would display the new information, but when refreshed, would lose all changes.
+        </li>
+        <li>
+            This has been fixed. All information saves properly now.
+        </li>
+    </ul>
+
+    <h3>Current Issues</h3>
+    <p class="feature">No Unique Program Codes</p>
+    <ul>
+        <li>When creating a program, we can create multiple programs with the same code.</li>
+        <li>
+            We want to fix this issue so that you can create programs with the same name, but they must
+            have different codes.
+        </li>
+    </ul>
+
+    <p class="feature">Modifying a Program and Keeping Old Information</p>
+    <ul>
+        <li>When modifying a program, we want to keep the old structure in our records so that candidates who have already started a RAC with that prorgram, can continue to complete their self-evaluation. New candidates will have to use the new program structure.</li>
+        <li>At the moment we do not have this backwards compatibility implemented.</li>
+    </ul>
+
+    <p class="feature">Error Checking Consistencies</p>
+    <ul>
+        <li>
+            There are some minor inconsistencies on the register page when it comes to error checking that will be fixed for the next release.
+        </li>
+    </ul>
+    </div>
+
+    @section scripts {
+        @Scripts.Render("~/Scripts/release-notes.js")
+    }
+
+
+
+

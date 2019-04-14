@@ -1,0 +1,7 @@
+﻿{
+  "CANDIDATE_CONFIRM_EMAIL": "Hello {tmp.FirstName},<br /><br />You are receiving this email to notify you that you must confirm your email address for you RAC account. <a href='{url}/Account/ConfirmEmail?userId={userId}&code={rand}'>Click here</a> to confirm your email address.",
+  "NEW_CANDIDATE_ACCOUNT": "Hello Alain, <br /><br />You are receiving this email to notify you that {tmp.FirstName} has created a new account in the RAC system.<a href='{}'>Click here</a> to view their profile.",
+  "NEW_RAC_STARTED": "Hello Alain, <br /><br /> You are receiving this email to notify you that {tmp.FirstName} has started a new RAC application. <a href='{}'>Click here</a> to view their RAC application.",
+  "NOTIFY_CONTENT_SPECIALIST": "Hello {tmp.FirstName}, <br /><br /> You are receiving this email to notify you that Alain has requested you review the following RAC candidate to approve their application to the RAC process. <a href='{}'>Click here</a> to view their RAC application profile.",
+  "RETURN_SPECIALIST_EVALUATION": "Hello Alain, <br /><br /> You are receiving this email to notify you that {tmpCs.FirstName} has reviewed the RAC application for {tmpCa.FirstName}. <a href='{}'>Click here</a> to view their assessment of the RAC application profile."
+}

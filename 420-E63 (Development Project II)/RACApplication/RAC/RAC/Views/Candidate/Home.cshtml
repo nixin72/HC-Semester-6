@@ -1,0 +1,39 @@
+﻿@using RAC.RACModels
+@model CandidateHomeViewModel
+
+@{
+    ViewBag.Title = "Home";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/upload-documents.css") 
+    @Styles.Render("~/Styles/candidate-landing-page.css") 
+}
+<div id='banner'>
+    <img src='~/Images/HeritageBanner.jpg' class='bannerImg' alt='A banner of several happy students.'/>
+</div>
+<h2>Home</h2>
+@Html.Partial("Notification", Model)
+
+<div id='uri'
+     uri-deletefilefromdb='@Url.Action("DeleteFileFromDb", "UploadDocument")'
+     uri-istotalfilesizevalid='@Url.Action("IsTotalFileSizeValid", "UploadDocument")'
+     uri-removefilefromlocal='@Url.Action("RemoveFileFromLocal", "UploadDocument")'
+     uri-savechangestodb='@Url.Action("SaveChangesToDB", "UploadDocument")'
+     uri-showviewdocuments='@Url.Action("ShowViewDocuments", "UploadDocument")'
+     uri-getautosaveracrequesturi='@Url.Action("HomeAutosave", "Candidate")'
+     uri-deleteNotification='@Url.Action("DeleteNotification", "Candidate")'
+     uri-checkisracadvisor='@Url.Action("CheckIsRACAdvisor", "Account")'>
+</div>
+
+<h2>Documents Uploaded to You</h2>
+<div id='viewAdvisorUploaded'>
+</div>
+
+<h2>Self Evaluation Page</h2>
+@Html.ActionLink("View Self Evaluation", "SelfEvaluation", "Candidate", new { Class = "btn btn-default" })
+
+@section scripts {
+    @Scripts.Render("~/Scripts/candidate-landing-page.js") 
+    @Scripts.Render("~/Scripts/uploaded-documents.js") 
+}

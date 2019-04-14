@@ -1,0 +1,651 @@
+﻿/* Cegep Heritage College Main CSS File
+
+	<-- Media Factory FTW -->
+
+	TABLE OF CONTENTS
+	----------------------------------->
+	1. ##Site General Needs
+		1.1. ##Links
+	2. ##Navbar
+		2.1. ##TopNav
+		2.2. ##MainNav
+		2.3. ##LeftColFooter
+		3.1. ##Breadcrumbs
+		3.2. ##Search
+	3. ##Side Nav
+	4. ##Content
+		4.1. ##Tables
+		4.2. ##Blockquotes
+		4.3. ##Misc. Styles
+	6. ##Footer
+	7. ##Media Queries
+	----------------------------------->
+*/
+
+/* ===================================================
+##Site General Needs
+====================================================== */
+
+body {
+    background-image: url("../images/topbar-bg.gif"), url("../images/bg.gif");
+    background-position: left top, left top;
+    background-repeat: repeat-x, repeat;
+    font-family: Verdana, sans-serif;
+    font-size: 14px;
+}
+
+.alert {
+    left: 50%;
+    position: fixed !important;
+    top: 50%;
+    z-index: 99 !important;
+}
+.errmsg {
+	color:red !important;
+}
+
+.errmsg p {	
+	font-size: 0.8em !important;
+	margin-bottom: 1px !important;
+}
+
+.succmsg {
+	color:forestgreen !important;
+}
+
+.succmsg p {	
+	font-size: 0.8em !important;
+	margin-bottom: 1px !important;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    /* color: #daa728; */
+    color: #bf8100;
+}
+
+h3.dark {
+    /* color: #463f2d; */
+    color: #bf8100;
+}
+
+h3 {
+    line-height: 1.2;
+    margin-top: 30px;
+}
+
+.bold { font-weight: bold; }
+
+.italic { font-style: italic; }
+
+.red { color: #ff0000; }
+
+hr { border-top: 1px solid #d6d4d0; }
+
+hr.style-six {
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    height: 0;
+}
+
+br.responsive-break { display: initial; }
+
+br.responsive-break-2 { display: initial; }
+
+.note-text {
+    font-size: 11px;
+    margin-bottom: 5px;
+    position: relative;
+    top: -8px;
+}
+
+.note-star { font-size: 11px; }
+
+
+/* Fix the Ponderation table issue when in responsive mode. */
+
+span.conted-tbl-break { display: initial; }
+
+.nowrap { white-space: nowrap; }
+
+.btn-warning-df {
+    background-color: #e89e01;
+    border: 0;
+    color: #fff;
+    padding: 8px 16px;
+}
+
+.glyphicon {
+    position: relative;
+    top: 2px;
+}
+
+.content { background-color: #fff; }
+
+.white-bg .content { background-color: #fff; }
+
+.container-fluid-df { max-width: 1400px; }
+
+.container-fluid-df {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Removing padding from col-sm-3 (nav)  */
+
+.col-sm-3-df { padding: 0; }
+
+.col-sm-9-content {
+    background-color: #fff;
+    /* Fix to keep bg white when low content */
+    min-height: 557px;
+    padding: 0 15px 8px 15px;
+}
+
+
+/* ===================== ##Links ===================== */
+
+a:link,
+a:visited,
+a:active {
+    -moz-transition: 0.2s color linear;
+    -webkit-transition: 0.2s color linear;
+    color: #bf8100;
+    transition: 0.2s color linear;
+}
+
+a:hover {
+    -moz-transition: 0.2s color linear;
+    -webkit-transition: 0.2s color linear;
+    color: #463f2d;
+    transition: 0.2s color linear;
+}
+
+a.dark:link,
+a.dark:visited,
+a.dark:active {
+    -moz-transition: 0.2s color linear;
+    -webkit-transition: 0.2s color linear;
+    color: #463f2d;
+    transition: 0.2s color linear;
+}
+
+a.dark:hover {
+    -moz-transition: 0.2s color linear;
+    -webkit-transition: 0.2s color linear;
+    color: #bf8100;
+    transition: 0.2s color linear;
+}
+
+.sidenav a:link,
+.sidenav a:visited,
+.sidenav a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+.sidenav a:active { color: #bf8100; }
+
+a.footer:link,
+a.footer:visited,
+a.footer:hover,
+a.footer:active {
+    text-decoration: underline;
+    color: #ffffff !important;
+}
+
+
+a.footer:hover {
+    color: black !important;
+}
+
+.img-link-shadow:hover {
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    transition: 0.2s;
+}
+
+.img-link:hover { opacity: 0.5; }
+
+/* ===================================================
+##Navbar
+====================================================== */
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+
+.navbar a:hover,
+.navbar a:focus { color: inherit !important; }
+
+.navbar .navbar-collapse { font-size: 120%; }
+
+.dropdown-item:focus, .dropdown-item:hover { background-color: transparent; }
+
+.navbar { padding: 0px; }
+
+.navbar {
+    background-color: #bf8100;
+    border: none !important;
+    box-shadow: black 1px 0px 0.25em;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.navbar .nav-link,
+.navbar .dropdown-item {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.navbar a { color: white !important; }
+
+.navbar-brand {
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    position: relative;
+}
+
+.navbar-brand > img { height: 100%; }
+
+.float-on-top {
+    position: absolute;
+    transform: scale(0.95);
+    transform-origin: center center;
+}
+
+@media only screen and (max-width: 991px) {
+    .navbar .dropdown-menu {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 0px;
+    }
+
+    .navbar .navbar-collapse {
+        background: rgb(105, 94, 74);
+        ;
+    }
+}
+
+/* BANNER NAVIGATION
+----------------------------------------------------------*/
+
+
+/*
+.row-overflow-hidden {
+  overflow: hidden; 
+}*/
+
+.row-banner.content-banner { height: 125px; }
+
+.banner-left {
+    background-image: url("../images/banner-left-bg.jpg");
+    background-repeat: repeat-x;
+    height: 125px;
+    padding: 25px 0 0 15px;
+    padding-top: 25px;
+}
+
+
+
+.banner-right { display: none; }
+
+/*!-- @media screen and (max-width: 767px) {
+	.banner-left {
+	display:none;
+	}
+} */
+
+/* ===================== ##LeftColFooter ===================== */
+
+#col-left-footer { display: none; }
+
+#col-left-footer-bottom { display: inline-block; }
+
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+/* Wrap to center the top-nav using margins */
+
+.top-wrap { background-color: #fff; }
+
+
+#top-menu {
+    float: right;
+    margin: 4px 0 5px 0;
+}
+
+ul#top-menu li {
+    display: inline;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+li.top-menu {
+    background-image: url("../images/square.gif");
+    background-position: 0px 4px;
+    background-repeat: no-repeat;
+    padding: 0 12px 0 12px;
+}
+
+li.top-menu-last { padding-right: 0; }
+
+/* <!------------------------ ##MainNav ------------------------ // --> */
+
+/* ===================== ##Breadcrumbs ===================== */
+
+ul#breadcrumb {
+    margin-bottom: 0px;
+    margin-top: 28px;
+    padding: 0;
+}
+
+ul#breadcrumb li {
+    display: inline;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+li.arrow {
+    background-image: url("../images/breadcrumb-arrow.gif");
+    background-position: 0px 3px;
+    background-repeat: no-repeat;
+    padding-left: 12px;
+    padding-right: 5px;
+}
+
+li.arrow-text {
+    background-image: url("../images/text-arrow.gif");
+    background-position: 0px 4px;
+    background-repeat: no-repeat;
+    padding-left: 12px;
+    padding-right: 5px;
+}
+
+li#home {
+    background-image: url("../images/breadcrumb-home.gif");
+    background-position: 0px 2px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-right: 5px;
+}
+
+/* ===================== ##Search ===================== */
+
+.input-group-search { margin: 25px 0 0 7px; }
+
+.form-control-search {
+    border: 1px solid #d6d4d0;
+    box-shadow: none;
+}
+
+.btn-default-search { background-color: #f6f6f6; }
+
+.glyphicon-search {
+    font-size: 16px;
+    opacity: 0.3;
+    top: 3px;
+}
+
+/* ===================================================
+##Content
+====================================================== */
+
+.sidenav h1, .sidenav h2, .sidenav h3 {
+    color: #463f2d;
+    ;
+}
+
+.box_header {
+    border: 1px solid #b4afa3;
+    margin-bottom: 35px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.jumbotron { margin-top: 15px; }
+
+.box_header header {
+    background-color: #e3dfd5;
+    color: #463f2d;
+    margin: -20px -20px 0 -20px;
+}
+
+.box_header header h3 {
+    color: #463f2d;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 20px 10px 20px;
+}
+
+.box_header header h5 {
+    color: #463f2d;
+    font-weight: 600;
+    margin-top: -10px;
+    padding: 0 20px 20px 20px;
+}
+
+.box_header ul { margin-bottom: -10px; }
+
+/* ===================== ##Tables ===================== */
+
+#table-programs table { border: 1px solid #a1a1a1; }
+
+#table-programs thead > tr > th { border-bottom: none; }
+
+#table-programs thead { border: 1px solid #a1a1a1; }
+
+#table-programs thead > tr > th,
+#table-programs tbody > tr > th,
+#table-programs tfoot > tr > th,
+#table-programs thead > tr > td,
+#table-programs tbody > tr > td,
+#table-programs tfoot > tr > td { border: 1px solid #a1a1a1; }
+
+#table-programs th {
+    background-color: #e3dfd5;
+    text-align: center;
+}
+
+/* ===================== ##Blockquotes ===================== */
+
+blockquote {
+    border-left: 0;
+    color: #383838;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-left: 65px;
+    position: relative;
+    width: 100%;
+}
+
+blockquote:before {
+    color: #c2c2c2;
+    content: "\201C";
+    display: block;
+    font-size: 80px;
+    left: 10px;
+    position: absolute;
+    top: -20px;
+}
+
+blockquote cite {
+    color: #999999;
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+blockquote cite:before { content: "\2014 \2009"; }
+
+blockquote footer {
+    background-color: transparent;
+    color: #b4b4b4;
+    font-size: 14px;
+    padding-bottom: 5px;
+    text-align: right;
+}
+
+/* ========================== ##Misc. Styles ================ */
+
+.crspan { padding: 0 30px; }
+
+/* ===================================================
+##Footer
+====================================================== */
+
+/* Set black background color, white text and some padding */
+
+footer {
+    -moz-border-radius-bottomleft: 6px;
+    -moz-border-radius-bottomright: 6px;
+    background-color: #bf8100;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color: white;
+    padding: 15px;
+}
+
+.text-footer {
+    color: #463f2d;
+    margin-bottom: 0;
+}
+
+footer a {
+    color:white !important;
+    text-decoration:underline;
+}
+
+footer a:hover {
+    color: black !important;    
+    }
+
+.break { display: none; }
+
+
+
+
+/* ===================================================
+##Media Queries
+====================================================== */
+
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+
+@media screen and (max-width: 767px) {
+    .sidenav { height: auto; }
+
+    .row.content { height: auto; }
+
+    #top-banner-logo-area { display: none !important; }
+}
+
+/* <!-- Breaking points [+]  // --> */
+
+/* Custom, iPhone Retina */
+
+@media only screen and (min-width: 320px) {
+}
+
+/* Extra Small Devices, Phones */
+
+@media only screen and (min-width: 480px) {
+    span.conted-tbl-break { display: none; }
+}
+
+/* Small Devices, Tablets */
+
+@media only screen and (min-width: 768px) {
+    .col-sm-12-topbar { background-color: #fff; }
+
+
+    li.top-menu-last { padding-right: 0px; }
+
+    .banner-right {
+        background-image: url("../images/banner-right-school.jpg");
+        background-repeat: repeat-x;
+        display: initial;
+        padding: 0;
+        text-align: left;
+    }
+
+    .banner-image {
+        display: initial;
+        float: right;
+    }
+
+    .content { background-color: #b8b19e; }
+
+    #col-left-footer {
+        display: inline-block;
+        padding: 12px;
+    }
+
+    #col-left-footer-bottom { display: none; }
+
+    ul#breadcrumb { margin-top: 10px; }
+
+    .col-sm-9-content { padding: 0 30px 8px 30px; }
+
+
+    .col-sm-3-df {
+        background-color: #b8b19e;
+        /* margin-bottom: -99999px;
+        padding-bottom: 99999px; */
+    }
+
+    #left-col-footer {
+        background-color: #fff;
+        background-image: url("../images/left-col-footer.jpg");
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        height: 125px;
+    }
+
+    .break { display: initial; }    
+}
+
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 992px) {
+    br.responsive-break-2 { display: none; }
+
+    .navbar .dropdown-menu.show { background-color: #cc9119; }
+}
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (min-width: 1200px) {
+    .container-fluid-df { margin: 0 125px 0 125px; }
+}
+
+/* Custom added by DF */
+
+@media (min-width: 1430px) {
+    br.responsive-break { display: none; }
+}
+
+/* Custom added by DF */
+
+@media (min-width: 1740px) {
+    /* Edit - Margins at auto for centering on larger screens exceeding max-width - OT 
+	.container-fluid-df {
+		margin: 0 245px 0 245px;
+	}*/
+
+    .container-fluid-df { margin: 0 auto; }
+}
+/* <!-- Breaking points [-]  // --> */

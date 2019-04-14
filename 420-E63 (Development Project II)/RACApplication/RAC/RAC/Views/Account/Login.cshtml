@@ -1,0 +1,63 @@
+﻿@model RAC.Models.LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class='row'>
+    <div class='col-md-8'>
+        <section id='loginForm'>
+            @using (Html.BeginForm("Login", "Account", new {ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new {@class = "col-md-2 control-label"})
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new {@class = "form-control loginControl", tabindex = 2 })
+                        @Html.ValidationMessageFor(m => m.Email, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new {@class = "col-md-2 control-label"})
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new {@class = "form-control loginControl", tabindex = 3 })
+                        @Html.ValidationMessageFor(m => m.Password, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2 rememberMe">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { tabindex = 4 })
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <input class="btn btn-primary" type="submit" value="Log in" tabindex='5' />
+                    </div>
+                </div>
+                <p>
+                    @Html.ActionLink("Register as a new user", "Register", null, new { tabindex = 6 })
+                </p>
+                @* Enable this once you have account confirmation enabled for password reset functionality*@
+                <p>
+                    @Html.ActionLink("Forgot your password?", "ForgotPassword", null, new { tabindex = 7 })
+                </p>
+                <p>
+                    @Html.ActionLink("Resend Confirmation Email", "ResendConfirmationEmail", "Account", new { tabindex = 8 })
+                </p>
+            }
+        </section>
+    </div>
+</div>
+@Html.Partial("../Shared/_PopUp", Model)
+
+@Styles.Render("~/Styles/login.css")
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/popup.js")
+    @Scripts.Render("~/Scripts/login.js")
+}

@@ -1,0 +1,74 @@
+﻿@using RAC.RACModels;
+@model RACAdvisorHomeViewModel
+
+@{
+
+}
+@if (Model.Notifications.Count > 0)
+{
+    <table class="table table-striped table-responsive">
+        <tr>
+            <th>
+                <p>Date:</p>
+            </th>
+            <th>
+                <p>Description:</p>
+            </th>
+            <th>
+                <p>Action:</p>
+            </th>
+        </tr>
+        <tbody>
+            @foreach (var notification in Model.Notifications)
+            {
+                if (notification.NotificationType != (int) Messages.RAC_ADVISOR_UPLOAD_TO_CANDIDATE)
+                {
+
+                <tr>
+                    <td>@String.Format("{0:MMMM d, yyyy - hh:mm tt}", @notification.Date)</td>
+                    @switch (notification.NotificationType)
+                    {
+                        case (short)Messages.NEW_RAC_STARTED:
+                            <td><span class='text-info glyphicon glyphicon-info-sign' aria-label ="Evaluation Started"></span> @Html.ActionLink(notification.Candidate.FirstName + " " + notification.Candidate.LastName, "CandidateDetails", new { id = notification.Candidate.CandidateProfile.Id }) has <strong class='text-info'>@notification.Description</strong> their @Html.ActionLink("self evaluation", "GetCompleteRacRequest", new { controller = "Candidate", id = notification.Candidate.CandidateProfile.RACRequest.Id }) </td>
+                            break;
+                        case (short)Messages.RAC_REQUEST_SUBMITTED:
+                            <td><span class='text-success glyphicon glyphicon-ok-sign' aria-label ="RAC Completed"></span> @Html.ActionLink(notification.Candidate.FirstName + " " + notification.Candidate.LastName, "CandidateDetails", new { id = notification.Candidate.CandidateProfile.Id }) has <strong class='text-success'>@notification.Description</strong> their @Html.ActionLink("self evaluation", "GetCompleteRacRequest", new { controller = "Candidate", id = notification.Candidate.CandidateProfile.RACRequest.Id }) </td>
+                            break;
+                        case (short)Messages.RAC_PROGRAM_CHANGE:
+                            <td><span class='text-warning glyphicon glyphicon-exclamation-sign' aria-label="Program Changed"></span> @Html.ActionLink(notification.Candidate.FirstName + " " + notification.Candidate.LastName, "CandidateDetails", new { id = notification.Candidate.CandidateProfile.Id }) has <strong class='text-warning'>@notification.Description</strong> for their @Html.ActionLink("self evaluation", "GetCompleteRacRequest", new { controller = "Candidate", id = notification.Candidate.CandidateProfile.RACRequest.Id }) </td>
+                            break;
+                        case (short)Messages.CANDIDATE_ACCOUNT_DELETED:
+                            <td><span class='text-danger glyphicon glyphicon-remove-sign' aria-label="Accout Deleted"></span> @Html.ActionLink(notification.Candidate.FirstName + " " + notification.Candidate.LastName, "CandidateDetails", new { id = notification.Candidate.CandidateProfile.Id }) has <strong class='text-danger'>@notification.Description</strong> their @Html.ActionLink("account", "CandidateDetails", new { id = notification.Candidate.CandidateProfile.Id })</td>
+                            break;
+                        case (short)Messages.CANDIDATE_CONFIRM_EMAIL:
+                            <td><span class='text-info glyphicon glyphicon-info-sign' aria-label="Accout Created"></span> @Html.ActionLink(notification.Candidate.FirstName + " " + notification.Candidate.LastName, "CandidateDetails", new { id = notification.Candidate.CandidateProfile.Id }) has <strong class='text-info'>created</strong> their @Html.ActionLink("account", "CandidateDetails", new { id = notification.Candidate.CandidateProfile.Id })</td>
+                            break;
+                        default:
+                            <td><span class='text-info glyphicon glyphicon-info-sign' aria-label="New Action"></span> @Html.ActionLink(notification.Candidate.FirstName + " " + notification.Candidate.LastName, "CandidateDetails", new { id = notification.Candidate.CandidateProfile.Id }) has performed an action on their account their @Html.ActionLink("account", "CandidateDetails", new { id = notification.Candidate.CandidateProfile.Id })</td>
+                            break;
+
+                    }
+                                
+
+                    <td><a id='@notification.Id' class='removeNotification' href='#'><span class="text-danger glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Remove</a></td>
+                </tr>
+            }
+                
+            }
+        </tbody>
+
+
+
+    </table>
+
+}
+else
+{
+    <h4>There are no new notifications to display</h4>
+}
+
+<div id='uri'
+     uri-deleteNotification='@Url.Action("DeleteNotification", "RACAdvisor")'>
+</div>
+
+

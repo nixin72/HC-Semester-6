@@ -1,0 +1,366 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CSAdminCode
+</name>
+</assembly>
+<members>
+<member name="T:CSAdminCode.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:CSAdminCode.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:CSAdminCode.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:CSAdminCode.BusinessLogic.CoopProgramManager.SelectCoopProgram(System.Int32)">
+ <summary>
+ A call is made to the database to retrieve a list of CoopPrograms which will be used to determine the type of 
+ user control to be displayed to the user
+ </summary>
+ <param name="ProgramCoopCoordinatorID">The CoopCoordinatorID is passed in as an Integer to recieve a list of CoopPrograms</param>
+ <returns>A list of CoopPrograms</returns>
+ <remarks>Created by Mikael-Raymond Paul</remarks>
+</member>
+<member name="M:CSAdminCode.BusinessLogic.CoopProgramManager.SelectAllCoopPrograms">
+ <summary>
+ Method that returns a CoopProgramList filled with all coop programs
+ </summary>
+ <returns>CoopProgramList with all coop programs</returns>
+ <remarks>Author: Kevin Brascoupe</remarks>
+</member>
+<member name="M:CSAdminCode.BusinessLogic.CoopProgramManager.InsertCoopProgram(System.String,System.String,System.Boolean)">
+ <summary>
+ Inserts a new coop program
+ </summary>
+ <remarks>Author: Marta Chmielowska</remarks>
+</member>
+<member name="M:CSAdminCode.BusinessLogic.CoopProgramManager.UpdateCoopProgram(System.Int32,System.String,System.String,System.Boolean)">
+ <summary>
+ Updates an existing coop program
+ </summary>
+ <remarks>Author: Marta Chmielowska</remarks>
+</member>
+<member name="M:CSAdminCode.BusinessLogic.CoopProgramManager.DeleteCoopProgram(CSAdminCode.BusinessObjects.CoopProgram)">
+ <summary>
+ Deletes an existing coop program
+ </summary>
+ <param name="aCoopProgram"></param>
+ <remarks>Author: Marta Chmielowska</remarks>
+</member>
+<member name="M:CSAdminCode.BusinessLogic.ProgramCoopCoordinatorManager.SelectAllProgramCoopCoordinators(System.String)">
+ <summary>
+ Retrieves all program coop coordinators from the database
+ </summary>
+ <returns>List of Program Coop Coordinatora</returns>
+ <remarks>Created by Mikael-Raymond Paul</remarks>
+</member>
+<member name="M:CSAdminCode.BusinessLogic.ProgramCoopCoordinatorManager.DeleteProgramCoordinator(System.Int32)">
+ <summary>
+ Deletes a specified program coop coordinator combination from database
+ </summary>
+ <param name="ProgramCoopCoordinatorID">ID of Program Coop Coordinator to delete</param>
+ <remarks>Created by Mikael-Raymond Paul</remarks>
+</member>
+<member name="M:CSAdminCode.BusinessLogic.ProgramCoopCoordinatorManager.InsertProgramCoordinator(System.Int32,System.Int32)">
+ <summary>
+ Inserts a program coop coordinator combination into the database with the specified parameters
+ </summary>
+ <param name="EmployeeID">The employee ID of the Coop Coordinator to insert</param>
+ <param name="CoopProgramID">ID of Coop Program to insert</param>
+ <remarks>Created by Mikael-Raymond Paul</remarks>
+</member>
+<member name="T:CSAdminCode.BusinessObjects.ProgramStudentSummary">
+ <summary>
+ This class will hold the number of new students in a program for a given year
+ </summary>
+ <remarks>Used in the Clara extraction process in the WPF windows application</remarks>
+</member>
+<member name="M:CSAdminCode.Common.Format.FormatDate(System.DateTime)">
+ <summary>
+ Method that formats date. eg. Date: 2011-05-14 Formatted: 2011-MAY-14
+ </summary>
+ <param name="EvalDate">Date to be formatted</param>
+ <returns>Formatted date</returns>
+ <remarks>Author: Renee Ghattas</remarks>
+</member>
+<member name="M:CSAdminCode.Common.Format.FormatSemester(System.Int32)">
+ <summary>
+ Method that formats year and semester. eg. YearSemester: 20121 Formatted: Winter 2012
+ </summary>
+ <param name="YearSemester">Year and Semester to be formatted</param>
+ <returns>Formatted year and semester</returns>
+ <remarks>Author: Renee Ghattas</remarks>
+</member>
+<member name="M:CSAdminCode.Common.Format.FormatLastFirst(System.String,System.String)">
+ <summary>
+ Method that formats first and last name. eg. FirstName: Renee LastName: Ghattas Formatted: Ghattas, Renee
+ </summary>
+ <param name="FirstName">First name to be formatted</param>
+ <param name="LastName">Last name to be formatted</param>
+ <returns>Formatted full name</returns>
+ <remarks>Author: Renee Ghattas</remarks>
+</member>
+<member name="M:CSAdminCode.Common.Format.FormatFirstLast(System.String,System.String)">
+ <summary>
+ Method that formats first and last name. eg. FirstName: Renee LastName: Ghattas Formatted: Renee Ghattas
+ </summary>
+ <param name="FirstName">First name to be formatted</param>
+ <param name="LastName">Last name to be formatted</param>
+ <returns>Formatted full name</returns>
+ <remarks>Author: Renee Ghattas</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.CoopCoordinatorDB.UpdateCoopCoordinator(CSAdminCode.BusinessObjects.CoopCoordinator)">
+ <summary>
+ This subroutine updates or inserts a co-op coordinator in the CoopCoordinator table in the database
+ </summary>
+ <param name="aCoopCoordinator">A CoopCoordinator object that holds the CoopCoordinator properties</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.CoopCoordinatorDB.InsertCoopCoordinator(CSAdminCode.BusinessObjects.CoopCoordinator)">
+ <summary>
+ This subroutine updates or inserts a co-op coordinator in the CoopCoordinator table in the database
+ </summary>
+ <param name="aCoopCoordinator">A CoopCoordinator object that holds the CoopCoordinator properties</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.CoopCoordinatorDB.SelectAllCoopCoordinators">
+ <summary>
+ A function that gets a list of all co-op coordinators
+ </summary>
+ <returns>A list of co-op coordinators</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.CoopCoordinatorDB.SelectCoopCoordinator(System.Int32)">
+ <summary>
+ A function that gets a list of all co-op coordinators
+ </summary>
+ <returns>A list of co-op coordinators</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.CoopCoordinatorDB.SelectCoopCoordinatorByEmployeeID(System.Int32)">
+ <summary>
+ A function that gets a list of all co-op coordinators
+ </summary>
+ <returns>A list of co-op coordinators</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.CoopCoordinatorDB.SelectClaraEmployeeByID(System.Int32)">
+ <summary>
+ A function that gets an employee of Heritage College from the Clara database
+ </summary>
+ <returns>A Heritage College Employee</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.CoopProgramDB.SelectProgram(System.Int32)">
+ <summary>
+ Retrieves CoopPrograms related to the given CoopCoordinatorID
+ </summary>
+ <param name="CoopCoordinatorID">The CoopCoordinatorID is passed in as an Integer to recieve a list of CoopPrograms</param>
+ <returns>List of CoopPrograms</returns>
+ <remarks>Created by Mikael-Raymond Paul</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.CoopProgramDB.SelectAllPrograms">
+ <summary>
+ Method that returns all coop programs
+ </summary>
+ <returns>CoopProgramList with all coop programs</returns>
+ <remarks>Author: Kevin Brascoupe</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.CoopProgramDB.SelectAllProgramsHavingProgramID">
+ <summary>
+ Method that returns all coop programs that have an associated program version
+ </summary>
+ <returns>CoopProgramList with all coop programs with an associated program version</returns>
+ <remarks>Author: Louis Cloutier</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.CoopProgramDB.InsertCoopProgram(System.String,System.String,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <remarks>Author: Marta Chmielowska</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.ProgramCoopCoordinatorDB.SelectAllProgramCoopCoordinators(System.String)">
+ <summary>
+ Retrieves all program coop coordinator combinations from database
+ </summary>
+ <returns>List of Program Coop Coordinators</returns>
+ <remarks>Created by Mikael-Raymond Paul</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.ProgramCoopCoordinatorDB.DeleteProgramCoordinator(System.Int32)">
+ <summary>
+ Deletes a specified program coop coordinator combination from the database
+ </summary>
+ <param name="ProgramCoopCoordinatorID">ID of Program Coop Coordinator to delete</param>
+ <remarks>Created by Mikael-Raymond Paul</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.ProgramCoopCoordinatorDB.InsertProgramCoordinator(System.Int32,System.Int32)">
+ <summary>
+ Inserts a program coop coordinator combination into the database with the specified parameters
+ </summary>
+ <param name="CoopCoordinatorID">ID of Coop Coordinator to insert</param>
+ <param name="CoopProgramID">ID of Coop Program to insert</param>
+ <remarks>Created by Mikael-Raymond Paul</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.SelectSpecialRoles">
+ <summary>
+ 
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.SelectAllUserWithSpecialRoles(System.String)">
+ <summary>
+ 
+ </summary>
+ <returns>returns a list of User Roles</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.selectAllRoles">
+ <summary>
+ Selects all roles
+ </summary>
+ <returns>RoleList containing all roles in CSAdmin</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.selectAllApplications">
+ <summary>
+ Selects all applications
+ </summary>
+ <returns>ApplicationList containing all applications in CSAdmin</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.updateApplication(System.Int32,System.String,System.String)">
+ <summary>
+ Updates the code and/or description of an application given the ID
+ </summary>
+ <param name="IDApplication">Application to modify</param>
+ <param name="code">New Application Code</param>
+ <param name="description">New Application Description</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.addApplication(System.String,System.String)">
+ <summary>
+ Inserts a new application
+ </summary>
+ <param name="code">New Application Code</param>
+ <param name="description">New Application Description</param>
+ <returns>false if the insert did not work due to a unique key constraint</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.updateRole(System.Int32,System.String,System.String)">
+ <summary>
+ Updates the code and/or description of an role given the ID
+ </summary>
+ <param name="IDRole">Role to modify</param>
+ <param name="code">New Application Code</param>
+ <param name="description">New Application Description</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.addRole(System.String,System.String)">
+ <summary>
+ Inserts a new role
+ </summary>
+ <param name="code">New Role Code</param>
+ <param name="description">New Role Description</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.selectAllApplicationRoles(System.Int32)">
+ <summary>
+ Selects all application roles for the given IDRole
+ </summary>
+ <param name="IDRole">The ID of the role for which to select associated applications</param>
+ <returns>an ApplicationRoleList object containing all the applications for the given IDRole</returns>
+ <remarks>Modified to also use IDApplication</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.updateApplicationRole(System.Int32,System.Boolean)">
+ <summary>
+ Updates the isActive state of an application role given the ID
+ </summary>
+ <param name="IDApplicationRole">Application Role to modify</param>
+ <param name="isActive">Whether the role is active or not</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.RoleDB.addApplicationRole(System.Int32,System.Int32)">
+ <summary>
+Inserts an application role for the selected role and application
+ </summary>
+ <param name="IDApplication">The Selected application</param>
+ <param name="IDRole">The Selected role</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.LoginDB.SelectAdmin(System.String)">
+ <summary>
+ Method that selects the admin information of the user that is logging into the system
+ </summary>
+ <param name="username">Username of the user logging in</param>
+ <returns>Admin object</returns>
+ <remarks>Author: Renee Ghattas</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.StatusDB.SelectStatusTypes">
+ <summary>
+ Retrieves all the status types
+ </summary>
+ <returns>List of Status Types</returns>
+ <remarks>Created by Matthew Riopel</remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.UserDB.InsertNewStudentsFromClara(System.Int32)">
+ <summary>
+ Inserts new student roles in CSAdmin for this semester 
+ </summary>
+ <param name="AnSession">Current YearSemester value (e.g.: 20121)</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.UserDB.ActivateStudentsFromClara(System.Int32)">
+ <summary>
+ Activates students and student roles in CSAdmin for this semester 
+ </summary>
+ <param name="AnSession">Current YearSemester value (e.g.: 20121)</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.UserDB.InsertNewCESStudentsFromClara(System.Int32)">
+ <summary>
+ Inserts new student information in CES for this semester
+ </summary>
+ <param name="AnSession">Current YearSemester value (e.g.: 20121)</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.UserDB.InsertNewProgramCoordinatorsFromClara(System.Int32)">
+ <summary>
+ Inserts new program coordinator roles in CSAdmin for this semester
+ </summary>
+ <param name="AnSession">Current YearSemester value (e.g.: 20121)</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.UserDB.deactivateStudents(System.Int32)">
+ <summary>
+ Deactivates student roles in CSAdmin for students not attending the College in the current semester
+ </summary>
+ <param name="AnSession">Current YearSemester value (e.g.: 20121)</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.UserDB.deleteCESStudents(System.Int32)">
+ <summary>
+ Deletes inactive students and their associated student evaluation invitations in CES
+ </summary>
+ <param name="AnSession">Current YearSemester value (e.g.: 20121)</param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdminCode.DataAccess.UserDB.DeactivateProgramCoordinators(System.Int32)">
+ <summary>
+ Deactivates program coordinator roles in CSAdmin that are not active this semester
+ </summary>
+ <param name="AnSession">Current YearSemester value (e.g.: 20121)</param>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

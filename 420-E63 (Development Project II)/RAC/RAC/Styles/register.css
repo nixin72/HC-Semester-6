@@ -1,0 +1,93 @@
+﻿body {
+}
+
+#wrapper {
+    width: 95% !important; 
+
+}
+.register-labels {
+    color: #57534A;
+}
+.form-group {
+    margin-left: 5px !important;
+}
+.form-group input, select {
+    max-width: 95% !important;
+}
+.form-row {
+    height: 80px;
+}
+.program-div {
+    height: 150px;
+}
+.captcha-div {
+    height: 100px;
+}
+h4 {
+    color: #57534A;
+    font-size: 1.6em;
+}
+.pass-div-responsive {
+    height: 200px;
+}
+@media only screen and (min-width: 630px) {
+    
+    #wrapper {
+        width: 80% !important;   
+    }
+    .register-button {
+        margin-right: 0 !important;
+    }
+
+    .form-group input, select {
+        max-width: 95% !important;
+        margin-right: 50px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+    
+    .register-labels {
+        float: left;
+        text-align: left !important;
+        margin-right: 20px;
+    }
+
+    .first-column {
+        width: 40%;
+        display: inline-block;
+        margin-right: 17% !important;
+    }
+    .second-column {
+        width: 40%;
+        display: inline-block;
+        vertical-align: top
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    
+    .form-divider {
+        display: none;
+    }
+    .personal-information-container {
+        border: solid thin lightgray;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 50px;
+    }
+    .account-information-container {
+        border: solid thin lightgray;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px !important;
+    }
+    .email-column {
+        width: 40%;
+    }
+    .pass-div-responsive {
+        height: 163px;
+    }
+}

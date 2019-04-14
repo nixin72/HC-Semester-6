@@ -1,0 +1,23 @@
+﻿@model RAC.RACModels.RACAdvisorHomeViewModel
+
+@{
+    ViewBag.Title = "Rac Advisor Home";
+    ViewBag.User = "RACAdvisor";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/rac-advisor-home.css")
+}
+
+<h2>Welcome 
+    @Html.Raw(Model.FirstName + " " + Model.LastName)
+    </h2>
+
+
+
+<h3>Recent Activity</h3>
+@Html.Partial("Notification", @Model)
+
+@section scripts {
+    @Scripts.Render("~/Scripts/rac-advisor-home.js")
+}

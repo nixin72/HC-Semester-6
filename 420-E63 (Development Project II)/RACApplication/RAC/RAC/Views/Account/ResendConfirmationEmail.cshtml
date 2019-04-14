@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Resend Confirmation Email";
+}
+
+<h2>Resend Confirmation Email</h2>
+
+<span>Email: </span><input id='email' type='email' tabindex='2' />
+<button id='resend' tabindex='3'>Resend Email</button>
+
+@Html.Partial("../Shared/_PopUp")
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/popup.js")
+@Scripts.Render("~/Scripts/resend-email.js")
+}
+<div id='uri' uri-resendconfirmationemail='@Url.Action("ResendConfirmationEmail", "Account")'></div>

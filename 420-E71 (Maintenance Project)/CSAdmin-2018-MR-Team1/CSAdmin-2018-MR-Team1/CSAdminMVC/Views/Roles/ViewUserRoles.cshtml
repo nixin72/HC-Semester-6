@@ -1,0 +1,54 @@
+﻿@model UserRoleList
+@{ int index = 0; }
+@foreach (UserRole ur in Model.UserRoles)
+{
+    if (ur.IsActive)
+    {
+        <tr>
+            <td>@ur.User.LastName, @ur.User.FirstName</td>
+            <td>@ur.User.Username</td>
+            <td>@ur.Role.Description</td>
+            <td>
+
+                <button class="btn btn-link edit" value="@ur.IDUserRole">Edit</button>
+                <button class="btn btn-link delete" value="@ur.IDUserRole">Delete</button><!-- add delete class to proc trigger which isnt working in role Manager-->
+            </td>
+        </tr>
+    }
+    index++;
+}
+<script>
+    $(".edit").on('click',
+        function() {
+            console.log("ok");
+            $.get("@Url.Action("EditUserRole")",
+                { userRoleID: $(this).attr('value') },
+                function(data) {
+                    $(".modal-body").html(data);
+                    $("#modalLabel").html("Edit User Role");
+                    $("#editModal").modal('show');
+                });
+
+        });
+
+    $(".delete").on('click',
+        function() {
+
+            $.get("@Url.Action("DeleteUserRole")",
+                { userRoleID: $(this).attr('value') },
+                function(data) {
+                    $(".modal-body").html(data);
+                    $("#modalLabel").html("Delete User Role");
+                    $("#editModal").modal('show');
+                });
+
+            @*$.ajax({
+			url: "@Url.Action("deleteUserRole")",
+			data: { roleCode: $(this).attr('role'), userID: $(this).attr('user') },
+		type: "POST",
+		success: function (data) {
+			displayBoxFunc();
+		}
+	});*@
+        });
+</script>

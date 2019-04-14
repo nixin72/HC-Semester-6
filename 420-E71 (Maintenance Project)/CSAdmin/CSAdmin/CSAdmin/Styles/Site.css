@@ -1,0 +1,1099 @@
+﻿/* Page width: 1005px*/
+
+/* DEFAULTS
+----------------------------------------------------------*/
+
+body
+{
+    font-size: .86em;
+    font-family: "Helvetica Neue" , Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #000;
+    background-image: url('../Images/background.png');
+    background-repeat: repeat;
+    height: 100%;
+}
+
+a
+{
+    text-decoration: none;
+    color: #000;
+}
+
+a:link, a:visited
+{
+    color: #BF8100;
+}
+
+#notification
+{
+    float: right;
+}
+
+
+a:hover
+{
+    color: #BF8100;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #BF8100;
+}
+
+p
+{
+    margin-bottom: 10px;
+    line-height: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+}
+
+th
+{
+    background-color: #333333;
+    color: #fff;
+    padding: 5px;
+}
+
+td
+{
+    padding: 5px;
+}
+
+.smallText
+{
+    font-size: .7em;
+}
+/* HEADINGS   
+----------------------------------------------------------*/
+h1
+{
+    font-size: 1.6em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+h2
+{
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #000;
+    margin: 20px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #efece7;
+    border-bottom-color: #ECEBEA;
+}
+
+h3
+{
+    font-size: 1.2em;
+    color: #BF8100;
+}
+
+h4
+{
+    font-size: 1.1em;
+}
+
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* CONTAINER  
+----------------------------------------------------------*/
+
+#container
+{
+    width: 1075px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
+/* LOGIN
+----------------------------------------------------------*/
+
+.loginFieldset
+{
+    width: 340px;
+}
+
+.loginHeadings
+{
+    width: 90px;
+}
+
+.loginData
+{
+    width: 250px;
+}
+
+.login td
+{
+    margin-bottom: 5px;
+}
+
+#logincontrol
+{
+    float: right;
+    margin-right: 35px;
+    margin-top: 15px;
+    width: 454px;
+}
+
+#loginpage
+{
+    width: 450px;
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+}
+
+.loginLabel
+{
+    float: right;
+    font-weight: bold;
+    text-align: right;
+}
+
+
+/* BANNER  
+----------------------------------------------------------*/
+
+.banner
+{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background-image: url('../Images/headerbg.png');
+    background-repeat: repeat-x;
+}
+
+.banner h1
+{
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    color: #f9f9f9;
+    border: none;
+    line-height: 5em;
+    font-size: 2em;
+}
+.banner li
+{
+    background-color: #2E2921;
+    background: -webkit-gradient(linear, left top, left bottom, from(#474032), to(#2E2921));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#474032', endColorstr='#2E2921');
+    background: -moz-linear-gradient(top,  #474032,  #2E2921);
+}
+
+#img_banner
+{
+    margin-left: 0px;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.title
+{
+    display: block;
+    float: left;
+    text-align: left;
+    width: auto;
+    height: 125px;
+}
+
+.loginDisplay
+{
+    font-size: .85em; /*display: block;*/
+    text-align: right;
+    padding: 10px 10px 5px 5px;
+    color: #fff;
+    float: right;
+    clear: none;
+    width: auto;
+}
+
+.loginDisplay a:link
+{
+    color: #fff;
+}
+
+.loginDisplay a:visited
+{
+    color: #fff;
+}
+
+.loginDisplay a:hover
+{
+    color: #BF8100;
+}
+
+.error
+{
+    color: Red;
+}
+
+#help_about
+{
+    text-align: right;
+    padding-top: 107px;
+    padding-right: 5px;
+}
+#help_about a
+{
+    color: #fff;
+}
+
+/* BANNER NAVIGATION
+----------------------------------------------------------*/
+
+div.nav
+{
+    background-color: #2E2921;
+    background: -webkit-gradient(linear, left top, left bottom, from(#474032), to(#2E2921));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#474032', endColorstr='#2E2921');
+    background: -moz-linear-gradient(top,  #474032,  #2E2921);
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #666666;
+}
+
+div.menu
+{
+    padding: 3px 0px 3px 3px;
+    width: auto;
+    height: 100%;
+}
+
+div.menu ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    height: 100%;
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+    color: #fff;
+    display: block;
+    font-size: .88em;
+    line-height: 1.4em;
+    padding: 4px 15px;
+    text-decoration: none;
+    white-space: nowrap;
+    height: 100%;
+    padding-top: 4px;
+}
+
+div.menu ul li a:hover
+{
+    text-decoration: none;
+    color: #BF8100;
+}
+
+div.menu ul li a:active
+{
+    text-decoration: none;
+    color: #BF8100;
+}
+
+.alignrightnav
+{
+    float: right;
+    text-align: right;
+    width: 10%;
+    margin: 5px;
+}
+
+.clear
+{
+    clear: both;
+}
+
+/* MAIN
+----------------------------------------------------------*/
+
+.main
+{
+    padding: 0px 12px;
+    margin: 12px 8px 8px 8px;
+    min-height: 420px;
+}
+
+/* FOOTER
+-----------------------------------------------------------*/
+
+.footer
+{
+    color: #4e5766;
+    padding: 8px 0px 0px 0px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: normal;
+    font-size: .8em;
+}
+
+.footer p
+{
+    font-size: .8em;
+}
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+    width: 65%;
+    margin: auto;
+}
+
+fieldset p
+{
+    margin: 2px 12px 10px 10px;
+}
+
+fieldset label.inline
+{
+    display: inline;
+}
+
+legend
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+.radio table
+{
+    border-spacing: 0;
+    border-collapse: collapse;
+    padding: 0;
+    vertical-align: top;
+}
+.radio td, .radio tr
+{
+    border-spacing: 0;
+    border-collapse: collapse;
+    vertical-align: top;
+    padding: 0;
+}
+.radio input
+{
+    padding-left: 2px;
+}
+/* GRID VIEW
+-----------------------------------------------------------*/
+
+.gridView
+{
+    border: 2px solid #EEE;
+    margin: auto;
+    width: auto;
+    min-width: 70%;
+}
+
+.gridViewSmall
+{
+    border: 2px solid #EEE;
+    width: auto;
+}
+.gridView .radio td, .gridViewSmall .radio td
+{
+    border: none;
+}
+
+.gridView a, .gridView a:visited, .gridViewSmall a, .gridViewSmall a:visited
+{
+    /*color: #BF8100;*/
+    color: #C36615;
+}
+
+.gridViewHeaders a
+{
+    color: #FFF;
+    text-decoration: underline;
+}
+
+/*.gridView a:hover, .gridView a:active
+{
+    color: #463F2D;
+}*/
+
+.gridView th, .gridViewSmall th
+{
+    padding: 2px 8px;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    color: #FFF;
+    background-color: #7F765E;
+    text-align: left;
+}
+
+.gridViewCenterHeader
+{
+    text-align: center;
+}
+
+/*used for headers of gridview*/
+.gridHead
+{
+    text-align: justify;
+}
+
+.left
+{
+    text-align: left;
+}
+
+.gridView td, .gridViewSmall td
+{
+    padding: 6px;
+    border: 1px solid #EEE;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.gridView .pgr td, .gridViewSmall .pgr td
+{
+    border: 0px;
+    text-align: center;
+}
+.gridSelectedRow
+{
+    background-color: #E3DED7;
+}
+
+.selectable tr:hover td
+{
+    background-color: #E3DED7;
+    cursor: pointer;
+}
+
+hiddenSelect
+{
+    display: none;
+}
+
+/*small gridview width*/
+.smallgv
+{
+    margin: auto;
+    width: 50%;
+}
+
+/* Gridview that is not centered on the page */
+.gridViewLeft
+{
+    border: 2px solid #EEE;
+    width: auto;
+    min-width: 70%;
+}
+
+.gridViewLeft .radio td
+{
+    border: none;
+}
+
+.gridViewLeft a, .gridViewLeft a:visited
+{
+    color: #BF8100;
+}
+
+.gridViewLeft th
+{
+    padding: 2px 8px;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    color: #FFF;
+    background-color: #7F765E;
+}
+
+.gridViewLeft td
+{
+    padding: 6px;
+    border: 1px solid #EEE;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.gridViewLeft .pgr td
+{
+    border: 0px;
+    text-align: center;
+}
+.gridSelectedRow
+{
+    background-color: #E3DED7;
+}
+
+/* DETAILS VIEW
+----------------------------------------------------------*/
+
+/* Apply this class to the whole details view. */
+
+.detailsView
+{
+    margin: auto;
+    width: auto;
+    min-width: 95%;
+}
+
+.detailsView td
+{
+    padding: 3px;
+}
+
+/* Apply this class to the HeaderStyle of your first bound field on your details view. */
+.dtvHeaderWidth
+{
+    width: 110px;
+}
+
+/* Apply this class to the buttons */
+.dtvButtons
+{
+    position: relative;
+    left: 117px;
+}
+
+/* LABEL, TEXTBOX, AND BUTTON
+----------------------------------------------------------*/
+.label
+{
+    float: left;
+    padding-left: 25px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 5px;
+    margin-top: 3px;
+    width: 150px;
+}
+
+.labelsmall
+{
+    float: left;
+    margin-top: 3px;
+}
+
+.labelsmallRadio
+{
+    float: left;
+    padding-left: 25px;
+    padding-right: 5px;
+}
+
+.labellong
+{
+    float: left;
+    padding-left: 0px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 5px;
+    width: 215px;
+}
+
+.textbox
+{
+    margin-left: 3px;
+    margin-bottom: 3px;
+}
+
+
+.button
+{
+    margin-top: 10px !important;
+    margin-left: 182px !important;
+}
+
+/* (Test) Generic button style */
+input[type="submit"], input[type="button"]
+{
+    border: 1px solid #AEA492;
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F5F5F5;
+    color: #474032;
+    cursor: pointer; /*font-size: 12px;     font-weight: bold;     line-height: 130%;     margin: 0 7px 0 0;     padding: 5px 10px 6px 7px;     text-decoration: none;     -moz-box-shadow: 2px 2px 3px #969696;     -webkit-box-shadow: 2px 2px 3px #969696;*/
+    padding: 0.3em 0.3em 0.3em 0.3em;
+    zoom: 1;
+    background-image: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1);
+}
+
+input[type="submit"][disabled], input[type="button"][disabled], .disabledButton
+{
+    opacity: 0.33;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover
+{
+    background: #D0C6B5 none;
+    border: 1px solid #AEA492;
+    color: #474032;
+}
+
+.labelRadiobox
+{
+    float: left;
+    padding-left: 5px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 5px;
+    width: 120px;
+}
+
+.alignRadiobox
+{
+    margin-left: 120px;
+}
+
+.alignCheckbox
+{
+    margin-left: 0px;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.alignCheckbox td
+{
+    margin-left: 0px;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+textarea
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.continueSubmit
+{
+    color: #529214 !important;
+    float: right !important;
+    margin-bottom: 20px !important;
+    margin-right: 50px !important;
+    width: 120px !important;
+    padding: 5px 10px 5px !important;
+    font-size: 1.1em !important;
+    border-color: #C6D880 !important;
+}
+
+.continueSubmit:hover
+{
+    background: #E6EFC2 none !important;
+    border: 1px solid #C6D880 !important;
+    color: #529214 !important;
+}
+
+.linkBack
+{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+/* Manage Roles */
+
+.floatLeft
+{
+    float: left;
+    margin-left: 5px;
+}
+.floatRight
+{
+    float: right;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+
+/* BALLOON */
+.ajax__balloon_popup .custom .medium
+{
+    width: 375px;
+    height: 125px;
+    background-image: url('../img/balloon.png'); /*background-color: #FCF7E2;*/
+    text-align: left;
+    background-repeat: no-repeat;
+    font-size: .9em;
+    font-weight: normal;
+}
+.ajax__balloon_popup .custom .small .bottom_right .ajax__content
+{
+    width: 375px;
+    height: 125px;
+    border: 1px solid black;
+}
+.ajax__balloon_popup .custom .small .bottom_left .ajax__content
+{
+    width: 375px;
+    height: 125px;
+    padding: 1px;
+}
+.ajax__balloon_popup .custom .small .top_right .ajax__content
+{
+    width: 375px;
+    height: 125px;
+    padding: 1px;
+}
+.ajax__balloon_popup .custom .small .top_left .ajax__content
+{
+    width: 375px;
+    height: 125px;
+}
+
+.balloonBtn
+{
+    float: right;
+    margin-right: 20px;
+    margin-top: -10px;
+}
+
+.ajax__balloon_popup .custom .large
+{
+    width: 435px;
+    height: 223px;
+    text-align: left;
+    background-repeat: no-repeat;
+    font-size: 1em;
+    font-weight: normal;
+    
+}
+
+.aboutPanel
+{
+    padding: 5px;
+    margin: 5px;
+    margin-top: 5px;
+    border: 1px solid black;
+    background-color: #FEFFDF;
+}
+
+.balloonCloseBtn
+{
+    float: right;
+    margin-top: 20px;
+    margin-left: -10px;
+}
+
+.aboutBalloonCloseBtn
+{
+    float: right;
+    margin-top: 20px;
+    margin-left: -10px;
+    margin-right: 10px;
+}
+
+/* END BALLOON */
+
+.alignField
+{
+    margin-left: 185px;
+}
+
+.lightbox
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: solid 1px #000;
+    padding: 24px;
+    width: 100%;
+    height: 150%;
+    background: rgba(64, 64, 64, 0.1); /* R, G, B, A */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f404040, endColorstr=#7f404040); /* AA, RR, GG, BB */
+    z-index: 10;
+    overflow: hidden !important;
+}
+
+.innerLightbox
+{
+    padding: 20px;
+    width: 40%;
+    min-width: 700px;
+    margin: auto;
+    margin-top: 20%;
+    background: #fff;
+    border: solid 1px #404040;
+    z-index: 20;
+    border-radius: 15px;
+    overflow: auto;
+}
+
+.FindADUsersLightbox
+{
+    margin-left: 55%;
+    width: 40%; /*min-width: 400px;*/ /*margin: auto;*/
+    margin-top: 20%;
+}
+.InnerFindADUsersLightbox
+{
+    width: auto;
+    padding: 10px;
+    background: #fff;
+    border: solid 1px #404040;
+    z-index: 20;
+    border-radius: 15px;
+    overflow: auto;
+}
+
+.lightboxLabel
+{
+    font-weight: bold;
+    float: left;
+    padding-right: 10px;
+    width: 125px;
+    text-align: right;
+}
+.lightboxButtonRow
+{
+    width: 100% !important;
+    margin-top: 10px;
+    display: block !important;
+    clear: both;
+}
+.lightboxButtons
+{
+    float: right !important;
+    clear: none;
+    margin-left: 10px;
+}
+
+.lightboxCancel
+{
+    float: left !important;
+}
+.choicePanel
+{
+    float: right;
+    clear: none;
+    padding: 10px;
+    margin: 10px;
+    margin-top: 40px; /*border: 2px solid #000000;*/
+}
+.success
+{
+    color: #006600;
+    clear: both;
+}
+
+.centerLabel
+{
+    width: 100%;
+    text-align: center;
+}
+
+.largerText
+{
+    font-size: 1.25em;
+}
+
+.horizontalLine
+{
+    width: 100%;
+    border-bottom: 1px solid #efece7;
+    border-bottom-color: #ECEBEA;
+}
+
+.divCheckbox
+{
+    width: 40%;
+}
+
+.hide
+{
+    width: 0px;
+    display: none;
+}
+
+.topAlign
+{
+    vertical-align: top;
+}
+
+/* BALLOON */
+.ajax__balloon_popup .custom .medium
+{
+    width: 375px;
+    height: 125px;
+    background-image: url('../Images/balloon.png'); /*background-color: #FCF7E2;*/
+    text-align: left;
+    background-repeat: no-repeat;
+    font-size: .9em;
+    font-weight: normal;
+}
+.ajax__balloon_popup .custom .small .bottom_right .ajax__content
+{
+    width: 375px;
+    height: 125px;
+    border: 1px solid black;
+}
+.ajax__balloon_popup .custom .small .bottom_left .ajax__content
+{
+    width: 375px;
+    height: 125px;
+    padding: 1px;
+}
+.ajax__balloon_popup .custom .small .top_right .ajax__content
+{
+    width: 375px;
+    height: 125px;
+    padding: 1px;
+}
+.ajax__balloon_popup .custom .small .top_left .ajax__content
+{
+    width: 375px;
+    height: 125px;
+}
+
+.balloonBtn
+{
+    float: right;
+    margin-right: 20px;
+    margin-top: -10px;
+}
+/* END BALLOON */
+
+.balloonCloseBtn
+{
+    float: right;
+    margin-top: 40px;
+    margin-left: -20px;
+}
+
+
+/* REQUIRED/OPTIONAL FIELDS
+----------------------------------------------------------------------------*/
+
+#optional
+{
+    color: Gray;
+    padding-left: 10px;
+}
+
+.requiredField
+{
+    color: Red;
+}
+
+/* CALENDAR 
+----------------------------------------------------------------------------*/
+
+.calendar .ajax__calendar_container
+{
+    background-color: #e2e2e2;
+    border: solid 1px #cccccc;
+}
+
+.calendar .ajax__calendar_header
+{
+    background-color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.calendar .ajax__calendar_title, .calendar .ajax__calendar_next, .calendar .ajax__calendar_prev
+{
+    color: #4B6C9E;
+    padding-top: 3px;
+}
+
+.calendar .ajax__calendar_body
+{
+    background-color: #e9e9e9;
+    border: solid 1px #cccccc;
+}
+
+.calendar .ajax__calendar_dayname
+{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 4px;
+    margin-top: 2px;
+}
+
+.calendar .ajax__calendar_day
+{
+    text-align: center;
+}
+
+.calendar .ajax__calendar_hover .ajax__calendar_day, .calendar .ajax__calendar_hover .ajax__calendar_month, .calendar .ajax__calendar_hover .ajax__calendar_year, .calendar .ajax__calendar_active
+{
+    color: #4B6C9E;
+    font-weight: bold;
+    background-color: #ffffff;
+}
+
+.calendar .ajax__calendar_today
+{
+    font-weight: bold;
+}
+
+.calendar .ajax__calendar_other, .calendar .ajax__calendar_hover .ajax__calendar_today, .calendar .ajax__calendar_hover .ajax__calendar_title
+{
+    color: #bbbbbb;
+}
+
+.report
+{
+    clear: both;
+    width: 60%;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border: 1px solid #E8AE00;
+    display: block;
+}
+
+.centerButton
+{
+    width: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+.manageLabel
+{
+    float: left;
+    padding-left: 25px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 5px;
+    width: 150px;
+}
+
+.buttonNudge
+{
+    margin-left: 20px;
+}
+
+.buttonNudge1
+{
+    margin-top: 5px;
+    margin-left: 36%;
+}

@@ -1,0 +1,200 @@
+﻿@using RAC.Models
+@using RAC.BusinessLogic;
+@using RAC.RACModels;
+@model Competency
+
+@section styles {
+    @Styles.Render("~/Styles/edit-competency-elements.css")
+}
+
+@{
+    ViewBag.Title = "View Competency Elements";
+    ViewBag.User = "RACAdvisor";
+}
+<h2>View Competency Elements</h2>
+<hr />
+<div>
+    <h4>@Model.CompetencyMinistryData.MinistryCode - @Model.CompetencyMinistryData.Description</h4>
+    <input type="hidden" name="CompetencyId" value="@Model.Id" />
+    <div class="panel-group col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#ProgramSpecificCompetencies">Competencies in the RAC System</a>
+                </h4>
+            </div>
+            <div id="ProgramSpecificCompetencies" class="panel-collapse collapse">
+                <br />
+                <label class="control-label col-md-2" for="FilterTable">Filter Table</label>
+
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="FilterTable" name="FilterTable" type="text" value="">
+                    <br />
+                </div>
+
+                @Html.ActionLink("Manage Competency Elements", "ViewElements")
+                <div id="divExistingCompetencies" class="panel-body table-responsive">
+                    <table id="ExistingCompetencies" class='table table-striped'>
+                        <thead>
+                            <tr class="competencyElementHeader">
+                                <th>Competency Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var competencyElement in ProgramBLL.GetAllElementsNotAlreadyInCompetency(Model.Id))
+                            {
+                                <tr>
+                                    <td>
+                                        <input type="hidden" class="MinistryId" value="@competencyElement.Id" />
+                                        <input type="hidden" class="CompetencyId" value="@Model.Id" />
+
+                                        @competencyElement.Description
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;" class="AddToCompetency">Add To Competency</a>
+
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<hr />
+<div class="col-xs-12">
+    @using (Html.BeginForm("AddCompetencyElementToCompetency", "RACAdvisor", FormMethod.Post, new { enctype = "multipart/form-data", id = "SearchProgram" }))
+    {
+        @Html.AntiForgeryToken()
+        <h3>Current Competency Elements</h3>
+        <div id="CompetencyElements">
+            <input type="hidden" name="Competency.Id" value="@Model.Id" />
+            <table id="CurrentCompetencyElements" class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ var i = 0;}
+                    @foreach (var item in Model.CompetencyElements.Where(x=> x.DateExpired == null))
+                {
+                        <tr>
+                            <td>
+                                <input type="hidden" class="MinistryId" name="Competency.CompetencyElements[@i].ElementMinistryDataId" value="@item.ElementMinistryData.Id" />
+                                <input type="hidden" class="CompetencyId" name="Competency.CompetencyElements[@i].CompetencyId" value="@Model.Id" />
+                                @Html.DisplayFor(modelItem => item.ElementMinistryData.Description)
+                            </td>
+                            <td>
+                                <a href="javascript:;" class="Remove">Remove</a>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+        <div>
+            <input class="btn btn-warning" type="submit" value="Save" />
+        </div>
+
+        <br />
+                        }
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/jquery.validate.js")
+
+    <script>
+        $(document).ready(function() {
+            FilterTable();
+
+            $(".AddToCompetency").click(function() {
+                AddToCompetency(this)
+            })
+
+            function AddToCompetency(e) {
+                $(e).closest("tr a").addClass("Remove");
+                $(e).closest("tr a").removeClass("AddToCompetency");
+                $(e).closest("tr a").text("Remove")
+                var tr = $(e).closest("tr");
+                $(e).closest("tr").remove();
+                $("#CurrentCompetencyElements tbody").append(tr);
+                SetNames()
+                $(".Remove").off();
+                $(".Remove").click(function() {
+                    RemoveFromCompetency(this)
+                })
+            }
+
+            $(".Remove").click(function() {
+                RemoveFromCompetency(this)
+            })
+
+            function RemoveFromCompetency(e) {
+                $(e).closest("tr a").removeClass("Remove");
+                $(e).closest("tr a").addClass("AddToCompetency");
+                $(e).closest("tr a").text("Add To Competency")
+                var tr = $(e).closest("tr");
+                $(e).closest("tr").remove();
+                $("#ExistingCompetencies tbody").append(tr);
+                SetNames()
+                $(".AddToCompetency").off();
+                $(".AddToCompetency").click(function() {
+                    AddToCompetency(this)
+                })
+
+            }
+
+            function SetNames() {
+                $("#CurrentCompetencyElements tbody tr").each(function(index, e) {
+                    $("td input.MinistryId", e).attr("name",
+                        "Competency.CompetencyElements[" + index + "].ElementMinistryDataId");
+                    $("td input.CompetencyId", e)
+                        .attr("name", "Competency.CompetencyElements[" + index + "].CompetencyId");
+                })
+            }
+
+            function FilterTable() {
+                $('#FilterTable').off();
+                $('#FilterTable').on('keyup',
+                    function() {
+                        var value = $(this).val();
+                        var patt = new RegExp(value, "i");
+                        $('#ExistingCompetencies').find('tr').each(function() {
+                            if (!($(this).find('td').text().search(patt) >= 0)) {
+                                $(this).not('.competencyElementHeader').hide();
+                            }
+                            if (($(this).find('td').text().search(patt) >= 0)) {
+                                $(this).show();
+                            }
+                        });
+                    });
+            }
+
+            function AddAntiForgeryToken(data) {
+                data.__RequestVerificationToken = $('input[name=__RequestVerificationToken]').val();
+                return data;
+            }
+
+        });
+    </script>
+}

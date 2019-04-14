@@ -1,0 +1,201 @@
+﻿@using RAC.RACModels
+@model Program
+
+@{
+    ViewBag.Title = "Edit Program";
+    ViewBag.User = "RACAdvisor";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/edit-program.css")
+}
+<h2>Edit Program</h2>
+
+@using (Html.BeginForm("EditProgram", "RACAdvisor", FormMethod.Post))
+{
+    @* ReSharper disable UnknownCssClass *@
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@Model.ProgramMinistryData.MinistryCode - @Model.ProgramMinistryData.Name</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        @{ var competencyIndex = 0;}
+
+        @if (Model.Competencies.Any(x => x.CompetencyMinistryData.IsGenEd == false))
+        {
+            <div class="list-group-item" id="programSpecificCompetencies">
+                <div id="expander" data-target="#programSpecificCompetencyList" data-toggle="collapse" data-group-id="programSpecificCompetencies" data-role="expander">
+                    <button class="btn btn-primary cheveron-controller" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFeatures" data-target='#programSpecificCompetencyList'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span>Program Specific Competencies</button>
+                </div>
+
+                <div class="collapse" id="programSpecificCompetencyList" aria-expanded="false">
+                    <div class="table">
+                        <div class='usedInProg'>
+                            Used In Program
+                        </div>
+                        <div>
+                            @foreach (Competency modelCompetency in Model.Competencies.Where(x => x.CompetencyMinistryData.IsGenEd == false))
+                            {
+                                <div>
+                                    <div class="SetActiveComp">
+                                        <input name="Competencies[@competencyIndex].IsActive" id="@modelCompetency.Id" type="checkbox" class='largeCheck' @if (modelCompetency.IsActive)
+                                                                                                                                                          {
+                                                                                                                                                              @Html.Raw("checked= 'checked'")
+                                                                                                                                                          } value="true">
+                                        <input name="@Model.Competencies.ElementAt(competencyIndex).IsActive" type="hidden" value="false">
+                                    </div>
+                                    <button class="btn btn-primary subSection cheveron-controller competencyTitle" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFeatures" data-target=".child@(modelCompetency.Id)">
+                                        <span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span>
+                                        @modelCompetency.CompetencyMinistryData.MinistryCode - @modelCompetency.CompetencyMinistryData.Description
+                                    </button>
+                                    <input type="hidden" value="@modelCompetency.Id" name="Competencies[@(competencyIndex)].Id" />
+
+                                </div>
+
+                                var elementIndex = 0;
+                                <div class='collapse child@(modelCompetency.Id) competencyContent'>
+                                    @if (modelCompetency.CompetencyElements.Any())
+                                    {
+                                        foreach (CompetencyElement modelElement in modelCompetency.CompetencyElements.Where(x => x.DateExpired == null))
+                                        {
+                                            <div class="element">
+                                                <div class="descriptionCell">
+                                                    <input type="hidden" value="@modelElement.Id" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].Id" />
+                                                    <input type="hidden" value="@modelElement.ElementMinistryData.Id" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].ElementMinistryData.Id" />
+                                                    <input type="hidden" class="descriptionInput" value="@modelElement.ElementMinistryData.Description" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].ElementMinistryData.Description" />
+                                                    <span class="descriptionDisplay">@modelElement.ElementMinistryData.Description</span>
+                                                </div>
+                                                <div class='optionsCell'><a class="edit" href="javascript:;">Edit</a> | <a class="remove" href="javascript:;">Remove</a></div>
+                                            </div>
+                                            elementIndex++;
+                                        }
+
+                                        if (modelCompetency.CompetencyElements.Count(x => x.DateExpired != null) == modelCompetency.CompetencyElements.Count())
+                                        {
+                                            <div class="placeholder">
+                                                <span class="descriptionDisplay">There are no competency elements in this competency</span>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="placeholder">
+                                             <span class="descriptionDisplay">There are no competency elements in this competency</span>
+                                        </div>
+                                    }
+                                    <div class='container-fluid addNewElementCell'>
+                                        <div class=''><a class="add" href="javascript:;">Add new element</a></div>
+                                    </div>
+                                </div>
+                                competencyIndex++;
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+@if (Model.Competencies.Any(x => x.CompetencyMinistryData.IsGenEd))
+{
+    <div class="list-group-item" id="GenEdCompetencies">
+        <div id="expander" data-target="#genEdCompetencyList" data-toggle="collapse" data-group-id="programSpecificCompetencies" data-role="expander">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFeatures" data-target='#genEdCompetencyList'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span>General Education Competencies</button>
+        </div>
+
+        <div class="collapse" id="genEdCompetencyList" aria-expanded="true">
+            <div class="table">
+                <div class='usedInProg'>
+                    Used In Program
+                </div>
+
+                <div>
+                    @foreach (Competency modelCompetency in Model.Competencies.Where(x => x.CompetencyMinistryData.IsGenEd))
+                    {
+                        <div>
+                            <div class="SetActiveComp">
+                                <input name="Competencies[@competencyIndex].IsActive" id="@modelCompetency.Id" type="checkbox" class='largeCheck' @if (modelCompetency.IsActive) { @Html.Raw("checked= 'checked'") } value="true">
+                                <input name="@Model.Competencies.ElementAt(competencyIndex).IsActive" type="hidden" value="false">
+                            </div>
+                            <input type="hidden" value="@modelCompetency.Id" name="Competencies[@(competencyIndex)].Id" />
+                            <button class="btn btn-primary subSection cheveron-controller competencyTitle" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFeatures" data-target=".child@(modelCompetency.Id)">
+                                <span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span>
+                                @modelCompetency.CompetencyMinistryData.MinistryCode - @modelCompetency.CompetencyMinistryData.Description
+                            </button>
+                        </div>
+                        var elementIndex = 0;
+                        <div class='collapse child@(modelCompetency.Id) competencyContent'>
+                            @if (modelCompetency.CompetencyElements.Any())
+                            {
+                                foreach (CompetencyElement modelElement in modelCompetency.CompetencyElements.Where(x=> x.DateExpired == null))
+                                {
+                                    <div class="element">
+                                        <div></div>
+                                        <div></div>
+                                        <div class="descriptionCell">
+                                            <input type="hidden" value="@modelElement.Id" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].Id" />
+                                            <input type="hidden" value="@modelElement.ElementMinistryData.Id" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].ElementMinistryData.Id" />
+                                            <input type="hidden" class="descriptionInput" value="@modelElement.ElementMinistryData.Description" name="Competencies[@(competencyIndex)].CompetencyElements[@elementIndex].ElementMinistryData.Description" />
+                                            <span class="descriptionDisplay">@modelElement.ElementMinistryData.Description</span>
+                                        </div>
+                                        <div class='optionsCell'><a class="edit" href="javascript:;">Edit</a> | <a class="remove" href="javascript:;">Remove</a></div>
+                                    </div>
+                                    elementIndex++;
+                                }
+
+                                if (modelCompetency.CompetencyElements.Count(x => x.DateExpired != null) == modelCompetency.CompetencyElements.Count())
+                                {
+                                    <div class="placeholder">
+                                        <span class="descriptionDisplay">There are no competency elements in this competency</span>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="placeholder">
+                                        <span class="descriptionDisplay">There are no competency elements in this competency</span>
+                                </div>
+                            }
+                            <div class='container-fluid addNewElementCell'>
+                                <div><a class="add" href="javascript:;">Add new element</a></div>
+                            </div>
+                            
+                        </div>
+                        competencyIndex++;
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+@* ReSharper restore UnknownCssClass *@
+
+<div id="FormHolder">
+
+</div>
+<div id="NewEntry" class="hidden">@Html.Partial("_CreateElement", new ElementViewModel())</div>
+@Html.Partial("_PopUp")
+
+@section Scripts {
+@Scripts.Render("~/Scripts/jquery.validate.js")
+@Scripts.Render("~/Scripts/jquery.validate.unobtrusive.js")
+@Scripts.Render("~/Scripts/edit-program.js")
+@Scripts.Render("~/Scripts/glyphicon-chevrons-toggle-right-bottom.js")
+
+}
+

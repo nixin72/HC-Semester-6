@@ -1,0 +1,564 @@
+﻿@using System.Web.Configuration
+@using WebGrease.Css.Extensions
+
+@{
+    ViewBag.Title = "Help";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/help.css")
+}
+
+<!-------------------------------------------------------------------------------------------------------------------->
+
+<h1>Help</h1>
+
+<p>
+    The following page will cover all of the functionality in the RAC system. It will explain in detail how each piece of functionality works. The document will be organized by actors (Candidate and RAC Advisor) and cover their functionalities.
+</p>
+<hr/>
+<button aria-controls='collapseCandidate' aria-expanded='false' class='btn btn-primary cheveron-controller' data-target='#collapseCandidate' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Candidate</button>
+    <div class='collapse' id='collapseCandidate'>
+        <div>
+            <h3>Completing a RAC Request</h3>
+            <p>
+                In order to start with the RAC process, you will need to register and account. After your account has been created, you will need to verify your account by an email that has been sent to you
+                Afterwards, you can login to your account, and click on self-evaluation in order to begin the self-evaluation. You can begin your self-evaluation at any time. You can also leave and come back as you wish.
+                You will need to completely fill out the self-evaluation and provide at least 1 document as supporting proof of your capabilities. After you have completed it, you can submit it by clicking on submit at the
+                bottom of the page. After this is done, the RAC advsior will receive your self-evaluation and start the evaluation process. Once this is done, the RAC advisor will upload documents to your account for which you will
+                recieve a notification. From then on, the RAC advisor will instruct you on the next steps of the process.
+            </p>
+        </div>
+        <button aria-controls='collapseChangeProgram' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseChangeProgram' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Changing Programs</button>
+        <div class='collapse' id='collapseChangeProgram'>
+            <h3>Changing your Program</h3>
+            <p>
+                If you ever change your mind about the program you wish to complete a RAC request for, you can change program at any time. You will lose all progress made in the current self-evaluation except for any documents
+                you may have uploaded.
+            </p>
+            <ul>
+                <li>In the menu bar, click the “Account” link. You will be brought to a page with all your information provided at time of registration.</li>
+                <li>Click the “Edit” button at the bottom. </li>
+                <li>Click the “Change Program” link at the bottom of the page. You will be brought to a page with a dropdown containing the available programs. </li>
+                <li>Select the program you wish to change into. </li>
+                <li>Confirm that you would like to change programs in the pop up.</li>
+            </ul>
+
+            <p class="help-note">*Note: Once you have changed programs, all progress made in your current RAC request will be deleted. Your progress will not be recoverable, and you will need to restart.</p>
+
+            <br />
+        </div>
+
+        <button class="btn btn-primary subSection cheveron-controller" type="button" data-toggle="collapse" data-target="#collapseChangePassword" aria-expanded="false" aria-controls="collapseChangePassword"><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Changing Your Password</button>
+        <div class="collapse" id="collapseChangePassword">
+            <p>Once you have signed into your account click on the “Account” option in the top bar navigation. If you are not logged in and don’t know your password, please follow the instructions labeled “Forgot Password”. The link to the account page will bring you to a new page with a link to the change password page. </p>
+
+            <img src='~/Images/Documentation/viewAccountPageChangePass.jpg' alt='screen capture of account page' class='smallImage' />
+            <p>This link will bring you to a page that asks for your current password, a new password and to confirm your new password. The new password has the same requirements as the password on the register page. It must be at least 8 characters, have a capitol and a lowercase and a number. Once you have entered and confirmed your new password in the confirm password field click change password.</p>
+            <img src='~/Images/Documentation/ChangePasswordPage.jpg' alt='screen capture of change password page' class='smallImage' />
+            <p>This will either give you instructions to fix what you have entered or it will redirect you back to the account page with a message telling you that you have successfully changed your password.</p>
+            <img src='~/Images/Documentation/ViewAccountPageConfirmation.jpg' alt='screen capture of account page confirmation message' class='smallImage' />
+
+        </div>
+
+        <button aria-controls='collapseDeleteAccount' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseDeleteAccount' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Deleting an Account</button>
+        <div class='collapse' id='collapseDeleteAccount'>
+            <h3>Deleting your Account</h3>
+            <ul>
+                <li>In the menu bar, click the “Account” link. You will be brought to a page will all your information provided at time of registration.</li>
+                <li>Click the “Edit” button at the bottom. </li>
+                <li>Click the “Delete Account” link at the bottom of the page.</li>
+                <li>Confirm that you would like to delete your account in the pop up.</li>
+            </ul>
+
+            <p class="help-note">*Note: Once you have deleted an account this cannot be undone. The account will no longer exist, and all progress will be lost to you. </p>
+            <br />
+        </div>
+
+        <button class="btn btn-primary subSection cheveron-controller" type="button" data-toggle="collapse" data-target="#collapseForgotPassword" aria-expanded="false" aria-controls="collapseForgotPassword"><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Forgot Password</button>
+        <div class="collapse" id="collapseForgotPassword">
+            <p>If you have forgotten your password, you can start by going to the login page and clicking the forgot password link. </p>
+
+            <img src='~/Images/Documentation/LoginPageForgotPassword.jpg' alt='screen capture of login page' class='smallImage' />
+            <p>Then enter the email you used to register on that page before clicking the “Email Link” button</p>
+            <img src='~/Images/Documentation/forgotPassword.jpg' alt='screen capture of forgot password page' class='smallImage' />
+            <p>You will now receive an email with a link to a page where you can change your password. Please open your email and click the link that was sent to you.</p>
+            <p>On that page you will be asked again for your email, then you will be asked to enter a new password and then to confirm that password. The new password has the same requirements as the password on the register page. It must be at least 8 characters, have a capitol and a lowercase and a number.</p>
+        </div>
+    <button class="btn btn-primary subSection cheveron-controller" type="button" data-toggle="collapse" data-target="#collapseLogin" aria-expanded="false" aria-controls="collapseLogin"><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Logging In</button>
+    <div class="collapse" id="collapseLogin">
+        <p>
+            As a RAC Candidate you may sign into the system once you have registered and validated your account. To sign into the system, enter the email you used to register your account and the password you chose. Then select login. This should send you to the home page or give you instructions as to why your sign in attempt has failed.
+        </p>
+        <img src='~/Images/Documentation/loginPage.jpg' alt='Login page screen capture.' class='smallImage' />
+        <p>If you have forgotten your password, take a look at the instructions under "Candidate" for how to recover your password.</p>
+        <p>If you have not yet Registered, take at the instructions under "Candidate" for how to register.</p>
+
+    </div>
+    <button aria-controls='collapseManageDocument' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseManageDocument' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Managing Documents</button>
+    <div class='collapse' id='collapseManageDocument'>
+        <h3>Downloading a Document</h3>
+        <p>
+            You are able to download a document simply by clicking the “Download file” button on the row of the desired document.
+        </p>
+        <img alt='screen capture of downloading a document' class='img-responsive thumbnail' src='~/Images/Documentation/downloading_document.png' />
+
+        <h3>Removing a Document</h3>
+        <p>
+            In order to remove a document, you will simply need to click on the “remove” button in the row of the desired document you wish to remove.
+        </p>
+        <img alt='screen capture of removing a document' class='img-responsive thumbnail' src='~/Images/Documentation/removing_document.png' />
+        <p>
+            Once you click on the button, you will have a pop up asking you for confirmation.
+        </p>
+        <img alt='screen capture of modal dialog asking for confirmation' class='img-responsive thumbnail' src='~/Images/Documentation/confirm_delete_file.png' />
+        <p>
+            Once you click “Yes, I’m sure” the document will be removed. If you click “Cancel” the document will not be removed.
+        </p>
+        <img alt='screen capture of files showing that the file as deleted' class='img-responsive thumbnail' src='~/Images/Documentation/after_removed_file.png' />
+
+    </div>
+        <button aria-controls='collapseNotifications' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseNotifications' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Managing Notifications</button>
+        <div class='collapse' id='collapseNotifications'>
+            <h3>Notification Dashboard</h3>
+            <img alt='screen capture of the notification dashboard for a candidate' class='img-responsive thumbnail' src='~/Images/Documentation/notification_dashboard_candidate.png' />
+
+            <h3>Notification Type(s)</h3>
+            <ul>
+                <li>RAC advisor uploaded a document to the candidate</li>
+            </ul>
+
+            <h3>Notification Event(s)</h3>
+            <h4>RAC Advisor Uploaded a Document to the Candidate</h4>
+            <p>
+                Whenever a RAC advisor uploads a document to the candidate, the candidate will receive an email, and a notification on their dashboard on their home page. The notification will notify them of a new document, and the new document will be highlighted in the table of uploaded documents by the RAC advisor. The document will remain highlighted until the candidate has downloaded the document.
+            </p>
+
+            <h3>Removing a Notification</h3>
+            <p>
+                In order to remove a notification, you simply need to click on the remove button beside the notification that you want to remove.
+            </p>
+            <img alt='screen capture of the remove button' class='img-responsive thumbnail' src='~/Images/Documentation/remove_notification_candidate.png' />
+
+            <p class='notes'>
+                *Note: Notifications will remain in the dashboard until removed by the user. Once a notification has been removed, there is no way to retrieve it.
+            </p>
+        </div>
+
+        <button class="btn btn-primary subSection cheveron-controller" type="button" data-toggle="collapse" data-target="#collapseSelfEval" aria-expanded="false" aria-controls="collapseSelfEval"><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Performing a Self-Evaluation</button>
+        <div class="collapse" id="collapseSelfEval">
+            <h3>Required Information</h3>
+            <ul>
+                <li>All elements must be answered</li>
+                <li>At least one document must be uploaded</li>
+                <li>If there is an answer of "I can do this" or "I can somewhat do this" then you must provide an example of experience to support your claim.</li>
+            </ul>
+            <h3>Example of Experience</h3>
+            <p>
+                If the answer “Can Do This” or “Can Somewhat Do This” is provided for a Competency Element, you must provide an example of experience to support your claim.
+            </p>
+            <p>
+                If the answer “Cannot Do This” is provided then you do not require to provide an example of experience.
+            </p>
+            <h3>Auto-Save</h3>
+            <p>When completing your self-evaluation, you can leave and come back at any point and your progress will have been saved.</p>
+
+            <h3>Submitting the Self-Evaluation</h3>
+            <p>After submitting the self-evaluation successfully, you will be re-directed to the following page and get this message.</p>
+            <img alt='screen capture of the options button' class='img-responsive thumbnail' src='~/Images/Documentation/after_submission.png' />
+
+        </div>
+
+        <button aria-controls='collapseRegister' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseRegister' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Register an Account</button>
+        <div class='collapse' id='collapseRegister'>
+            <h3>Registering an Account</h3>
+            <p>
+                To register an account, click on the <em>Register</em> button on the top right hand side of the page. Each field marked with an asterisk (*) is <strong>required</strong> to create an account. The registration is page is split into two sections: Personal, and Account Information.
+            </p>
+            <img src='~/Images/Documentation/register-help-1.png' class='img-responsive center-block' alt='The Personal Information section of the Register page.' />
+            <p>
+                The fields on the Personal Information section are:
+                <ul>
+                    <li>First/Last Name: Manditory. The registering users first and last name.</li>
+                    <li>Street: The civic number and street name of the registering user.</li>
+                    <li>City: The name of the city/town the registering users resides in.</li>
+                    <li>Province: Manditory. The province the registering user resides in.</li>
+                    <li>Country: Defaults to Canada. The country the registering user resides in.</li>
+                    <li>Home Phone: Manditory. The primary phone number that can be used to contact the user.</li>
+                    <li>Work Phone: An alternate phone number that can be used to contact the user.</li>
+                </ul>
+            </p>
+            <img src='~/Images/Documentation/register-help-2.png' class='img-responsive center-block' alt='The Account Information section of the Register page' />
+            <p>
+                The fields on the Account Information section are:
+                <ul>
+                    <li>Email: Manditory. A unique email address used for both contacting the user and for contacting the user.</li>
+                    <li>Method of Contact: Manditory. Defaults to Email. The users prefered method of contact.</li>
+                    <li>Password: Manditory. A unique password the the users account. Password requirements are listed below the password field on the Register page.</li>
+                    <li>Confirm Password: Manditory. Re-enter your password for confirmation purposes.</li>
+                    <li>Program: Manditory. Select the program you wish to complete a RAC self-evaluation for. This can be changed after creating your account.</li>
+                    <li>General Education Only: Select this box if you are only interested in performing the RAC self-evaluation for only the General Education courses associated with a program. This can be changed after creating your account.</li>
+                </ul>
+            </p>
+            <p>Complete the CAPTCHA and accept the RAC privacy policy, the click on the <em>Register</em> button.</p>
+            <p>After completing the form, you will recieve a message telling you to check for a confirmation email. This email will contain a unique link that, when clicked, confirms with the RAC system that you own that email address.</p>
+            <img src='~/Images/Documentation/register-help-3.png' class='img-responsive center-block' alt='The confirm email message displayed to the users.' />
+            <p>Once you've confirmed your email, you may sign into your account and begin the RAC process.</p>
+        </div>
+
+     
+
+        <button aria-controls='collapseUpdateAccount' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseUpdateAccount' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Updating an Account</button>
+        <div class='collapse' id='collapseUpdateAccount'>
+            <h3>Updating your Account</h3>
+            <ul>
+                <li>In the menu bar, click the “Account” link. You will be brought to a page will all your information provided at time of registration.</li>
+                <li>Click the “Edit” button at the bottom. </li>
+                <li>Enter all the information that you wish to change. </li>
+                <li>Click the “Save” button at the bottom of the page. </li>
+            </ul>
+
+            <p class="help-note">*Note: You cannot change the email that the account is registered under. As such, your email will not appear in the editable fields. </p>
+
+            <h3>Changing your Password</h3>
+            <ul>
+                <li>In the menu bar, click the “Account” link. You will be brought to a page with all your information provided at time of registration.</li>
+                <li>Click the “Change your Password” button at the bottom. </li>
+                <li>Enter your current password in the form below along with your new password. </li>
+                <li>Click the “Change Password” button to save your changes. </li>
+                <li>You will be brought back to the view account page.</li>
+            </ul>
+            <br />
+        </div>
+
+        <button aria-controls='collapseUploadDocument' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseUploadDocument' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Uploading Documents</button>
+    <div class='collapse' id='collapseUploadDocument'>
+        <p>
+            You will need to upload at least 1 document in order to support your claims in the self-evaluation. The section below will explain everything you need to know about uploading documents. 
+        </p>
+        <h3>Maximum File Size</h3>
+        <p>
+            The maximum file size to upload is <b>10MB</b>. If the user tries to upload a document larger than the limit, the document will not be uploaded, and an error message will be displayed to the user.
+        </p>
+
+        <h3>Maximum Total File Size</h3>
+        <p>
+            The maximum total cumulative file size is <b>30MB</b>. If you try to upload a document that will push the total past the limit, the document will not be uploaded, and an error message will be displayed.
+        </p>
+
+        <h3>Dragging in a Document</h3>
+        <p>
+            The candidate can drag documents into the drop box. This allows the candidate to upload multiple documents at once by dragging them in. If an error occurs with one document, it will not be uploaded but will not affect the other documents being uploaded.
+        </p>
+
+        <h3>Browsing for a Document</h3>
+        <p>
+            The candidate can also click on the drop box which will bring up the file explorer which will allow the candidate to browse for a file. The candidate can also upload multiple documents using this method as well. The same rules apply to multiple document uploads.
+        </p>
+
+        <h3>Supported File Types</h3>
+        <ul>
+            @{string[] filetypes = WebConfigurationManager.AppSettings["AcceptedFileTypes"].Split(',');}
+            @foreach (string filetype in filetypes)
+            {
+                @Html.Raw($"<li>{filetype}</li>")
+            }
+        </ul>
+    </div>
+
+<button class="btn btn-primary subSection cheveron-controller" type="button" data-toggle="collapse" data-target="#collapseValidateAccount" aria-expanded="false" aria-controls="collapseValidateAccount"><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Validate an Account</button>
+    <div class="collapse" id="collapseValidateAccount">
+        <p>
+            In order to be able to login to your account, you will need to verify the account you create through an email that has been sent to you.
+        </p>
+        <p>
+            You may have received a message like this:
+        </p>
+        <img src='~/Images/Documentation/loginPageAccountNotValidated.png' alt='Screen capture of the error message for logging into an account that is not validated.' class='smallImage ' />
+        <p>
+            Or like this:
+        </p>
+        <img src='~/Images/Documentation/loginPagePopup.jpg' alt='Screen capture of login popup saying to validate your account.' class='smallImage ' />
+        <p>
+            These messages are talking about the account Validation process. After you have registered your account you must validate the account to confirm that the email you have used is yours. If your Registration was successful, you were sent an email with the validation link automatically. All you need to do is open your email and click the link that was sent to you and you will be able to sign into your account.
+        </p>
+    </div>
+
+    <button aria-controls='collapseViewSelfEvaluation' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseViewSelfEvaluation' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Viewing a Completed Self-Evaluation</button>
+    <div class='collapse' id='collapseViewSelfEvaluation'>
+        <h3>Access</h3>
+        <p>
+            You can access your completed Self Evaluation by clicking on the same button as the you used to perform your self evaluation.
+        </p>
+        <h3>Conditions</h3>
+        <p>
+            You can only view your completed Self Evaluation if you have successfully submitted a Self Evaluation for your program.
+        </p>
+        <h3>Uploading Documents</h3>
+        <p>
+            You can still manage the documents on your account on this page.
+        </p>
+    </div>
+</div>
+
+
+@if (ViewBag.IsRACAdvisor)
+{
+
+
+<hr />
+
+<button aria-controls='collapseRACAdvisor' aria-expanded='false' class='btn btn-primary cheveron-controller' data-target='#collapseRACAdvisor' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> RAC Advisor</button>
+<div class='collapse' id='collapseRACAdvisor'>
+    <button aria-controls='collapseAddProgramRAC' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseAddProgramRAC' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Adding a Program</button>
+    <div class='collapse' id='collapseAddProgramRAC'>
+        <h3>Purpose:</h3>
+        <p>The purpose of importing a program is to copy over a program and its competencies from Clara. It should be noted that after importing a program, the RAC Advisor will need to manually add elements for each competency. This program can then be used for a RAC Request.</p>
+        <h3>Steps to import a program with General Education competencies</h3>
+        <p>1.)	First if you have not done so already, please login as the RAC Advisor.</p>
+        <p>2.)	Afterwards go to the View Programs page. This can be done through the navigation.</p>
+        <img alt='View Programs Link From Nav' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_nav.png' />
+        <p>3.)	You will be brought to a page containing a list of all inactive and active programs currently existing in the RAC System. Click on <strong>‘Import Program</strong>’</p>
+        <img alt='Import Program Link' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_view_program_list.png' />
+        <p>4.)	After clicking on <b>'Import Program'</b> you will be brought to the following page:</p>
+        <img alt='Import Program Link' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_initial.png' />
+        <p>
+            There are two fields, one for a program code such as <b>‘420AA’</b> for Computer Science and the other is the Gen-Ed Code. <b>‘08101’</b> is the
+            latest version for Gen-Ed competencies and courses for Anglophone Cegeps (based on our research from Clara).
+            When you first come onto the ‘Import Program’ page the Gen-Ed Code will be pre-filled in. This code can be changed in the application’s web.config.
+            You can also manually modify it in the textbox. you can also reset the form at any time by clicking <b>Reset Form</b>
+        </p>
+        <p>5.)	Enter a program code and click <b>‘Search’.</b></p>
+        <p>6.)	The application will reach go into Clara and display the search results found. The following tables will appear:</p>
+        <img alt='Import program search result' class='img-responsive thumbnail programImage' width="1511" height="749" src='~/Images/Documentation/import_program_after_search.png' />
+        <p>You will only be able to select a program, if there is <b>one or more</b> course profiles found in Clara and <b>one or more</b> competencies from Clara. You will only be able to select a gen-ed if there are <b>one or more</b> competencies from Clara. There <b>can only be one</b> course profile from Clara for Gen-Eds.</p>
+        <p><b>*Note: The following displays if there are no results returned for either program results and gen-ed results*:</b></p>
+        <img alt='Import program no results' class='img-responsive thumbnail programImage' width="1511" height="749" src='~/Images/Documentation/import_program_after_search_no_res.png' />
+        <p>7.)	Select a program and gen-ed from the search result.</p>
+        <p>8.)	Afterwards, competencies will display for both the program and gen-ed. This is just to confirm that these are the correct competencies from Clara. You will then need to select a program version.</p>
+        <img alt='Import program profile' class='img-responsive thumbnail programImage' width="1511" height="749" src='~/Images/Documentation/import_program_after_search_profile.png' />
+        <p>9.)	Afterwards click <b>Select this configuration</b> after selecting a profile</p>
+        <img alt='Import program config' class='img-responsive thumbnail programImage' width="1511" height="749" src='~/Images/Documentation/import_program_select_config.png' />
+        <p>10.) If the program already exists in RAC, a warning will popup. You can either dismiss the popup and continue with the import or you can restart your search.</p>
+        <img alt='Import program warning' class='img-responsive thumbnail programImage' width="1511" height="749" src='~/Images/Documentation/import_program_warning.png' />
+
+        <p>11.)	Afterwards, the application will create a program in the RAC System.</p>
+        <p>12.)	You will then be brought to the newly created program’s page:</p>
+        <img alt='Import program final result' class='img-responsive thumbnail programImage' width="1511" height="749" src='~/Images/Documentation/import_program_after_import.png' />
+        <p><b>*Note: By default the program will be set to ‘Inactive’, you will need to set it to ‘Active’ in order to allow it to be used for a RAC Request.*</b></p>
+        <p>13.)	Please refer to <b>Update Program</b> to Add/Edit/Remove elements to a program and set it to active.</p>
+
+        <br />
+        <h3>Steps to import a program without General Education competencies</h3>
+        <p><b>*Note: This is usually for importing attestations which do not contain any gen-ed classes (AECs)*</b></p>
+        <p>1.)	First if you have not done so already, please login as the RAC Advisor.</p>
+        <p>2.)	Afterwards go to the View Programs page. This can be done through the navigation.</p>
+        <img alt='View Programs Link From Nav' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_nav.png' />
+        <p>3.)	You will be brought to a page containing a list of all inactive and active programs currently existing in the RAC System. Click on <strong>‘Import Program</strong>’</p>
+        <img alt='Import Program Link' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_view_program_list.png' />
+        <p>4.)	After clicking on <b>'Import Program'</b> you will be brought to the following page:</p>
+        <img alt='Import Program Link' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_initial.png' />
+        <p>5.)	Check <b>‘No General Education Courses’</b> and enter a program Code. Afterwards click <b>‘Search’.</b></p>
+        <p>6.)	The following will be displayed if a result is found. You will only be able to select a program, if there are <b>one or more</b> course profiles found in Clara and <b>one or more</b> competencies from Clara.  </p>
+        <img alt='Import Program Search Result - Gen Ed' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_after_search_res_gen_ed.png' />
+        <p>The following will be displayed if there are no results found:</p>
+        <img alt='Import Program Search, No Result - Gen Ed' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_after_search_no_res_gen_ed.png' />
+        <p>7.)	If available, select the program you would like. The competencies for the Program will then be displayed. As well as the number of course profiles to choose from.</p>
+        <img alt='Import Program Select Profile Gen Ed' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_after_search_profile_gen_ed.png' />
+        <p>8.)  Once you select a course profile, you will then be able to select a configuration. Click <b>‘Select this configuration’</b></p>
+        <img alt='Import Program Select Configuration Gen Ed' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_after_select_config_gen_ed.png' />
+        <p>9.)	If the program already exists in RAC, a warning will popup. You can either dismiss the popup and continue with the import or you can restart your search.</p>
+        <img alt='Import Program Gen Ed Warning' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_warning_gen_ed.png' />
+
+        <p>10.)	Afterwards the program will be copied over, and by default set to <b>‘Inactive’</b>.</p>
+        <img alt='Import Program Final Result Gen Ed' class='img-responsive thumbnail programImage' src='~/Images/Documentation/import_program_after_import_gen_ed.png' />
+        <p>11.)	Please refer to <b>Update Program</b> to Add/Edit/Remove elements to a program.</p>
+
+    </div>
+
+    <button aria-controls='collapseNotificationsRAC' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseNotificationsRAC' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Managing Notifications</button>
+    <div class='collapse' id='collapseNotificationsRAC'>
+        <h3>Notification Dashboard</h3>
+        <img alt='screen capture of the notification dashboard for a RAC advisor' class='img-responsive thumbnail' src='~/Images/Documentation/notification_dashboard_rac_advisor.png' />
+
+        <h3>Notification Type(s)</h3>
+        <ul>
+            <li>Candidate has started their self-evaluation</li>
+            <li>Candidate has completed their self-evaluation</li>
+            <li>Candidate has changed program</li>
+            <li>Candidate has deleted their account</li>
+            <li>Candidate has created an account</li>
+            <li>Candidate has uploaded a document</li>
+        </ul>
+
+        <h3>Notification Event(s)</h3>
+        <h4>Candidate has started their self-evaluation</h4>
+        <p>
+            Whenever a candidate has started their self-evaluation which typically starts the moment they verify their email, the RAC advisor will receive a notification about the candidate having started their new self-evaluation. The notification will be in the RAC advisor’s dashboard on their home page and will receive an email as well.
+        </p>
+
+        <h4>Candidate has completed their self-evaluation</h4>
+        <p>
+            Once a candidate has submitted their self-evaluation, the RAC advisor will receive an email and a notification on their dashboard about the submitted self-evaluation.
+        </p>
+
+        <h4>Candidate has changed program</h4>
+        <p>
+            If a candidate changes program at any point, a notification will be displayed on the RAC advisor’s dashboard and will also receive an email to notify them of the change.
+        </p>
+
+        <h4>Candidate has deleted their account</h4>
+        <p>
+            If a candidate decides to delete their account, the RAC advisor will receive a notification on their dashboard and an email to notify them of the deletion.
+        </p>
+
+        <h4>Candidate has created an account</h4>
+        <p>
+            Whenever a candidate creates an account, and has verified it, the RAC advisor will receive a notification on their dashboard and an email to notify them of the new account.
+        </p>
+
+        <h4>Candidate has uploaded a document</h4>
+        <p>
+            Whenever a candidate uploads a document, the RAC advisor will see the document in the candidate’s account as highlighted. The document will remain highlighted until the RAC advisor downloads it. <b>In this case, the RAC advisor will not receive a notification on their dashboard or by email due to the possibility of spamming documents. </b>
+        </p>
+
+        <h3>Removing a Notification</h3>
+        <p>
+            In order to remove a notification, you simply need to click on the remove button beside the notification that you want to remove.
+        </p>
+
+        <img alt='screen capture of the remove button' class='img-responsive thumbnail' src='~/Images/Documentation/remove_notification_rac_advisor.png' />
+
+        <p class='notes'>
+            *Note: Notifications will remain in the dashboard until removed by the user. Once a notification has been removed, there is no way to retrieve it.
+        </p>
+
+    </div>
+
+    <button aria-controls='collapseUpdateProgramRAC' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseUpdateProgramRAC' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Updating a Program</button>
+    <div class='collapse' id='collapseUpdateProgramRAC'>
+        <h3>Purpose:</h3>
+        <p>To Add/Remove/Edit competency elements for a program. Also setting a program to be active or inactive. This can be done when the RAC Advisor chooses to <b>Edit</b> a program from the list. As follows:</p>
+        <img alt='Update Program From List' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_edit_link.png' />
+        <p><b>Alternatively</b>, the RAC Advisor will be automatically brought to this page right after importing a program.</p>
+        <p>1.)	The Update Program page will look like the following:</p>
+        <img alt='Update Program Page' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_page.png' />
+        <p><b>*Note: If the program does not contain Gen-Ed competencies then only the Program Specific Competencies will show up*</b></p>
+        <p>2.)	To add elements to the competencies, click on <b>Program Specific Competencies</b> or <b>General Education Competencies</b> (if applicable). The following table will display the competencies:</p>
+        <img alt='Update Program List Of Competencies' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_table.png' />
+        <p>3.)	Click on a competency. The elements for that competency will be displayed:</p>
+        
+        <p>4.)	To add a new element, click the <b>‘Add new element’</b>. A popup will prompt for an element description. Enter the text and click <b>Add:</b></p>
+        <img alt='Elements for a competency' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_table_competency_elements.png' />
+        <img alt='Add element dialog' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_add_elements.png' />
+        <p>5.)	To remove an element, click on the <b>Edit</b> link beside the element. A popup will prompt for the new text. Enter your new text and click <b>Update</b>:</p>
+        <img alt='Edit Element' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_competency_edit_link.png' />
+        <img alt='Edit Element Dialog' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_competency_edit_dialog.png' />
+        <p>6.)	To remove an element, Click <b>Remove</b>. A popup will prompt you to confirm the delete. Click <b>Confirm</b> to confirm the delete.</p>
+        <img alt='Remove Element' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_competency_remove_link.png' />
+        <img alt='Remove Element Dialog' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_competency_remove_dialog.png' />
+        <p>7.)	Repeat as follows for each competency. Repeat the same process to General Education Competencies (if applicable)</p>
+        <p>8.)	You will also need to set the competency to be used in a RAC Request as well by checking it.</p>
+        <img alt='Set Program Active' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_set_active.png' />
+
+        
+        <p>9.)	Once you are finished adding the elements and set the program to Active/Inactive. Click <b>‘Save’</b>.</p>
+        <img alt='Save settings' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_save.png' />
+        <p>10.)	In order to activate/deactivate a program go back to the <b>Programs</b> page. There will be an option to activate/deactivate the program for use in a RAC Request.</p>
+        <img alt='Set Program Active' class='img-responsive thumbnail programImage' src='~/Images/Documentation/update_program_active.png' />
+    </div>
+
+    <button aria-controls='collapseCandidatesRAC' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseCandidatesRAC' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Viewing Candidates</button>
+    <div class='collapse' id='collapseCandidatesRAC'>
+
+        <h3>Sorting</h3>
+        <p>The information table can be sorted by name or by date started/submitted. You can sort the column simply by clicking on it. The column that the table is currently sorted under will be highlighted in grey as show below.</p>
+        <img alt='screen capture of the sorted column' class='img-responsive thumbnail' src='~/Images/Documentation/sorting.PNG' />
+
+        <h3>Filtering</h3>
+        <p>
+            The information table can be filtered by first name, last name, and RAC status. You simply need to enter the desired information and click on the search button which will display the information (if any) in the information table.
+        </p>
+
+        <h3>RAC Status</h3>
+        <h4>All but Archived or Deleted</h4>
+        <p>
+            This will show all Candidates that have not deleted their account or have been archived.
+        </p>
+
+        <h4>Started</h4>
+        <p>
+            This will only show Candidates who have not submitted their Self Evaluation.
+        </p>
+
+        <h4>Submitted (Default)</h4>
+        <p>
+            This will only show Candidates who have submitted their Self Evaluation and who have not had their RAC Request forwarded to a Content Specialist.
+        </p>
+
+        <h4>Specialist Review</h4>
+        <p>
+            This will only show Candidates who have had their Self Evaluation forwarded to a Content Specialist
+        </p>
+
+        <h4>Completed</h4>
+        <p>
+            This will only show Candidates who have had their Self Evaluation completed by a Content Specialist.
+        </p>
+
+        <h4>Archived</h4>
+        <p>
+            This will show all Candidates that you have archived.
+        </p>
+
+        <h4>Deleted</h4>
+        <p>
+            This will show all Candidates that have deleted their account.
+        </p>
+
+        <h3>Candidate Options</h3>
+        <p>
+            Each row of the table of candidates gives you the three options which are "Details", "Archive", "Self-Evaluation"
+        </p>
+        <img alt='screen capture of the options button' class='img-responsive thumbnail' src='~/Images/Documentation/candidate_actions_RAC.png' />
+        <h4>Details</h4>
+        <p>This will guide you to the details page for that specific candidate. Refer to the Candidate Details section for more information on this section.</p>
+
+        <h4>Archive</h4>
+        <p>This will archive the candidate's account. Once the account is archived, it will become read-only to both the candidate and RAC advisor.</p>
+
+        <h4>Self-Evaluation</h4>
+        <p>This will guide you to the self-evaluation page for that specific candidate. Refer to the Viewing a Completed Self-Evaluation section for more information on this section.</p>
+
+    </div>
+
+    <button aria-controls='collapseViewSelfEvaluationRAC' aria-expanded='false' class='btn btn-primary subSection cheveron-controller' data-target='#collapseViewSelfEvaluationRAC' data-toggle='collapse' type='button'><span class="glyphicon glyphicon-chevron-right cheverons" aria-hidden="true"></span> Viewing a Completed Self-Evaluation</button>
+    <div class='collapse' id='collapseViewSelfEvaluationRAC'>
+        <h3>How to Access</h3>
+        <p>You can access the completed Self evaluation of a Candidate by one of three methods.</p>
+
+        <h4>Notifications</h4>
+        <p>
+            You can reach the completed Self Evaluation page by the notifications.
+        </p>
+        <h4>Candidate List</h4>
+        <p>
+            You can reach the completed Self Evaluation page by clicking on the Self Evaluation option of a Candidate in the Candidate list.
+        </p>
+        <h4>Candidate Details</h4>
+        <p>
+            In the details of a Candidate you can access the completed Self Evaluation page.
+        </p>
+
+        <h3>Uploading Documents</h3>
+        <p>When viewing a completed self-evaluation, you can upload documents to the candidate at the bottom of the page.</p>
+    </div>
+
+    
+</div>
+
+}
+@section scripts {
+    @Scripts.Render("~/Scripts/glyphicon-chevrons-toggle-right-bottom.js")
+}

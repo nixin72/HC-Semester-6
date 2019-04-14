@@ -1,0 +1,5 @@
+IF NOT EXISTS (SELECT * FROM master.dbo.syslogins WHERE loginname = N'IIS APPPOOL\DefaultAppPool')
+CREATE LOGIN [IIS APPPOOL\DefaultAppPool] FROM WINDOWS
+GO
+CREATE USER [IIS APPPOOL\DefaultAppPool] FOR LOGIN [IIS APPPOOL\DefaultAppPool]
+GO

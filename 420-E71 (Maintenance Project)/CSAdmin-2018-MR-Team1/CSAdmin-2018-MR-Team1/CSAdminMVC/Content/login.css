@@ -1,0 +1,24 @@
+﻿.loginFields { width: 100%; }
+
+.loginFieldsDiv {
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+    .loginFields { width: 80%; }
+
+    .loginFieldsDiv {
+        margin: 0 auto;
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 1260px) {
+    .loginFields { width: 60%; }
+
+    .loginFieldsDiv {
+        margin: 0 auto;
+        width: 65%;
+    }
+}

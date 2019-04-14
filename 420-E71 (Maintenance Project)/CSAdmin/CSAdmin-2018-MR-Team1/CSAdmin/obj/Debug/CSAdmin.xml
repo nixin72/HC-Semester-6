@@ -1,0 +1,1386 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CSAdmin
+</name>
+</assembly>
+<members>
+<member name="T:CSAdmin.My.MyWebExtension">
+ <summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:CSAdmin.My.MyWebExtension.Application">
+ <summary>
+ Returns information about the current application.
+ </summary>
+</member>
+<member name="P:CSAdmin.My.MyWebExtension.Computer">
+ <summary>
+ Returns information about the host computer.
+ </summary>
+</member>
+<member name="P:CSAdmin.My.MyWebExtension.User">
+ <summary>
+ Returns information for the current Web user.
+ </summary>
+</member>
+<member name="P:CSAdmin.My.MyWebExtension.Request">
+ <summary>
+ Returns Request object.
+ </summary>
+</member>
+<member name="P:CSAdmin.My.MyWebExtension.Response">
+ <summary>
+ Returns Response object.
+ </summary>
+</member>
+<member name="P:CSAdmin.My.MyWebExtension.Log">
+ <summary>
+ Returns the Asp log object.
+ </summary>
+</member>
+<member name="P:CSAdmin.My.MyWebExtension.WebServices">
+ <summary>
+ Provides access to WebServices added to this project.
+ </summary>
+</member>
+<member name="T:CSAdmin.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:CSAdmin.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:CSAdmin.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._odsApplications">
+<summary>
+odsApplications control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._odsRoles">
+<summary>
+odsRoles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._odsApplicationRoles">
+<summary>
+odsApplicationRoles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._gvApplications">
+<summary>
+gvApplications control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._lblAppCodeUniqueError">
+<summary>
+lblAppCodeUniqueError control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._ValidationSummary2">
+<summary>
+ValidationSummary2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._ValidationSummary3">
+<summary>
+ValidationSummary3 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._gvRoles">
+<summary>
+gvRoles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._lblRoleCodeUniqueError">
+<summary>
+lblRoleCodeUniqueError control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._lblDeactivateUsers">
+<summary>
+lblDeactivateUsers control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._vsRolesAdd">
+<summary>
+vsRolesAdd control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ApplicationRoles._ValidationSummary1">
+<summary>
+ValidationSummary1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="M:CSAdmin.ApplicationRoles.gvApplications_RowCommand(System.Object,System.Web.UI.WebControls.GridViewCommandEventArgs)">
+ <summary>
+ Handles the Insert command for the applications
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdmin.ApplicationRoles.odsApplications_Inserting(System.Object,System.Web.UI.WebControls.ObjectDataSourceMethodEventArgs)">
+ <summary>
+ Handles the binding of the insert parameters for the applications
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdmin.ApplicationRoles.gvRoles_RowCommand(System.Object,System.Web.UI.WebControls.GridViewCommandEventArgs)">
+ <summary>
+ Handles the Insert command for the roles
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdmin.ApplicationRoles.odsRoles_Inserting(System.Object,System.Web.UI.WebControls.ObjectDataSourceMethodEventArgs)">
+ <summary>
+ Handles the binding of the insert parameters for the roles
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="F:CSAdmin.Description._UpdatePanel1">
+<summary>
+UpdatePanel1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Description._lblPageTitle">
+<summary>
+lblPageTitle control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Description._btnDescInfo">
+<summary>
+btnDescInfo control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Description._descPanel">
+<summary>
+descPanel control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Description._lblDescription">
+<summary>
+lblDescription control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Description._LinkButton1">
+<summary>
+LinkButton1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Description._PopupControlExtender">
+<summary>
+PopupControlExtender control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.PagingDropDown._lblPaging">
+<summary>
+lblPaging control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.PagingDropDown._ddlPageSize">
+<summary>
+ddlPageSize control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.CountriesLookup._odsCountries">
+<summary>
+odsCountries control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.CountriesLookup._ddlPageSize">
+<summary>
+ddlPageSize control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.CountriesLookup._valCannotDelete">
+<summary>
+valCannotDelete control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.CountriesLookup._gvCountries">
+<summary>
+gvCountries control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.CountriesLookup._lblUnique">
+<summary>
+lblUnique control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.EducationTypeLookup._odsEducationType">
+<summary>
+odsEducationType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.EducationTypeLookup._upMainContent">
+<summary>
+upMainContent control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.EducationTypeLookup._valCannotDelete">
+<summary>
+valCannotDelete control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.EducationTypeLookup._gvEducatuionType">
+<summary>
+gvEducatuionType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.EducationTypeLookup._vsEditEducationType">
+<summary>
+vsEditEducationType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.EducationTypeLookup._vsAddEducationType">
+<summary>
+vsAddEducationType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Home._HomeContent">
+<summary>
+HomeContent control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Login._LoginCSAdmin">
+<summary>
+LoginCSAdmin control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="M:CSAdmin.Login.LoginCSAdmin_LoggedIn(System.Object,System.EventArgs)">
+ <summary>
+ Method that verifies whether a user has the proper credentials and if they are permitted to 
+ access the CSAdmin.
+ </summary>
+ <remarks>Author: Renee Ghattas</remarks>
+</member>
+<member name="M:CSAdmin.Login.createSessionVar(CSAdminCode.BusinessObjects.Admin)">
+ <summary>
+  Creates session variables for the user and yearsemester
+ </summary>
+ <param name="admin">the user information of the user logged in</param>
+ <remarks>Author: Renee Ghattas</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._odsCountries">
+<summary>
+odsCountries control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._odsProvinceState">
+<summary>
+odsProvinceState control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._odsEducationType">
+<summary>
+odsEducationType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._ddlCountries">
+<summary>
+ddlCountries control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._rblCountries">
+<summary>
+rblCountries control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._upCountry">
+<summary>
+upCountry control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._txtCountry">
+<summary>
+txtCountry control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._rfvCountry">
+<summary>
+rfvCountry control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._btnSaveCountry">
+<summary>
+btnSaveCountry control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._vsCountry">
+<summary>
+vsCountry control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._upCountriesLabel">
+<summary>
+upCountriesLabel control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._lblCountries">
+<summary>
+lblCountries control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._ddlProvinceState">
+<summary>
+ddlProvinceState control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._rblProvinceState">
+<summary>
+rblProvinceState control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._upProvinceState">
+<summary>
+upProvinceState control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._txtProvinceState">
+<summary>
+txtProvinceState control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._rfvProvinceState">
+<summary>
+rfvProvinceState control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._btnSaveProvinceState">
+<summary>
+btnSaveProvinceState control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._vsProvinceState">
+<summary>
+vsProvinceState control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._upProvinceStateLabel">
+<summary>
+upProvinceStateLabel control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._lblConProvinceState">
+<summary>
+lblConProvinceState control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._upMainContent">
+<summary>
+upMainContent control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._gvEducatuionType">
+<summary>
+gvEducatuionType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._vsEditEducationType">
+<summary>
+vsEditEducationType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageGeneral._vsAddEducationType">
+<summary>
+vsAddEducationType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageLanguages._odsLanguages">
+<summary>
+odsLanguages control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageLanguages._gvLanguages">
+<summary>
+gvLanguages control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._ddlPageSize">
+<summary>
+ddlPageSize control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._SelectAllUsernames">
+<summary>
+SelectAllUsernames control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._SelectDuplicateUsernames">
+<summary>
+SelectDuplicateUsernames control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._SelectUsersNotInAD">
+<summary>
+SelectUsersNotInAD control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._SelectADByLastName">
+<summary>
+SelectADByLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._btnDeletePending">
+<summary>
+btnDeletePending control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._ConfirmButtonExtender1">
+<summary>
+ConfirmButtonExtender1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._Panel1">
+<summary>
+Panel1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._captionLastName">
+<summary>
+captionLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._txtLastName">
+<summary>
+txtLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._captionFirstName">
+<summary>
+captionFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._txtFirstName">
+<summary>
+txtFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._captionUsername">
+<summary>
+captionUsername control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._txtUsername">
+<summary>
+txtUsername control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._btnSearchNames">
+<summary>
+btnSearchNames control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._btnClearSearch">
+<summary>
+btnClearSearch control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._rblDisplayOptions">
+<summary>
+rblDisplayOptions control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._addLightbox">
+<summary>
+addLightbox control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._panelFindInAd">
+<summary>
+panelFindInAd control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._lblFindUser">
+<summary>
+lblFindUser control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._imgClose">
+<summary>
+imgClose control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._gvADUsernames">
+<summary>
+gvADUsernames control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._lblUnique">
+<summary>
+lblUnique control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUsernames._gvUsernames">
+<summary>
+gvUsernames control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUserRoles._UpdatePanel1">
+<summary>
+UpdatePanel1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUserRoles._odsOtherRoles">
+<summary>
+odsOtherRoles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUserRoles._odsRoles">
+<summary>
+odsRoles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUserRoles._gvRoles">
+<summary>
+gvRoles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUserRoles._lblUnique">
+<summary>
+lblUnique control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUserRoles._chkRoles">
+<summary>
+chkRoles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ManageUserRoles._lblErrorRoles">
+<summary>
+lblErrorRoles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ProvinceStateLookup._odsProvinceStateCA">
+<summary>
+odsProvinceStateCA control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ProvinceStateLookup._odsProvinceStateUS">
+<summary>
+odsProvinceStateUS control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ProvinceStateLookup._gvProvinceStateCA">
+<summary>
+gvProvinceStateCA control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.ProvinceStateLookup._gvProvinceStateUS">
+<summary>
+gvProvinceStateUS control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._Head1">
+<summary>
+Head1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._ContentPlaceHolder1">
+<summary>
+ContentPlaceHolder1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._Form1">
+<summary>
+Form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._ScriptManager1">
+<summary>
+ScriptManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._Div1">
+<summary>
+Div1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._lblLogin">
+<summary>
+lblLogin control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._lblName">
+<summary>
+lblName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._LoginStatus">
+<summary>
+LoginStatus control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._lblConnection">
+<summary>
+lblConnection control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._MenuNav">
+<summary>
+MenuNav control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._ContentPlaceHolder2">
+<summary>
+ContentPlaceHolder2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._aboutPanel">
+<summary>
+aboutPanel control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._lblAbout">
+<summary>
+lblAbout control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._closeAbout">
+<summary>
+closeAbout control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._lnkAbout">
+<summary>
+lnkAbout control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.Site._aboutPopupControlExtender">
+<summary>
+aboutPopupControlExtender control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._captionSemester">
+<summary>
+captionSemester control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._rblSemesters">
+<summary>
+rblSemesters control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._captionSemesterEndDate">
+<summary>
+captionSemesterEndDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._txtSemesterEndDate">
+<summary>
+txtSemesterEndDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._RequiredFieldValidator1">
+<summary>
+RequiredFieldValidator1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._calImg1">
+<summary>
+calImg1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._CalendarExtender">
+<summary>
+CalendarExtender control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._RegularExpressionValidator1">
+<summary>
+RegularExpressionValidator1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._btnUpdateSemester">
+<summary>
+btnUpdateSemester control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._lblSemesterUpdated">
+<summary>
+lblSemesterUpdated control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._lblSemesterCantBeUpdated">
+<summary>
+lblSemesterCantBeUpdated control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._upAddNewUsers">
+<summary>
+upAddNewUsers control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._addNewUsers">
+<summary>
+addNewUsers control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._UpdateProgressAddNewUsers">
+<summary>
+UpdateProgressAddNewUsers control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._wizardAddUsers">
+<summary>
+wizardAddUsers control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._addUsersToSemester">
+<summary>
+addUsersToSemester control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._cblUsersToAdd">
+<summary>
+cblUsersToAdd control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._addAllStudentsStep">
+<summary>
+addAllStudentsStep control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._AddAllStudentsReportTxt">
+<summary>
+AddAllStudentsReportTxt control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._cbAllStudents">
+<summary>
+cbAllStudents control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._addCoopAllStudentsStep">
+<summary>
+addCoopAllStudentsStep control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._AddAllCoopStudentsReportTxt">
+<summary>
+AddAllCoopStudentsReportTxt control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._cbCoopStudents">
+<summary>
+cbCoopStudents control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._addAllTeachersAndCoordinatorsStep">
+<summary>
+addAllTeachersAndCoordinatorsStep control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._AddAllTeachersAndCoordinatorsReportTxt">
+<summary>
+AddAllTeachersAndCoordinatorsReportTxt control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CSAdmin.UpdateSemester._cbTeachersAndCoordinators">
+<summary>
+cbTeachersAndCoordinators control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="M:CSAdmin.UpdateSemester.loadSemesterData">
+ <summary>
+ Displays the current semester information and builds a radio list to select from
+ </summary>
+ <remarks>Displays the previous, current and next two semesters as options</remarks>
+</member>
+<member name="M:CSAdmin.UpdateSemester.wizardAddUsers_NextButtonClick(System.Object,System.Web.UI.WebControls.WizardNavigationEventArgs)">
+ <summary>
+ Handles the paging of the add users wizard
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:CSAdmin.UpdateSemester.wizardAddUsers_ActiveStepIndexChange(System.Object,System.EventArgs)">
+ <summary>
+ Ensures that the next button on the final step indicates that
+ it is the final step
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks>If you add or remove steps from this wizard, you must change the activestepindex statement in this function.
+ Created by Louis Cloutier</remarks>
+</member>
+<member name="M:CSAdmin.UpdateSemester.processUserChanges">
+ <summary>
+ Processes the add user functionality of the wizard
+ </summary>
+ <remarks>If you add any steps, you must make changes in this section to handle new checkboxes in the first wizard screen.
+ Created by Louis Cloutier</remarks>
+</member>
+</members>
+</doc>

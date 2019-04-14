@@ -1,0 +1,73 @@
+﻿#view td {
+    padding: 5px;
+}
+.dropzone {
+    border-radius: 5px;
+    padding:10px;
+    background: white;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+.noDocuments {
+    font-size: 18px;
+}
+.uploadedDocumentsNameCell {
+    width: 30%;
+}
+.uploadedDocumentsTypeCell {
+    width: 20%;
+}
+.uploadedDocumentsSizeCell {
+    width: 20%;
+}
+.uploadedDocumentsActionCell {
+    width: 30%;
+}
+#dropzoneForm {
+    width: 100% !important;
+}
+
+#uploadFileErrorMessage {
+    color: red;
+    font-weight: bold;
+}
+
+.unreadDocument {
+    background-color: #F7F4D8;
+    font-weight: bold;
+    font-style: italic;
+}
+.dropMessage {
+    font-size: 1.5em !important;
+    text-align:center !important;
+    display: block;
+    font-style: italic;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.inputField {
+    height: 200px;
+    width: 100%;
+    margin: 0;
+}
+
+.dz-success-mark svg{
+    border-radius: 360px !important;
+    background-color: #407840 !important;
+}
+
+.dz-error-mark svg{
+    border-radius: 360px !important;
+    background-color: #960500 !important;
+}
+#uploadButtonContainer {
+    width: 100%;
+    height: 40px;
+}
+@media only screen and (min-width: 768px) {
+    #view td {
+        padding: 8px;
+    }
+}

@@ -1,0 +1,60 @@
+﻿/*This class is added by javascript.*/
+.resultExcluded {
+    display: none !important;
+}
+.columnSorted {
+    background-color: #E0DFE0;
+}
+
+#search {
+    margin-top: 5px;
+}
+
+.dashboardTable {
+    width: 100%;
+    vertical-align: top;
+    margin-top: 30px;
+    min-height: 350px;
+    padding-left: 25px;
+}
+.dashboardTable tr td, .dashboardTable tr th {
+    padding: 5px;
+}
+
+.searchCondition {
+    display: inline-block !important;
+    margin: 6px 0;
+    font-size: 100%;
+    width: 240px;
+}
+#dateStartCol , #nameCol {
+    cursor: pointer;
+}
+.formTitles {
+    width: 127px;
+    display:inline-block;
+    text-align: right;
+}
+/* Small Devices, Tablets */
+@media only screen and (min-width : 1080px) {
+    .formTitles {
+        text-align: left;
+    }
+    #searchBox {
+        width: 25%;
+        display: inline-block;
+    }
+    .searchCondition {
+        width: 210px;
+    }
+    .dashboardTable {
+        width: 74%;
+        display: inline-block;
+        border-left: 2px solid black;
+    }
+}
+@media only screen and (min-width : 1760px) {
+    .formTitles {
+        text-align: right;
+    }
+}

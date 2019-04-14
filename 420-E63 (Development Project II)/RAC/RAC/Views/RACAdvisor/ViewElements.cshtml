@@ -1,0 +1,257 @@
+﻿@model IEnumerable<RAC.RACModels.ElementMinistryData>
+@using RAC.Models;
+@using RAC.RACModels;
+
+@{
+    ViewBag.Title = "View Elements";
+}
+
+<h2>View Elements</h2>
+
+<p>
+    <a href="javascript:;" data-toggle="modal" data-target="#createModal" class="Delete">Create New Element</a>
+</p>
+
+@Html.AntiForgeryToken()
+
+<label class="control-label col-md-2" for="FilterTable">Filter Table</label>
+
+<div class="col-md-10">
+    <input class="form-control text-box single-line" id="FilterTable" name="FilterTable" type="text" value="">
+    <br />
+</div>
+
+@Html.Partial("_ListElements", Model)
+
+<!-- Modal -->
+<div id="deleteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Element</h4>
+            </div>
+            <div class="modal-body">
+                <p><strong>Are you sure you want to delete this element?</strong></p>
+                <p><span>Description:</span><span id="ModalElementDescription"></span></p>
+                <span></span>
+            </div>
+            <div class="modal-footer">
+                <button id="ConfirmDelete" type="button" class="btn btn-danger">Confirm</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="createModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Element</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_CreateElement", new ElementViewModel())
+                
+            </div>
+            <div class="modal-footer">
+                <button id="ConfirmCreate" type="button" class="btn btn-success">Create</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="editModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Element</h4>
+            </div>
+            <div class="modal-body">
+                <div id="editRes">
+
+                </div>
+                <div id="LoadingDiv">
+                    <img id='LoadingIcon' class='LoadingIcon img-responsive ' alt='spinner' src='~/Images/spinner.svg' />
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button id="ConfirmUpdate" type="button" class="btn btn-success">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function() {
+
+            $("#LoadingDiv").hide();
+
+            $(".Edit").click(function() {
+                Edit($(this));
+            })
+
+            function Edit(instance) {
+                var element_id = instance.attr('id')
+                $("#LoadingDiv").show();
+                $("#editRes").html("");
+                $.ajax({
+                    url: '@Url.Action("EditElement", "RACAdvisor")',
+                    data: { id: element_id },
+                    error: function() {},
+                    dataType: 'html',
+                    success: function(data) {
+                        console.log(data);
+                        $("#LoadingDiv").hide();
+                        $("#editRes").html(data);
+                        $("#ConfirmUpdate").off();
+                        $("#ConfirmUpdate").click(function() {
+                            Update(element_id);
+                        });
+
+                    },
+                    type: 'GET'
+                });
+            };
+
+            function Update(id) {
+                $('#EditElement').validate().element('#EditDescription');
+                console.log($("#EditElement #EditDescription").val())
+                if ($("#EditElement #EditDescription").valid()) {
+                    $.ajax({
+                        url: '@Url.Action("UpdateElement", "RACAdvisor")',
+                        data: AddAntiForgeryToken({ id: id, desc: $("#EditElement #EditDescription").val() }),
+                        error: function() {},
+                        dataType: 'html',
+                        success: function(data) {
+                            $("#res").html(data);
+                            $("#editModal").modal('hide');
+                            $('.Delete').off();
+                            $('.Delete').click(function() {
+                                Delete($(this));
+                            })
+                            $(".Edit").click(function() {
+                                Edit($(this));
+                            })
+                        },
+                        type: 'POST'
+                    });
+                }
+            }
+
+            $('.Delete').click(function() {
+                Delete($(this));
+            })
+
+            function Delete(instance) {
+                $("#ModalElementDescription").html('');
+                var description = $(instance).closest('tr').find('.description').text();
+                $("#ModalElementDescription").html(description);
+                var element_id = $(instance).attr('id');
+
+                $("#ConfirmDelete").off();
+                $("#ConfirmDelete").click(function() {
+                    $.ajax({
+                        url: '@Url.Action("DeleteElement", "RACAdvisor")',
+                        data: AddAntiForgeryToken({ id: element_id }),
+                        error: function() {},
+                        dataType: 'html',
+                        success: function(data) {
+                            $("#deleteModal").modal('hide');
+                            $("#res").html(data);
+                            $('.Delete').off();
+                            $('.Delete').click(function() {
+                                Delete($(this));
+                            })
+                            $(".Edit").click(function() {
+                                Edit($(this));
+                            })
+                        },
+                        type: 'POST'
+                    });
+                })
+            }
+
+            function AddAntiForgeryToken(data) {
+                data.__RequestVerificationToken = $('input[name=__RequestVerificationToken]').val();
+                return data;
+            }
+
+            $("#ConfirmCreate").click(function() {
+                Create();
+            })
+
+            function Create() {
+                $('#CreateNew').validate().element('#Description');
+                if ($("#CreateNew #Description").valid()) {
+                    var description = $("#CreateNew #Description").val();
+                    $.ajax({
+                        url: '@Url.Action("CreateElement", "RACAdvisor")',
+                        data: AddAntiForgeryToken({ desc: description }),
+                        error: function() {},
+                        dataType: 'html',
+                        success: function(data) {
+                            $("#CreateNew #Description").html("")
+                            $("#res").html(data);
+                            $("#createModal").modal('hide');
+                            $("#ConfirmCreate").off();
+                            $("#ConfirmCreate").click(function() {
+                                Create();
+                            })
+                            $('.Delete').off();
+                            $('.Delete').click(function() {
+                                Delete($(this));
+                            })
+                            $(".Edit").click(function() {
+                                Edit($(this));
+                            })
+                        },
+                        type: 'POST'
+                    });
+                }
+
+            }
+
+            function FilterTable() {
+                $('#FilterTable').off();
+                $('#FilterTable').on('keyup',
+                    function() {
+                        var value = $(this).val();
+                        var patt = new RegExp(value, "i");
+                        $('#Elements').find('tr').each(function() {
+                            if (!($(this).find('td').text().search(patt) >= 0)) {
+                                $(this).not('.elementHeader').hide();
+                            }
+                            if (($(this).find('td').text().search(patt) >= 0)) {
+                                $(this).show();
+                            }
+                        });
+                    });
+            }
+
+            FilterTable();
+
+        });
+
+    </script>
+}

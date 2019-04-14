@@ -1,0 +1,43 @@
+﻿
+.container .jumbotron, .container-fluid .jumbotron {
+    margin-top: 20px;
+}
+#banner {
+    display: none;
+}
+.btn {
+    width: 100%;
+    height: 50px;
+    font-size: 1.2em;
+    line-height: 40px;
+    text-align: center;
+}
+
+#btnBack {
+    display: none;
+}
+h1, h2, p {
+    text-align: center;
+}
+.btn-container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .btn {
+        width: 100%;
+        font-size: 1.2em;
+        text-align: left;
+    }
+    h1, h2, p {
+        text-align: left;
+    }
+    #banner {
+        display: block;
+    }
+    .btn-container {
+        width: 150px;
+        margin: 0;
+    }
+}

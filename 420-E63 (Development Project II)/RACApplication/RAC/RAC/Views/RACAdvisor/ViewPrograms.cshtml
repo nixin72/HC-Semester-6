@@ -1,0 +1,22 @@
+﻿@model IEnumerable<RAC.RACModels.Program>
+
+@{
+    ViewBag.Title = "View All Programs";
+    ViewBag.User = "RACAdvisor";
+    ViewBag.TabIndex = 1;
+}
+<h2>View Programs</h2>
+
+<p>
+    @Html.ActionLink("Import Program", "CreateProgram", null, new { tabindex = ViewBag.TabIndex })
+</p>
+
+<div id="res">
+
+    @Html.Partial("_Programs", Model)
+    
+</div>
+
+@Html.Partial("../Shared/_PopUp", Model)
+@section scripts {
+}

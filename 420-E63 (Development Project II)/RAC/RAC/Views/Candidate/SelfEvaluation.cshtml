@@ -1,0 +1,298 @@
+﻿@using RAC.RACModels
+@model Candidate
+
+@section styles {
+   @Styles.Render("~/Styles/candidate-home.css") 
+   @Styles.Render("~/Content/basic.min.css")
+   @Styles.Render("~/Content/dropzone.css")
+   @Styles.Render("~/Content/Site.css")
+   @Styles.Render("~/Styles/upload-documents.css")
+}
+@ViewBag.Title = "Self Evaluation";
+<div>
+<h2>Home</h2>
+<hr />
+
+@if (Model.RACRequest.IsGenEdOnly)
+{
+    <h3>
+        Welcome @Html.DisplayFor(model => model.FirstName), you have selected to apply for a RAC in the general
+        education competencies for the @Html.DisplayFor(model => model.RACRequest.Program.ProgramMinistryData.Name) program.
+    </h3>
+}
+else
+{
+    <h3>
+        Welcome @Html.DisplayFor(model => model.FirstName), you have chosen to complete the self-assessment for
+        the @Html.DisplayFor(model => model.RACRequest.Program.ProgramMinistryData.Name) program. Please rate your level of knowledge for each competency.
+
+    </h3>
+    <h4 class='text-info'>Note: This form autosaves if you navigate to a different page in this website, or if you log off.</h4>
+}
+
+<div id='divCompetencies'>
+
+<div>
+@using (Html.BeginForm("SelfEvaluation", "Candidate", FormMethod.Post, new {id = "competenciesForm"}))
+{
+    <ul class="nav nav-justified nav-tabs tabHeaders">
+        @if (Model.RACRequest.IsGenEdOnly == false)
+        {
+            <li class="active">
+                <a data-toggle="tab" href="#home">@Model.RACRequest.Program.ProgramMinistryData.Name</a>
+            </li>
+            if (Model.RACRequest.RACRequestCompetencies.Any(x => x.Competency.CompetencyMinistryData.IsGenEd))
+            {
+                <li>
+                    <a data-toggle="tab" href="#genEd">General Education</a>
+                </li>
+            }
+        }
+        else
+        {
+            if (Model.RACRequest.RACRequestCompetencies.Any(x => x.Competency.CompetencyMinistryData.IsGenEd))
+            {
+                <li class='active'>
+                    <a href="#genEd">General Education</a>
+                </li>
+            }
+        }
+
+
+    </ul>
+    <br />
+
+    //Looping through the model and loading the answers
+    <div class="tab-content">
+        @{
+            @Html.AntiForgeryToken()
+            var competencyIndex = 0;
+            bool genEdonly = Model.RACRequest.IsGenEdOnly;
+            @Html.HiddenFor(model => model.Id, new {Name = "Id"})
+            @Html.HiddenFor(model => model.RACRequest.Id, new {Name = "RACRequest.Id"})
+            if (Model.RACRequest.IsGenEdOnly == false)
+            {
+                <div class="active fade in tab-pane" id="home">
+
+                    <div>
+                        <h2>Competencies for @Model.RACRequest.Program.ProgramMinistryData.Name courses</h2>
+                        <hr />
+                        @foreach (RACRequestCompetency programSpecificCompetency in Model.RACRequest.RACRequestCompetencies.Where(x => x.Competency.CompetencyMinistryData.IsGenEd == false))
+                        {
+                            <table id='competency-@programSpecificCompetency.CompetencyId' class='table tblCompetencies'>
+                                <caption>
+                                    <h3>@programSpecificCompetency.Competency.CompetencyMinistryData.MinistryCode - @programSpecificCompetency.Competency.CompetencyMinistryData.Description</h3>
+                                    @Html.HiddenFor(model => programSpecificCompetency.Id, new {Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].Id"})
+                                </caption>
+                                <thead>
+                                <tr>
+                                    <th class='elements-header'>
+                                        Elements
+                                    </th>
+                                    <th class='rowHeaders'>
+                                        I can do this
+                                    </th>
+                                    <th class='rowHeaders'>
+                                        I can somewhat do this
+                                    </th>
+                                    <th class='rowHeaders'>
+                                        I can't do this
+                                    </th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                @{
+                                    var programSpecificCompetencyElementIndex = 0;
+                                    foreach (RACRequestCompetencyElement programSpecificCompetencyElement in programSpecificCompetency.RACRequestCompetencyElements)
+                                    {
+                                        <tr id='competencyElement-@programSpecificCompetencyElement.Id' class='elementRow'>
+                                            @{
+                                                <td>
+                                                    @programSpecificCompetencyElement.CompetencyElement.ElementMinistryData.Description
+                                                    <input type='hidden' value='@programSpecificCompetencyElement.Id' name='RACRequest.RACRequestCompetencies[@competencyIndex].RACRequestCompetencyElements[@programSpecificCompetencyElementIndex].Id' />
+                                                </td>
+                                                <td class='rowHeaders'>
+                                                    @Html.RadioButtonFor(model => programSpecificCompetencyElement.Answer, 1, programSpecificCompetencyElement.Answer == 1 ? (object) new {@class = "radioButtonStyle elementAnswer", Checked = "checked", Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + programSpecificCompetencyElementIndex + "].Answer"} : new {Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + programSpecificCompetencyElementIndex + "].Answer"})
+                                                </td>
+                                                <td class='rowHeaders'>
+                                                    @Html.RadioButtonFor(model => programSpecificCompetencyElement.Answer, 2, programSpecificCompetencyElement.Answer == 2 ? (object) new {@class = "radioButtonStyle elementAnswer", Checked = "checked", Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + programSpecificCompetencyElementIndex + "].Answer"} : new {Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + programSpecificCompetencyElementIndex + "].Answer"})
+                                                </td>
+                                                <td class='rowHeaders'>
+                                                    @Html.RadioButtonFor(model => programSpecificCompetencyElement.Answer, 3, programSpecificCompetencyElement.Answer == 3 ? (object) new {@class = "radioButtonStyle elementAnswer", Checked = "checked", Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + programSpecificCompetencyElementIndex + "].Answer"} : new {Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + programSpecificCompetencyElementIndex + "].Answer"})
+                                                </td>
+
+                                                programSpecificCompetencyElementIndex++;
+                                            }
+
+                                        </tr>
+                                    }
+                                    //Getting the comments for each competency
+                            {
+                                var competencyCommentIndex = 0;
+                                foreach (CompetencyComment competencyCommentInstance in programSpecificCompetency.CompetencyComments)
+                                {
+                                    <tr>
+                                        <td colspan='4'>
+                                            <p>Example of Experience:</p>
+                                            @*                                                @Html.HiddenFor(model => competencyCommentInstance.Id, new { Name = "[" + competencyIndex + "].CompetencyComments[" + competencyCommentIndex + "].Id" })*@
+                                            <input type='hidden' value='@competencyCommentInstance.Id' name='RACRequest.RACRequestCompetencies[@competencyIndex].CompetencyComments[@competencyCommentIndex].Id' />
+                                            @Html.TextAreaFor(model => competencyCommentInstance.Comment, new {Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].CompetencyComments[" + competencyCommentIndex + "].Comment", Class = "textArea"})
+                                        </td>
+                                    </tr>
+                                    competencyCommentIndex++;
+                                }
+                            }
+                                }
+                                </tbody>
+                            </table>
+                            competencyIndex++;
+                        }
+
+
+
+
+                    </div>
+                </div>
+            }
+
+            if (Model.RACRequest.RACRequestCompetencies.Any(x => x.Competency.Id > 0))
+            {
+                string genEdClass = genEdonly == false ? "tab-pane fade" : "tab-pane fade in active";
+                <div id="genEd" class="@genEdClass">
+                    <h2>Competencies for General Education Courses</h2>
+                    @foreach (RACRequestCompetency programSpecificCompetency in Model.RACRequest.RACRequestCompetencies.Where(x => x.Competency.CompetencyMinistryData.IsGenEd))
+                    {
+                        <table class='table tblCompetencies'>
+
+                            <tr>
+                                <th class='elements-header'>
+                                    Elements
+                                </th>
+                                <th class='rowHeaders'>
+                                    I can do this
+                                </th>
+                                <th class='rowHeaders'>
+                                    I can somewhat do this
+                                </th>
+                                <th class='rowHeaders'>
+                                    I can't do this
+                                </th>
+                            </tr>
+
+                            @{
+                                var generalEducationCompetencyElementIndex = 0;
+                                <caption>
+                                    <h3>@programSpecificCompetency.Competency.CompetencyMinistryData.MinistryCode - @programSpecificCompetency.Competency.CompetencyMinistryData.Description</h3>
+                                    @Html.HiddenFor(model => programSpecificCompetency.Id, new {Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].Id"})
+                                </caption>
+
+                                foreach (RACRequestCompetencyElement programSpecificCompetencyElement in programSpecificCompetency.RACRequestCompetencyElements)
+                                {
+                                    <tr>
+                                        @{
+                                            <td>
+                                                @programSpecificCompetencyElement.CompetencyElement.ElementMinistryData.Description
+                                                <input type='hidden' value='@programSpecificCompetencyElement.Id' name='RACRequest.RACRequestCompetencies[@competencyIndex].RACRequestCompetencyElements[@generalEducationCompetencyElementIndex].Id' />
+                                            </td>
+                                            <td class='rowHeaders'>
+                                                @Html.RadioButtonFor(model => programSpecificCompetencyElement.Answer, 1, programSpecificCompetencyElement.Answer == 1 ? (object) new {Checked = "checked", Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + generalEducationCompetencyElementIndex + "].Answer"} : new {Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + generalEducationCompetencyElementIndex + "].Answer"})
+                                            </td>
+                                            <td class='rowHeaders'>
+                                                @Html.RadioButtonFor(model => programSpecificCompetencyElement.Answer, 2, programSpecificCompetencyElement.Answer == 2 ? (object) new {Checked = "checked", Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + generalEducationCompetencyElementIndex + "].Answer"} : new {Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + generalEducationCompetencyElementIndex + "].Answer"})
+                                            </td>
+                                            <td class='rowHeaders'>
+                                                @Html.RadioButtonFor(model => programSpecificCompetencyElement.Answer, 3, programSpecificCompetencyElement.Answer == 3 ? (object) new {Checked = "checked", Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + generalEducationCompetencyElementIndex + "].Answer"} : new {Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].RACRequestCompetencyElements[" + generalEducationCompetencyElementIndex + "].Answer"})
+                                            </td>
+
+                                            generalEducationCompetencyElementIndex++;
+                                        }
+
+                                    </tr>
+                                }
+                                //Getting the comments for each competency
+                        {
+                            var competencyCommentIndex = 0;
+                            foreach (CompetencyComment competencyCommentInstance in programSpecificCompetency.CompetencyComments)
+                            {
+                                <tr>
+                                    <td colspan='4'>
+                                        <p>Example of experience:</p>
+                                        <input type='hidden' value='@competencyCommentInstance.Id' name='RACRequest.RACRequestCompetencies[@competencyIndex].CompetencyComments[@competencyCommentIndex].Id' />
+                                        @Html.TextAreaFor(model => competencyCommentInstance.Comment, new {Name = "RACRequest.RACRequestCompetencies[" + competencyIndex + "].CompetencyComments[" + competencyCommentIndex + "].Comment", Class = "textArea"})
+                                    </td>
+                                </tr>
+                                competencyCommentIndex++;
+                            }
+                        }
+                            }
+                        </table>
+                        competencyIndex++;
+                    }
+                </div>
+            }
+        }
+
+
+    </div>
+}
+
+</div>
+
+</div>
+<hr />
+<h2 class='uploadHeader'>Upload Documents</h2>
+@{
+    <div id='viewCandidateUploaded'>
+    </div>
+    <div id='upload'>
+        @Html.Partial("../UploadDocument/_UploadDocuments")
+        @Html.Partial("../Shared/_PopUp", Model)
+    </div>
+}
+<hr />
+<div class='' id='errors'></div>
+<div>
+    <button class='btn' id='saveRAC'>Save Progress</button>
+    <button class='btn btn-primary' id='submitRAC'>Submit RAC Request</button>
+</div>
+
+<!-- div#uri is used for accessing URIs inside external JS files. The URI is rendered serverside before the page is
+sent to the client, ensuring the URIs are proper for whichever environment RAC is deployed in. This prevents an
+earlier issue of environent changes breaking controller AJAX calls. -->
+<div id='uri'
+     uri-deletefilefromdb='@Url.Action("DeleteFileFromDb", "UploadDocument")'
+     uri-getautosaveracrequesturi='@Url.Action("HomeAutosave", "Candidate")'
+     uri-istotalfilesizevalid='@Url.Action("IsTotalFileSizeValid", "UploadDocument")'
+     uri-removefilefromlocal='@Url.Action("RemoveFileFromLocal", "UploadDocument")'
+     uri-savechangestodb='@Url.Action("SaveChangesToDB", "UploadDocument")'
+     uri-showviewdocuments='@Url.Action("ShowViewDocuments", "UploadDocument")'
+     uri-checkisracadvisor='@Url.Action("CheckIsRACAdvisor", "Account")'
+     uri-getsubmitracrequest='@Url.Action("SubmitRACRequest", "Candidate")'>
+</div>
+</div>
+
+@section scripts {
+    <script>
+        /*
+     * The reason as to why we have these methods here is because publishing while using relative pathing will break the
+     * project. These should **ALL** be removed in favour of the div#uri above.
+     */
+
+        function GetFallbackURI() {
+            return '@Url.Action("Fallback", "Candidate")';
+        }
+
+        function GetSaveRACRequestURI() {
+            return '@Url.Action("SelfEvaluation", "Candidate")';
+        }
+
+        function GetSubmitRACRequestURI() {
+            return '@Url.Action("SubmitRACRequest", "Candidate")';
+        }
+
+    </script>
+    @Scripts.Render("~/Scripts/dropzone.js")
+    @Scripts.Render("~/Scripts/candidate-home.js")
+    @Scripts.Render("~/Scripts/uploaded-documents.js")
+}

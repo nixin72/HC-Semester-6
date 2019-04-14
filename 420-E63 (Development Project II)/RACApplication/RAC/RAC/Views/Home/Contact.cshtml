@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+@section styles {
+    @Styles.Render("~/Styles/contact.css")
+}
+
+<h2>Contact Information</h2>
+
+<span class='contactName'>@ViewBag.RacAdvisorName</span>
+<br/>
+<span class='role'>RAC Advisor</span>
+<br/>
+<span><b>Telephone: </b>@ViewBag.RacAdvisorPhoneNumber</span>
+<br />
+<span><b>Fax: </b>@ViewBag.RacAdvisorFaxNumber</span>
+<br />
+<span><b>Email: </b> <a href='mailto:@ViewBag.RacAdvisorEmail'>@ViewBag.RacAdvisorEmail</a></span>
+<br />

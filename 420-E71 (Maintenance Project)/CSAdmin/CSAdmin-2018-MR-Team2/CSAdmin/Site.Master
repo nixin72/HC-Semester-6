@@ -1,0 +1,79 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="CSAdmin.Site" %>
+<%@ Register TagPrefix="asp" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <!-- force IE9 if different IE versions/modes are available -->
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <title>CSAdmin</title>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
+    </asp:ScriptManager>
+    <div id="container">
+        <div id="Div1" runat="server" class="banner">
+            <div class="title">
+                <img alt="banner" id="img_banner" src="Images/CSAdminBanner.png" />
+            </div>
+            <div class="loginDisplay">
+                <asp:Label ID="lblLogin" runat="server" Text="You are logged in as"> </asp:Label>
+                <asp:Label ID="lblName" Font-Bold="true" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:LoginStatus ID="LoginStatus" runat="server" CssClass="logoutlink" LogoutAction="RedirectToLoginPage" />
+                <br />
+                <asp:Label ID="lblConnection" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="clear nav">
+                <asp:Menu ID="MenuNav" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false"
+                    Orientation="Horizontal">
+                    <Items>
+                        
+                        <asp:MenuItem Text="Home" NavigateUrl="~/Home.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="New Semester" NavigateUrl="~/UpdateSemester.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Usernames" NavigateUrl="~/ManageUsernames.aspx"></asp:MenuItem>
+                        
+                        <asp:MenuItem Text="Manage Roles">
+                            <asp:MenuItem Text="Application Roles" NavigateUrl="~/ApplicationRoles.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Users in Roles" NavigateUrl="~/ManageUserRoles.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        
+                        <asp:MenuItem Text="Lookups">
+                            <asp:MenuItem Text="Languages" NavigateUrl="~/ManageLanguages.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Countries" NavigateUrl="~/CountriesLookup.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Provinces and States" NavigateUrl="~/ProvinceStateLookup.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Education Types" NavigateUrl="~/EducationTypeLookup.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server" ViewStateMode="Enabled" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        <asp:Panel ID="aboutPanel" runat="server" CssClass="aboutPanel">
+            <asp:Label ID="lblAbout" runat="server" Text=""></asp:Label>
+            <asp:LinkButton ID="closeAbout" runat="server" CssClass="aboutBalloonCloseBtn" CausesValidation="false">Close</asp:LinkButton>
+        </asp:Panel>
+        <strong>325, boul. Cité des Jeunes, Gatineau, QC, Canada J8Y 6T3&nbsp;| T. 819.778.2270&nbsp;|
+            F. 819.778.7364
+            <br />
+        </strong>© <a href="http://www.cegep-heritage.qc.ca">Heritage College</a>. All Rights
+        Reserved.
+        <%--<span ID="lnkAbout" runat="server" style="color:#BF8100;cursor: pointer; cursor: hand;">About CSAdmin</span>--%>
+        <asp:LinkButton ID="lnkAbout" runat="server" CausesValidation="False" OnClientClick="return false;">About CSAdmin</asp:LinkButton>
+        <asp:BalloonPopupExtender ID="aboutPopupControlExtender" runat="server" TargetControlID="lnkAbout"
+            BalloonPopupControlID="aboutPanel" Position="TopLeft" BalloonStyle="Custom" BalloonSize="Large"
+            UseShadow="true" CustomClassName="custom" CustomCssUrl="~/Site.css" />
+    </div>
+    </form>
+</body>
+</html>
